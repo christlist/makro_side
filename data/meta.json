@@ -1,0 +1,62 @@
+{
+ "run_at": "2026-10-08T12:37:56+00:00",
+ "groups": {
+  "volatility": {
+   "generated_at": "2026-10-08T12:30:09+00:00",
+   "ok": true
+  },
+  "macro": {
+   "generated_at": "2026-10-08T12:30:09+00:00",
+   "ok": true
+  },
+  "equities": {
+   "generated_at": "2026-10-08T12:30:18+00:00",
+   "ok": true
+  },
+  "sentiment": {
+   "generated_at": "2026-10-08T12:37:55+00:00",
+   "ok": true
+  },
+  "regime": {
+   "generated_at": "2026-10-08T12:37:56+00:00",
+   "ok": true
+  }
+ },
+ "missing": [
+  {
+   "group": "volatility",
+   "id": "vstoxx",
+   "error": "yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX | stooq ^v2tx: SourceError: Fant ikke CSV-header med 'date' (første linje: <!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"no)"
+  },
+  {
+   "group": "sentiment",
+   "id": "xlv",
+   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  },
+  {
+   "group": "sentiment",
+   "id": "xlp",
+   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  },
+  {
+   "group": "sentiment",
+   "id": "xli",
+   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  },
+  {
+   "group": "sentiment",
+   "id": "xlu",
+   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  },
+  {
+   "group": "sentiment",
+   "id": "xlre",
+   "error": "GDELT ga ikke JSON: 'The specified phrase is too short.\\n'"
+  },
+  {
+   "group": "sentiment",
+   "id": "xlc",
+   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  }
+ ]
+}
