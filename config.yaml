@@ -228,7 +228,8 @@ sentiment:
   gdelt_timespan: 7d
   gdelt_maxrecords: 250
   gdelt_url: "https://api.gdeltproject.org/api/v2/doc/doc"
-  request_gap_seconds: 7      # GDELT ber om maks ett kall per 5 sekunder
+  request_gap_seconds: 12     # GDELT ber om maks ett kall per 5 sekunder, 429 ved tett trafikk
+  rate_limit_waits: [20, 40, 60]  # sekunder å vente mellom nye forsøk ved 429
   model: ProsusAI/finbert
   max_tokens: 64              # kun titler analyseres
   # Søkeord per sektor (engelsk, GDELT sourcelang:english). Justeres her.
@@ -242,5 +243,5 @@ sentiment:
     xli:  {name: Industri,        keywords: ['"industrial stocks"', 'aerospace stocks', '"defense stocks"', '"transport stocks"']}
     xlb:  {name: Materialer,      keywords: ['"mining stocks"', '"materials sector"', '"chemical stocks"', '"steel stocks"']}
     xlu:  {name: Kraftforsyning,  keywords: ['"utilities sector"', '"utility stocks"', '"power producers"']}
-    xlre: {name: Eiendom,         keywords: ['"real estate stocks"', '"REIT"', '"property stocks"']}
+    xlre: {name: Eiendom,         keywords: ['"real estate stocks"', '"real estate investment trust"', '"property stocks"']}
     xlc:  {name: Kommunikasjon,   keywords: ['"communication services stocks"', '"media stocks"', '"telecom stocks"', '"streaming stocks"']}

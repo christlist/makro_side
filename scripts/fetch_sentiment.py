@@ -15,11 +15,20 @@ log = get_logger("sentiment")
 
 def gdelt_titles(scfg: dict, keywords: list[str], settings: dict) -> list[str]:
     query = "(" + " OR ".join(keywords) + ") sourcelang:english"
-    r = http_get(scfg["gdelt_url"],
-                 params={"query": query, "mode": "artlist", "format": "json",
-                         "maxrecords": scfg["gdelt_maxrecords"], "timespan": scfg["gdelt_timespan"],
-                         "sort": "datedesc"},
-                 timeout=settings["http_timeout"], retries=settings["http_retries"])
+    params = {"query": query, "mode": "artlist", "format": "json",
+              "maxrecords": scfg["gdelt_maxrecords"], "timespan": scfg["gdelt_timespan"],
+              "sort": "datedesc"}
+    # GDELT svarer 429 ved for tett trafikk: vent lenge og prøv igjen, ett kall per forsøk
+    waits = scfg.get("rate_limit_waits", [30, 60, 90])
+    for attempt in range(len(waits) + 1):
+        try:
+            r = http_get(scfg["gdelt_url"], params=params, timeout=settings["http_timeout"], retries=1)
+            break
+        except SourceError as exc:
+            if "429" not in str(exc) or attempt == len(waits):
+                raise
+            log.warning("GDELT 429, venter %d s før nytt forsøk", waits[attempt])
+            time.sleep(waits[attempt])
     try:
         data = r.json()
     except ValueError as exc:
