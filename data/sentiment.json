@@ -1,9 +1,27 @@
 {
  "indicators": {},
  "rows": {
+  "xlf": {
+   "id": "xlf",
+   "name": "Finans",
+   "status": "missing",
+   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  },
+  "xle": {
+   "id": "xle",
+   "name": "Energi",
+   "status": "missing",
+   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  },
   "xlv": {
    "id": "xlv",
    "name": "Helse",
+   "status": "missing",
+   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  },
+  "xly": {
+   "id": "xly",
+   "name": "Syklisk forbruk",
    "status": "missing",
    "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
@@ -12,24 +30,6 @@
    "name": "Dagligvarer",
    "status": "missing",
    "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
-  },
-  "xli": {
-   "id": "xli",
-   "name": "Industri",
-   "status": "missing",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
-  },
-  "xlu": {
-   "id": "xlu",
-   "name": "Kraftforsyning",
-   "status": "missing",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
-  },
-  "xlre": {
-   "id": "xlre",
-   "name": "Eiendom",
-   "status": "missing",
-   "error": "GDELT ga ikke JSON: 'The specified phrase is too short.\\n'"
   },
   "xlc": {
    "id": "xlc",
@@ -45,37 +45,17 @@
    "n_articles": 192,
    "mean_score": 0.0747,
    "hidden": false,
-   "z": -0.2
+   "z": 1.01
   },
-  "xlf": {
-   "id": "xlf",
-   "name": "Finans",
+  "xli": {
+   "id": "xli",
+   "name": "Industri",
    "status": "ok",
    "error": null,
-   "n_articles": 209,
-   "mean_score": 0.0467,
+   "n_articles": 170,
+   "mean_score": 0.0185,
    "hidden": false,
-   "z": -0.68
-  },
-  "xle": {
-   "id": "xle",
-   "name": "Energi",
-   "status": "ok",
-   "error": null,
-   "n_articles": 92,
-   "mean_score": 0.1716,
-   "hidden": false,
-   "z": 1.47
-  },
-  "xly": {
-   "id": "xly",
-   "name": "Syklisk forbruk",
-   "status": "ok",
-   "error": null,
-   "n_articles": 222,
-   "mean_score": 0.0519,
-   "hidden": false,
-   "z": -0.59
+   "z": -0.02
   },
   "xlb": {
    "id": "xlb",
@@ -86,6 +66,26 @@
    "mean_score": -0.0383,
    "hidden": true,
    "z": null
+  },
+  "xlu": {
+   "id": "xlu",
+   "name": "Kraftforsyning",
+   "status": "ok",
+   "error": null,
+   "n_articles": 10,
+   "mean_score": 0.1594,
+   "hidden": true,
+   "z": null
+  },
+  "xlre": {
+   "id": "xlre",
+   "name": "Eiendom",
+   "status": "ok",
+   "error": null,
+   "n_articles": 35,
+   "mean_score": -0.0342,
+   "hidden": false,
+   "z": -0.99
   }
  },
  "min_articles": 15,
@@ -95,6 +95,6 @@
  "source": "GDELT DOC API (artikkeltitler), FinBERT",
  "z_note": "z-score er relativ: sektorens 7 dagers snitt mot snittet av sektorene med nok artikler denne uken.",
  "group": "sentiment",
- "generated_at": "2026-10-08T12:37:55+00:00",
+ "generated_at": "2026-10-08T13:34:11+00:00",
  "missing": []
 }
