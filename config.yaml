@@ -1,0 +1,246 @@
+# Konfigurasjon for makrosiden. Alle terskler, kilder og søkeord ligger her.
+
+settings:
+  history_years: 10        # vindu for persentilrang
+  min_obs_percentile: 250  # minste antall observasjoner for å beregne persentil
+  stale_days: 10           # eldre enn dette flagges som "utdatert" (dato vises alltid)
+  chart_weeks: 520         # antall ukepunkter i tidsserier på siden
+  http_timeout: 30
+  http_retries: 3
+
+# Samlet regimestatus: snitt av stress-persentiler (0 = minst stress, 100 = mest stress).
+# For indikatorer der LAVT nivå er stress (aksjer under 200 dagers snitt) brukes 100 minus persentilen.
+regime:
+  min_indicators: 4              # færre tilgjengelige => "Data mangler" for samlet status
+  max_age_days: 21               # eldre data tas ikke med i snittet
+  light:                         # semafor per indikator, på stress-persentil
+    yellow_from: 60
+    red_from: 80
+  overall:                       # samlet status, på snitt av stress-persentiler
+    elevated_from: 55
+    stress_from: 75
+  inputs:
+    - {file: volatility, id: vix,         label: VIX,                    direction: higher_is_stress}
+    - {file: volatility, id: vix_vix3m,   label: VIX/VIX3M (termstruktur), direction: higher_is_stress}
+    - {file: macro,      id: hy_oas,      label: Høyavkastningsspread,   direction: higher_is_stress}
+    - {file: macro,      id: ig_oas,      label: Investment grade spread, direction: higher_is_stress}
+    - {file: macro,      id: usd,         label: Bred dollarindeks,      direction: higher_is_stress}
+    - {file: equities,   id: spx_dist200, label: S&P 500 avstand til 200d snitt, direction: lower_is_stress}
+
+volatility:
+  series:
+    vix:
+      name: VIX
+      unit: indekspunkter
+      change: abs
+      decimals: 2
+      description: Implisitt volatilitet for S&P 500 de neste 30 dagene (CBOE).
+      frequency: Daglig (vises med siste handelsdag)
+      limitation: Dekker kun USA. Lavt nivå betyr ikke fravær av risiko.
+      candidates:
+        - {source: cboe, url: "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv", column: CLOSE}
+        - {source: fred, id: VIXCLS}
+        - {source: yfinance, symbol: "^VIX"}
+        - {source: stooq, symbol: "^vix"}
+    vix3m:
+      name: VIX3M
+      unit: indekspunkter
+      change: abs
+      decimals: 2
+      description: Implisitt volatilitet for S&P 500 de neste 3 månedene (CBOE).
+      frequency: Daglig
+      limitation: Tidligere kalt VXV. Kortere historikk enn VIX hos noen kilder.
+      candidates:
+        - {source: cboe, url: "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv", column: CLOSE}
+        - {source: fred, id: VXVCLS}
+        - {source: yfinance, symbol: "^VIX3M"}
+    vvix:
+      name: VVIX
+      unit: indekspunkter
+      change: abs
+      decimals: 1
+      description: Volatilitet i VIX (CBOE VIX of VIX). Høy verdi betyr usikkerhet om volatiliteten selv.
+      frequency: Daglig
+      limitation: Indirekte mål. Tolkes best sammen med VIX.
+      candidates:
+        - {source: cboe, url: "https://cdn.cboe.com/api/global/us_indices/daily_prices/VVIX_History.csv", column: VVIX}
+        - {source: yfinance, symbol: "^VVIX"}
+    skew:
+      name: SKEW
+      unit: indekspunkter
+      change: abs
+      decimals: 1
+      description: CBOE SKEW. Priser på dype nedsidebeskyttelser (halerisiko) i S&P 500-opsjoner.
+      frequency: Daglig
+      limitation: Høy SKEW har historisk vært dårlig timing-signal. Kun kontekst.
+      candidates:
+        - {source: cboe, url: "https://cdn.cboe.com/api/global/us_indices/daily_prices/SKEW_History.csv", column: SKEW}
+        - {source: yfinance, symbol: "^SKEW"}
+    vstoxx:
+      name: VSTOXX (V2TX)
+      unit: indekspunkter
+      change: abs
+      decimals: 2
+      description: Implisitt volatilitet for Euro STOXX 50, europeisk motstykke til VIX.
+      frequency: Daglig
+      limitation: Gratis kilde er ikke verifisert. Hvis den feiler vises "Data mangler".
+      candidates:
+        - {source: yfinance, symbol: "^V2TX"}
+        - {source: stooq, symbol: "^v2tx"}
+  derived:
+    vix_vix3m:
+      name: VIX / VIX3M
+      unit: forhold
+      change: abs
+      decimals: 3
+      inversion_threshold: 1.0     # over dette = invertert termstruktur
+      description: Forholdet mellom 30 dagers og 3 måneders implisitt volatilitet. Over 1 betyr invertert termstruktur, typisk i akutt stress.
+      frequency: Daglig
+      limitation: Beregnet fra VIX og VIX3M på felles datoer.
+
+macro:
+  series:
+    hy_oas:
+      name: Høyavkastningsspread (HY OAS)
+      unit: prosentpoeng
+      change: abs
+      decimals: 2
+      description: ICE BofA US High Yield Index Option-Adjusted Spread (FRED BAMLH0A0HYM2).
+      frequency: Daglig
+      limitation: USA. Historikk på FRED kan være begrenset av lisens, se vindu i tabellen.
+      candidates:
+        - {source: fred, id: BAMLH0A0HYM2}
+    ig_oas:
+      name: Investment grade spread (IG OAS)
+      unit: prosentpoeng
+      change: abs
+      decimals: 2
+      description: ICE BofA US Corporate Index Option-Adjusted Spread (FRED BAMLC0A0CM).
+      frequency: Daglig
+      limitation: USA. Historikk på FRED kan være begrenset av lisens.
+      candidates:
+        - {source: fred, id: BAMLC0A0CM}
+    t10y2y:
+      name: Rentekurve 10 år minus 2 år
+      unit: prosentpoeng
+      change: abs
+      decimals: 2
+      description: Differansen mellom 10 og 2 års amerikansk statsrente (FRED T10Y2Y).
+      frequency: Daglig
+      limitation: USA. Negativ kurve har historisk gått foran resesjoner, men med variabel forsinkelse.
+      candidates:
+        - {source: fred, id: T10Y2Y}
+    dgs10:
+      name: 10 års statsrente (USA)
+      unit: prosent
+      change: abs
+      decimals: 2
+      description: Amerikansk 10 års statsrente, konstant løpetid (FRED DGS10).
+      frequency: Daglig
+      limitation: Kun USA.
+      candidates:
+        - {source: fred, id: DGS10}
+    usd:
+      name: Bred dollarindeks
+      unit: indeks
+      change: pct
+      decimals: 2
+      description: Handelsvektet dollarindeks mot brede handelspartnere (FRED DTWEXBGS).
+      frequency: Daglig, publiseres med noen dagers forsinkelse
+      limitation: Sterk dollar tolkes som stramme globale finansieringsforhold, noe som er en forenkling.
+      candidates:
+        - {source: fred, id: DTWEXBGS}
+    wti:
+      name: WTI råolje
+      unit: USD per fat
+      change: pct
+      decimals: 2
+      description: Spotpris WTI Cushing (FRED DCOILWTICO).
+      frequency: Daglig, publiseres med noen dagers forsinkelse
+      limitation: Kan være negativ eller sterkt påvirket av kontraktsforhold i sjeldne tilfeller.
+      candidates:
+        - {source: fred, id: DCOILWTICO}
+
+equities:
+  # Kandidater prøves i rekkefølge. proxy: true betyr at serien ikke er selve indeksen.
+  indices:
+    spx:
+      name: S&P 500
+      description: Amerikansk storselskapsindeks.
+      candidates:
+        - {source: yfinance, symbol: "^GSPC"}
+        - {source: stooq, symbol: "^spx"}
+        - {source: yfinance, symbol: "SPY", proxy: true, label: "SPY (ETF)"}
+    stoxx600:
+      name: STOXX Europe 600
+      description: Bred europeisk aksjeindeks. Euro STOXX 50 eller europeisk ETF brukes som proxy hvis indeksen mangler.
+      candidates:
+        - {source: yfinance, symbol: "^STOXX"}
+        - {source: yfinance, symbol: "^STOXX50E", proxy: true, label: "Euro STOXX 50"}
+        - {source: yfinance, symbol: "VGK", proxy: true, label: "VGK (ETF Europa, USD)"}
+    nikkei:
+      name: Nikkei 225
+      description: Japansk aksjeindeks.
+      candidates:
+        - {source: yfinance, symbol: "^N225"}
+        - {source: stooq, symbol: "^nkx"}
+        - {source: yfinance, symbol: "EWJ", proxy: true, label: "EWJ (ETF Japan, USD)"}
+    msci_world:
+      name: MSCI World (ETF-proxy)
+      description: Globale utviklede markeder via iShares MSCI World ETF.
+      candidates:
+        - {source: yfinance, symbol: "URTH", proxy: true, label: "URTH (iShares MSCI World)"}
+        - {source: yfinance, symbol: "IWDA.AS", proxy: true, label: "IWDA (iShares Core MSCI World, EUR)"}
+    msci_em:
+      name: MSCI Emerging Markets (ETF-proxy)
+      description: Fremvoksende markeder via iShares MSCI Emerging Markets ETF.
+      candidates:
+        - {source: yfinance, symbol: "EEM", proxy: true, label: "EEM (iShares MSCI EM)"}
+        - {source: yfinance, symbol: "IEMG", proxy: true, label: "IEMG (iShares Core MSCI EM)"}
+    oslo:
+      name: Oslo Børs
+      description: Norsk aksjemarked. Global X MSCI Norway ETF (USD) brukes som proxy hvis indeksen mangler.
+      candidates:
+        - {source: yfinance, symbol: "^OSEAX"}
+        - {source: yfinance, symbol: "OSEBX.OL"}
+        - {source: yfinance, symbol: "NORW", proxy: true, label: "NORW (ETF Norge, USD)"}
+  benchmark:
+    id: spy
+    name: SPY (S&P 500 ETF)
+    candidates:
+      - {source: yfinance, symbol: "SPY"}
+      - {source: stooq, symbol: "spy.us"}
+  sectors:
+    xlk:  {name: Teknologi,          symbol: XLK}
+    xlf:  {name: Finans,             symbol: XLF}
+    xle:  {name: Energi,             symbol: XLE}
+    xlv:  {name: Helse,              symbol: XLV}
+    xly:  {name: Syklisk forbruk,    symbol: XLY}
+    xlp:  {name: Dagligvarer,        symbol: XLP}
+    xli:  {name: Industri,           symbol: XLI}
+    xlb:  {name: Materialer,         symbol: XLB}
+    xlu:  {name: Kraftforsyning,     symbol: XLU}
+    xlre: {name: Eiendom,            symbol: XLRE}
+    xlc:  {name: Kommunikasjon,      symbol: XLC}
+
+sentiment:
+  min_articles: 15            # færre artikler => score skjules
+  gdelt_timespan: 7d
+  gdelt_maxrecords: 250
+  gdelt_url: "https://api.gdeltproject.org/api/v2/doc/doc"
+  request_gap_seconds: 7      # GDELT ber om maks ett kall per 5 sekunder
+  model: ProsusAI/finbert
+  max_tokens: 64              # kun titler analyseres
+  # Søkeord per sektor (engelsk, GDELT sourcelang:english). Justeres her.
+  sectors:
+    xlk:  {name: Teknologi,       keywords: ['"technology stocks"', '"tech stocks"', 'semiconductor stocks', '"software stocks"', 'chipmaker shares']}
+    xlf:  {name: Finans,          keywords: ['"bank stocks"', '"financial stocks"', '"banking sector"', 'insurer shares', '"regional banks"']}
+    xle:  {name: Energi,          keywords: ['"energy stocks"', '"oil stocks"', '"oil majors"', '"energy sector"']}
+    xlv:  {name: Helse,           keywords: ['"healthcare stocks"', '"pharma stocks"', '"biotech stocks"', 'drugmaker shares']}
+    xly:  {name: Syklisk forbruk, keywords: ['"retail stocks"', '"consumer discretionary"', 'automaker shares', '"luxury stocks"']}
+    xlp:  {name: Dagligvarer,     keywords: ['"consumer staples"', '"food and beverage stocks"', 'grocer shares']}
+    xli:  {name: Industri,        keywords: ['"industrial stocks"', 'aerospace stocks', '"defense stocks"', '"transport stocks"']}
+    xlb:  {name: Materialer,      keywords: ['"mining stocks"', '"materials sector"', '"chemical stocks"', '"steel stocks"']}
+    xlu:  {name: Kraftforsyning,  keywords: ['"utilities sector"', '"utility stocks"', '"power producers"']}
+    xlre: {name: Eiendom,         keywords: ['"real estate stocks"', '"REIT"', '"property stocks"']}
+    xlc:  {name: Kommunikasjon,   keywords: ['"communication services stocks"', '"media stocks"', '"telecom stocks"', '"streaming stocks"']}

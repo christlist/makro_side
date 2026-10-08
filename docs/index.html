@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Makro aksjemarked</title>
+<meta name="description" content="Ukentlig makrooversikt for globale aksjemarkeder: regime, volatilitet, kreditt, renter, råvarer og sektorer.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Makro aksjemarked</h1>
+    <div class="meta" id="meta">Laster …</div>
+  </div>
+  <button id="theme" type="button" aria-label="Bytt mellom lyst og mørkt tema">Tema</button>
+</header>
+<main>
+  <section id="regime"><h2>1. Regime</h2><div id="regime-body" class="body">Laster …</div></section>
+  <section id="vol"><h2>2. Volatilitet og opsjonsmarkedet</h2>
+    <p class="note">Tidsserier siste 10 år (ukentlig). Skygget bånd: 10.–90. persentil, mørkere: 25.–75. persentil, strek: median over samme vindu.</p>
+    <div id="vol-body" class="grid g2 body">Laster …</div></section>
+  <section id="macro"><h2>3. Kreditt, renter og råvarer</h2><div id="macro-body" class="grid g2 body">Laster …</div></section>
+  <section id="equities"><h2>4. Global aksjeutvikling og bredde</h2>
+    <div id="eq-body" class="body">Laster …</div>
+    <h3 class="sub">Sektorrelativ styrke (USA som proxy for global sektorutvikling)</h3>
+    <div id="sector-body" class="body">Laster …</div></section>
+  <section id="sentiment"><h2>5. Sektorsentiment <span class="badge">eksperimentell</span></h2><div id="sent-body" class="body">Laster …</div></section>
+  <section id="method"><h2>6. Metodikk og kilder</h2>
+    <div class="body prose">
+      <p>Siden bygges hver lørdag av GitHub Actions fra offentlige kilder uten nøkler. Ingen verdier konstrueres: hvis en kilde feiler vises «Data mangler», og feilen logges. Alle tall vises med datoen for siste datapunkt.</p>
+      <ul>
+        <li><strong>Persentilrang:</strong> (andel observasjoner strengt lavere + andel lavere eller lik) / 2, mot siste 10 år (eller kortere hvis kilden har kortere historikk, vinduet vises).</li>
+        <li><strong>Endring 1 uke:</strong> mot siste observasjon på eller før sju dager før siste datapunkt. Absolutt endring for nivåer og spreader, prosent for kurser.</li>
+        <li><strong>Avstand til 200d snitt:</strong> kurs delt på 200 handelsdagers glidende snitt, minus 1.</li>
+        <li><strong>Bredde:</strong> andel av elleve SPDR-sektor-ETFer (USA) over 200d snitt. Proxy, ikke full markedsbredde.</li>
+        <li><strong>Sektorsentiment:</strong> GDELT-titler siste 7 dager per sektor, FinBERT-score, z-score på tvers av sektorer. Støyende, kun kontekst.</li>
+        <li><strong>Utdatert:</strong> data eldre enn 10 dager merkes. Data eldre enn 21 dager utelates fra regimet.</li>
+      </ul>
+      <div id="method-body">Laster …</div>
+    </div>
+  </section>
+</main>
+<footer>Ikke finansiell rådgivning. Kildekode og terskler: <code>config.yaml</code> i repoet.</footer>
+<script src="https://cdn.plot.ly/plotly-basic-2.35.2.min.js" crossorigin="anonymous"></script>
+<script src="render.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
