@@ -7,6 +7,8 @@
    "unit": "indekspunkter",
    "decimals": 2,
    "description": "Implisitt volatilitet for S&P 500 de neste 30 dagene (CBOE).",
+   "meaning": "Forventet svingning i S&P 500 de neste 30 dagene.",
+   "reading": "Høyere verdi betyr at opsjonsmarkedet priser inn mer uro.",
    "frequency": "Daglig (vises med siste handelsdag)",
    "limitation": "Dekker kun USA. Lavt nivå betyr ikke fravær av risiko.",
    "status": "ok",
@@ -18,6 +20,7 @@
    "stale": false,
    "age_days": 1,
    "percentile_10y": 36.4,
+   "level": "normal",
    "window_start": "2016-10-10",
    "window_years": 10.0,
    "n_obs": 2546,
@@ -2120,6 +2123,8 @@
    "unit": "indekspunkter",
    "decimals": 2,
    "description": "Implisitt volatilitet for S&P 500 de neste 3 månedene (CBOE).",
+   "meaning": "Forventet svingning i S&P 500 de neste tre månedene.",
+   "reading": "Sammenlignes med VIX for å se om uroen er akutt eller varig.",
    "frequency": "Daglig",
    "limitation": "Tidligere kalt VXV. Kortere historikk enn VIX hos noen kilder.",
    "status": "ok",
@@ -2131,6 +2136,7 @@
    "stale": false,
    "age_days": 1,
    "percentile_10y": 40.1,
+   "level": "normal",
    "window_start": "2016-10-10",
    "window_years": 10.0,
    "n_obs": 2513,
@@ -4233,6 +4239,8 @@
    "unit": "indekspunkter",
    "decimals": 1,
    "description": "Volatilitet i VIX (CBOE VIX of VIX). Høy verdi betyr usikkerhet om volatiliteten selv.",
+   "meaning": "Hvor mye VIX selv forventes å svinge.",
+   "reading": "Høy verdi betyr usikkerhet om hvor urolig markedet blir.",
    "frequency": "Daglig",
    "limitation": "Indirekte mål. Tolkes best sammen med VIX.",
    "status": "ok",
@@ -4244,6 +4252,7 @@
    "stale": false,
    "age_days": 1,
    "percentile_10y": 23.3,
+   "level": "low",
    "window_start": "2016-10-10",
    "window_years": 10.0,
    "n_obs": 2513,
@@ -6346,6 +6355,8 @@
    "unit": "indekspunkter",
    "decimals": 1,
    "description": "CBOE SKEW. Priser på dype nedsidebeskyttelser (halerisiko) i S&P 500-opsjoner.",
+   "meaning": "Hvor dyrt det er å sikre seg mot kraftige fall, sammenlignet med oppgang.",
+   "reading": "Høyere verdi betyr at investorer betaler mer for nedsidebeskyttelse.",
    "frequency": "Daglig",
    "limitation": "Høy SKEW har historisk vært dårlig timing-signal. Kun kontekst.",
    "status": "ok",
@@ -6357,6 +6368,7 @@
    "stale": false,
    "age_days": 1,
    "percentile_10y": 85.4,
+   "level": "high",
    "window_start": "2016-10-10",
    "window_years": 10.0,
    "n_obs": 2509,
@@ -8459,6 +8471,8 @@
    "unit": "prosent p.a.",
    "decimals": 1,
    "description": "Proxy for VSTOXX. Realisert (historisk) volatilitet i Euro STOXX 50, 21 handelsdager, annualisert.",
+   "meaning": "Forventet svingning i europeiske aksjer (Euro STOXX 50).",
+   "reading": "Høyere verdi betyr mer uro i Europa, men målet ser bakover og reagerer senere enn VSTOXX.",
    "frequency": "Daglig",
    "limitation": "Ser bakover og er ikke implisitt volatilitet. Nivået er ikke sammenlignbart med V2TX, og den reagerer senere på stress. Persentilen er mot egen historikk.",
    "status": "ok",
@@ -8466,10 +8480,11 @@
    "source": "Proxy: realisert vol 21d, yfinance ^STOXX50E",
    "proxy": true,
    "last_date": "2026-10-09",
-   "last_value": 13.8996,
+   "last_value": 13.9495,
    "stale": false,
    "age_days": 0,
-   "percentile_10y": 51.5,
+   "percentile_10y": 51.8,
+   "level": "normal",
    "window_start": "2016-10-10",
    "window_years": 10.0,
    "n_obs": 2513,
@@ -8480,7 +8495,7 @@
     "p75": 17.9637,
     "p90": 24.1513
    },
-   "change_1w": 0.5886,
+   "change_1w": 0.6385,
    "change_kind": "abs",
    "series": [
     [
@@ -10561,7 +10576,7 @@
     ],
     [
      "2026-10-09",
-     13.8996
+     13.9495
     ]
    ],
    "proxy_reason": "VSTOXX (V2TX) utilgjengelig: yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX"
@@ -10573,6 +10588,8 @@
    "unit": "forhold",
    "decimals": 3,
    "description": "Forholdet mellom 30 dagers og 3 måneders implisitt volatilitet. Over 1 betyr invertert termstruktur, typisk i akutt stress.",
+   "meaning": "Forholdet mellom kortsiktig og tre måneders forventet svingning.",
+   "reading": "Over 1 (invertert) betyr at markedet frykter mer på kort sikt enn lenger frem, typisk ved akutt stress.",
    "frequency": "Daglig",
    "limitation": "Beregnet fra VIX og VIX3M på felles datoer.",
    "status": "ok",
@@ -10584,6 +10601,7 @@
    "stale": false,
    "age_days": 1,
    "percentile_10y": 35.1,
+   "level": "normal",
    "window_start": "2016-10-10",
    "window_years": 10.0,
    "n_obs": 2513,
@@ -12683,6 +12701,6 @@
   }
  },
  "group": "volatility",
- "generated_at": "2026-10-09T09:57:54+00:00",
+ "generated_at": "2026-10-09T10:12:20+00:00",
  "missing": []
 }

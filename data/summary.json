@@ -1,0 +1,68 @@
+{
+ "generated_at": "2026-10-09T10:12:30+00:00",
+ "points": [
+  {
+   "kind": "regime",
+   "text": "Regimet er rolig. Snittet av stress-persentilene er 48 av 100, og 5 av 6 indikatorer er grønne."
+  },
+  {
+   "kind": "mood",
+   "text": "Stemningen er nøytral (46 av 100, +5 poeng siste uke). Komponentene spriker: Aksjer minus statsobligasjoner (20d) peker mot grådighet, SKEW mot frykt."
+  },
+  {
+   "kind": "unusual",
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 100), WTI råolje (persentil 94)."
+  },
+  {
+   "kind": "equities",
+   "text": "S&P 500 har gitt +1,2 % siste måned og ligger 7,2 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
+  }
+ ],
+ "unusual": [
+  {
+   "id": "dgs10",
+   "name": "10 års statsrente (USA)",
+   "percentile": 99.9,
+   "value": 5.28,
+   "decimals": 2,
+   "unit": "prosent",
+   "last_date": "2026-10-07",
+   "direction": "high",
+   "window_years": 10.0
+  },
+  {
+   "id": "wti",
+   "name": "WTI råolje",
+   "percentile": 93.6,
+   "value": 96.24,
+   "decimals": 2,
+   "unit": "USD per fat",
+   "last_date": "2026-10-06",
+   "direction": "high",
+   "window_years": 10.0
+  }
+ ],
+ "regime": {
+  "state": "calm",
+  "mean_stress": 47.8,
+  "status": "ok"
+ },
+ "mood": {
+  "score": 45.5,
+  "label": "neutral",
+  "change_1w": 5.3,
+  "status": "ok"
+ },
+ "health": {
+  "n_total": 26,
+  "n_ok": 26,
+  "missing": [],
+  "proxies": [
+   "Europeisk volatilitet (proxy: realisert vol Euro STOXX 50, 21d)",
+   "MSCI World (ETF-proxy)",
+   "MSCI Emerging Markets (ETF-proxy)"
+  ],
+  "latest_data_date": "2026-10-09",
+  "oldest_data_date": "2026-10-02"
+ }
+}

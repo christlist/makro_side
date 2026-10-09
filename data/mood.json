@@ -1776,7 +1776,7 @@
    "name": "Kommunikasjon",
    "symbol": "XLC",
    "status": "ok",
-   "score": 33.9,
+   "score": 34.0,
    "label": "fear",
    "score_1w": 27.9,
    "change_1w": 6.0,
@@ -1858,7 +1858,7 @@
      "note": "",
      "status": "ok",
      "error": null,
-     "score": 34.7,
+     "score": 34.8,
      "score_1w": 27.4,
      "value": -5.8198,
      "last_date": "2026-10-08",
@@ -1882,6 +1882,6 @@
  },
  "benchmark_ok": true,
  "group": "mood",
- "generated_at": "2026-10-09T09:58:07+00:00",
+ "generated_at": "2026-10-09T10:12:30+00:00",
  "missing": []
 }
