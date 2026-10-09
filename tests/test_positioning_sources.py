@@ -66,3 +66,21 @@ def test_find_naaim_xlsx_url():
 def test_candidate_labels():
     assert sources.candidate_label({"source": "naaim", "page": "p"}) == "NAAIM Exposure Index"
     assert "6dca-aqww" in sources.candidate_label({"source": "cftc", "dataset": "6dca-aqww", "code": "13874A", "measure": "legacy_noncomm"})
+
+
+def test_find_naaim_url_in_script_json_and_escaped_slashes():
+    html = '<script>var d = {"file":"https:\\/\\/naaim.org\\/wp-content\\/uploads\\/USE_Data-since-Inception_2026.xlsx"};</script>'
+    assert sources.find_naaim_xlsx_url(html, "https://naaim.org/x/") == "https://naaim.org/wp-content/uploads/USE_Data-since-Inception_2026.xlsx"
+
+
+def test_find_naaim_url_in_data_attribute_with_query():
+    html = '<div data-file="/uploads/data.xlsx?ver=3"></div>'
+    assert sources.find_naaim_xlsx_url(html, "https://naaim.org/x/") == "https://naaim.org/uploads/data.xlsx?ver=3"
+
+
+def test_naaim_error_includes_diagnostics():
+    html = '<html><head><title>Just a moment...</title></head><body><a href="/download-the-data">Data</a></body></html>'
+    with pytest.raises(SourceError) as e:
+        sources.find_naaim_xlsx_url(html, "https://naaim.org/")
+    msg = str(e.value)
+    assert "Just a moment" in msg and "tegn" in msg and "/download-the-data" in msg
