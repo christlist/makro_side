@@ -81,3 +81,29 @@ def test_regime_drops_old_data_and_requires_minimum():
     res = build_regime.compute(cfg, files, today)
     assert res["status"] == "missing" and res["n_used"] == 0
     assert "gamle" in res["items"][0]["reason"]
+
+
+def test_vstoxx_falls_back_to_labelled_proxy(monkeypatch):
+    """V2TX feiler, Euro STOXX 50 virker: proxyen merkes tydelig. Rampeserie som testvektor, ikke markedsdata."""
+    ramp = pd.Series([100.0 + (i % 7) for i in range(600)], index=pd.bdate_range(end=pd.Timestamp.now().normalize(), periods=600))
+
+    def fake(c, settings):
+        if c.get("symbol") == "^STOXX50E":
+            return ramp
+        raise SourceError("Testen simulerer at kilden er utilgjengelig")
+    monkeypatch.setattr("scripts.sources.fetch_candidate", fake)
+    vcfg = load_config()["volatility"]
+    ind = fetch_volatility.vstoxx_proxy(vcfg, load_config()["settings"], "yfinance ga ingen data for ^V2TX")
+    assert ind["status"] == "ok" and ind["proxy"] is True
+    assert ind["source"].startswith("Proxy:") and "Euro STOXX 50" in ind["name"]
+    assert "^V2TX" in ind["proxy_reason"]
+
+
+def test_vstoxx_proxy_failing_keeps_data_mangler(monkeypatch):
+    def boom(c, settings):
+        raise SourceError("Testen simulerer at kilden er utilgjengelig")
+    monkeypatch.setattr("scripts.sources.fetch_candidate", boom)
+    cfg = load_config()
+    ind = fetch_volatility.vstoxx_proxy(cfg["volatility"], cfg["settings"], "V2TX feilet")
+    assert ind["status"] == "missing" and "V2TX feilet" in ind["error"] and "Proxy:" in ind["error"]
+    assert ind["last_value"] is None and ind["series"] == []

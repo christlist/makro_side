@@ -82,9 +82,21 @@ volatility:
       decimals: 2
       description: Implisitt volatilitet for Euro STOXX 50, europeisk motstykke til VIX.
       frequency: Daglig
-      limitation: Gratis kilde er ikke verifisert. Hvis den feiler vises "Data mangler".
+      limitation: Ingen gratis kilde er verifisert (Yahoo har ikke ^V2TX). Da brukes proxyen under, merket Proxy.
       candidates:
         - {source: yfinance, symbol: "^V2TX"}
+  # Proxy for VSTOXX når V2TX ikke finnes: realisert volatilitet (21 handelsdager, annualisert) beregnet fra kursene.
+  vstoxx_proxy:
+    name: "Europeisk volatilitet (proxy: realisert vol Euro STOXX 50, 21d)"
+    unit: prosent p.a.
+    change: abs
+    decimals: 1
+    description: Proxy for VSTOXX. Realisert (historisk) volatilitet i Euro STOXX 50, 21 handelsdager, annualisert.
+    frequency: Daglig
+    limitation: Ser bakover og er ikke implisitt volatilitet. Nivået er ikke sammenlignbart med V2TX, og den reagerer senere på stress. Persentilen er mot egen historikk.
+    candidates:
+      - {source: yfinance, symbol: "^STOXX50E"}
+      - {source: yfinance, symbol: "VGK", proxy: true, label: "VGK (ETF Europa, USD)"}
   derived:
     vix_vix3m:
       name: VIX / VIX3M
