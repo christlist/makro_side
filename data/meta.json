@@ -1,24 +1,24 @@
 {
- "run_at": "2026-10-09T11:49:02+00:00",
+ "run_at": "2026-10-09T13:02:06+00:00",
  "groups": {
   "volatility": {
-   "generated_at": "2026-10-09T11:48:50+00:00",
+   "generated_at": "2026-10-09T13:01:54+00:00",
    "ok": true
   },
   "macro": {
-   "generated_at": "2026-10-09T11:48:51+00:00",
+   "generated_at": "2026-10-09T13:01:55+00:00",
    "ok": true
   },
   "equities": {
-   "generated_at": "2026-10-09T11:48:58+00:00",
+   "generated_at": "2026-10-09T13:02:03+00:00",
    "ok": true
   },
   "mood": {
-   "generated_at": "2026-10-09T11:49:02+00:00",
+   "generated_at": "2026-10-09T13:02:06+00:00",
    "ok": true
   },
   "regime": {
-   "generated_at": "2026-10-09T11:48:59+00:00",
+   "generated_at": "2026-10-09T13:02:03+00:00",
    "ok": true
   }
  },
@@ -26,7 +26,7 @@
   {
    "group": "mood",
    "id": "naaim",
-   "error": "Mangler: NAAIM Exposure Index: SourceError: NAAIM: fant ingen Excel-lenke på siden"
+   "error": "Mangler: NAAIM Exposure Index: SourceError: NAAIM: fant ingen Excel-lenke på siden (side med 143697 tegn, tittel 'NAAIM Exposure Index - The National Association of', 'xls' forekommer 0 ganger). Mulige lenker: ['https://naaim.org/programs/naaim-exposure-index/', 'https://naaim.org/programs/naaim-exposure-ind"
   }
  ]
 }

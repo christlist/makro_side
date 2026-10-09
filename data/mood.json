@@ -38,7 +38,7 @@
   },
   "naaim": {
    "status": "missing",
-   "error": "Mangler: NAAIM Exposure Index: SourceError: NAAIM: fant ingen Excel-lenke på siden"
+   "error": "Mangler: NAAIM Exposure Index: SourceError: NAAIM: fant ingen Excel-lenke på siden (side med 143697 tegn, tittel 'NAAIM Exposure Index - The National Association of', 'xls' forekommer 0 ganger). Mulige lenker: ['https://naaim.org/programs/naaim-exposure-index/', 'https://naaim.org/programs/naaim-exposure-ind"
   }
  },
  "market": {
@@ -213,7 +213,7 @@
     "note": "Høy aksjeeksponering blant aktive forvaltere = grådighet. Ikke med i indeksen ennå, kilden verifiseres",
     "in_index": false,
     "status": "missing",
-    "error": "Mangler: NAAIM Exposure Index: SourceError: NAAIM: fant ingen Excel-lenke på siden",
+    "error": "Mangler: NAAIM Exposure Index: SourceError: NAAIM: fant ingen Excel-lenke på siden (side med 143697 tegn, tittel 'NAAIM Exposure Index - The National Association of', 'xls' forekommer 0 ganger). Mulige lenker: ['https://naaim.org/programs/naaim-exposure-index/', 'https://naaim.org/programs/naaim-exposure-ind",
     "score": null,
     "score_1w": null,
     "value": null,
@@ -1986,7 +1986,7 @@
  },
  "benchmark_ok": true,
  "group": "mood",
- "generated_at": "2026-10-09T11:49:02+00:00",
+ "generated_at": "2026-10-09T13:02:06+00:00",
  "missing": [
   "naaim"
  ]
