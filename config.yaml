@@ -31,6 +31,8 @@ volatility:
   series:
     vix:
       name: VIX
+      meaning: Forventet svingning i S&P 500 de neste 30 dagene.
+      reading: Høyere verdi betyr at opsjonsmarkedet priser inn mer uro.
       unit: indekspunkter
       change: abs
       decimals: 2
@@ -43,6 +45,8 @@ volatility:
         - {source: yfinance, symbol: "^VIX"}
     vix3m:
       name: VIX3M
+      meaning: Forventet svingning i S&P 500 de neste tre månedene.
+      reading: Sammenlignes med VIX for å se om uroen er akutt eller varig.
       unit: indekspunkter
       change: abs
       decimals: 2
@@ -55,6 +59,8 @@ volatility:
         - {source: yfinance, symbol: "^VIX3M"}
     vvix:
       name: VVIX
+      meaning: Hvor mye VIX selv forventes å svinge.
+      reading: Høy verdi betyr usikkerhet om hvor urolig markedet blir.
       unit: indekspunkter
       change: abs
       decimals: 1
@@ -66,6 +72,8 @@ volatility:
         - {source: yfinance, symbol: "^VVIX"}
     skew:
       name: SKEW
+      meaning: Hvor dyrt det er å sikre seg mot kraftige fall, sammenlignet med oppgang.
+      reading: Høyere verdi betyr at investorer betaler mer for nedsidebeskyttelse.
       unit: indekspunkter
       change: abs
       decimals: 1
@@ -77,6 +85,8 @@ volatility:
         - {source: yfinance, symbol: "^SKEW"}
     vstoxx:
       name: VSTOXX (V2TX)
+      meaning: Forventet svingning i europeiske aksjer (Euro STOXX 50).
+      reading: Høyere verdi betyr mer uro i Europa.
       unit: indekspunkter
       change: abs
       decimals: 2
@@ -88,6 +98,8 @@ volatility:
   # Proxy for VSTOXX når V2TX ikke finnes: realisert volatilitet (21 handelsdager, annualisert) beregnet fra kursene.
   vstoxx_proxy:
     name: "Europeisk volatilitet (proxy: realisert vol Euro STOXX 50, 21d)"
+    meaning: Forventet svingning i europeiske aksjer (Euro STOXX 50).
+    reading: Høyere verdi betyr mer uro i Europa, men målet ser bakover og reagerer senere enn VSTOXX.
     unit: prosent p.a.
     change: abs
     decimals: 1
@@ -100,6 +112,8 @@ volatility:
   derived:
     vix_vix3m:
       name: VIX / VIX3M
+      meaning: Forholdet mellom kortsiktig og tre måneders forventet svingning.
+      reading: Over 1 (invertert) betyr at markedet frykter mer på kort sikt enn lenger frem, typisk ved akutt stress.
       unit: forhold
       change: abs
       decimals: 3
@@ -112,6 +126,8 @@ macro:
   series:
     hy_oas:
       name: Høyavkastningsspread (HY OAS)
+      meaning: Ekstra rente selskaper med svak kredittverdighet må betale over statsrenten.
+      reading: Høyere verdi betyr at kredittmarkedet krever mer for å ta risiko.
       unit: prosentpoeng
       change: abs
       decimals: 2
@@ -122,6 +138,8 @@ macro:
         - {source: fred, id: BAMLH0A0HYM2}
     ig_oas:
       name: Investment grade spread (IG OAS)
+      meaning: Ekstra rente selskaper med sterk kredittverdighet må betale over statsrenten.
+      reading: Høyere verdi betyr økt kredittrisiko, men utslagene er mindre enn for høyavkastning.
       unit: prosentpoeng
       change: abs
       decimals: 2
@@ -132,6 +150,8 @@ macro:
         - {source: fred, id: BAMLC0A0CM}
     t10y2y:
       name: Rentekurve 10 år minus 2 år
+      meaning: Forskjellen mellom 10 og 2 års amerikansk statsrente.
+      reading: Under null (invertert kurve) har historisk ofte kommet før resesjoner, med varierende forsinkelse.
       unit: prosentpoeng
       change: abs
       decimals: 2
@@ -142,6 +162,8 @@ macro:
         - {source: fred, id: T10Y2Y}
     dgs10:
       name: 10 års statsrente (USA)
+      meaning: Rente på 10 års amerikanske statsobligasjoner.
+      reading: Høyere rente øker finansieringskostnadene og kan presse aksjeverdsettelser.
       unit: prosent
       change: abs
       decimals: 2
@@ -152,6 +174,8 @@ macro:
         - {source: fred, id: DGS10}
     usd:
       name: Bred dollarindeks
+      meaning: Dollarens verdi mot et bredt utvalg handelspartnere.
+      reading: Sterkere dollar strammer inn global finansiering og er ofte krevende for fremvoksende markeder.
       unit: indeks
       change: pct
       decimals: 2
@@ -162,6 +186,8 @@ macro:
         - {source: fred, id: DTWEXBGS}
     wti:
       name: WTI råolje
+      meaning: Oljepris, amerikansk WTI.
+      reading: Påvirker inflasjon og energiselskaper. Kraftige hopp kan være uro om tilbud eller etterspørsel.
       unit: USD per fat
       change: pct
       decimals: 2
