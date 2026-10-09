@@ -20,6 +20,9 @@ def candidates(cfg: dict):
         yield f"sectors.{k}", {"source": "yfinance", "symbol": spec["symbol"]}
     for c in cfg["mood"]["bond_candidates"]:
         yield "mood.bond", c
+    for k, pc in (cfg["mood"].get("positioning") or {}).items():
+        for c in pc["candidates"]:
+            yield f"mood.{k}", c
 
 
 def main() -> None:

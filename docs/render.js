@@ -208,8 +208,9 @@
     if (!m) return missingBox('stemning', 'Filen mood.json kunne ikke leses.');
     var mk = m.market || {};
     var comps = (mk.components || []).map(function (c) {
-      if (c.status !== 'ok') return '<tr><td>' + esc(c.label) + '</td><td colspan="4" class="miss-cell">' + MISSING + '<span class="reason"> ' + esc(String(c.error || '').slice(0, 160)) + '</span></td></tr>';
-      return '<tr><td>' + esc(c.label) + '<div class="muted small">' + esc(c.note || '') + '</div></td><td class="num">' + fmt(c.value, c.decimals) + ' <span class="unit">' + esc(c.unit) + '</span></td>' +
+      var out = c.in_index === false ? ' <span class="flag flag-warn" title="Teller ikke med i indeksen ennå">Utenfor indeksen</span>' : '';
+      if (c.status !== 'ok') return '<tr><td>' + esc(c.label) + out + '</td><td colspan="4" class="miss-cell">' + MISSING + '<span class="reason"> ' + esc(String(c.error || '').slice(0, 160)) + '</span></td></tr>';
+      return '<tr><td>' + esc(c.label) + out + '<div class="muted small">' + esc(c.note || '') + '</div></td><td class="num">' + fmt(c.value, c.decimals) + ' <span class="unit">' + esc(c.unit) + '</span></td>' +
         '<td class="num heat" style="' + moodColor(c.score) + '">' + fmt(c.score, 0) + '</td><td class="num">' + (isNum(c.score) && isNum(c.score_1w) ? fmtSigned(c.score - c.score_1w, 0) : '–') + '</td>' +
         '<td class="num' + (c.stale ? ' stale' : '') + '">' + fmtDate(c.last_date) + '</td></tr>';
     }).join('');

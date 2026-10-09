@@ -110,3 +110,44 @@ def test_all_sources_down(monkeypatch, tmp_path):
     assert all(r["status"] == "missing" for r in payload["rows"].values())
     assert all(c["status"] == "missing" and c["error"] for c in payload["market"]["components"])
     assert payload["missing"]  # mangler listes i meta
+
+
+def test_components_outside_index_are_shown_but_not_counted():
+    ref = pd.Timestamp("2026-10-08")
+    comps = {"a": fm.comp("A", ramp(400, end=ref), False, "x", 1),
+             "b": fm.comp("B", ramp(400, end=ref), False, "x", 1, in_index=False),
+             "c": fm.comp("C", None, False, "x", 1, error="Kilden feilet", in_index=False)}
+    rows = fm.evaluate(comps, ref, 10, 250, 21, 10, ref)
+    by = {r["id"]: r for r in rows}
+    assert by["b"]["status"] == "ok" and by["b"]["score"] is not None and by["b"]["in_index"] is False
+    assert by["c"]["status"] == "missing"
+    s = fm.summarize(rows, BANDS, 1)
+    assert s["n_total"] == 1 and s["n_used"] == 1  # bare «a» teller
+    assert s["score"] == by["a"]["score"]
+    hist_with = fm.index_history(comps, ref, 20, 10, 250, 1)
+    hist_only_a = fm.index_history({"a": comps["a"]}, ref, 20, 10, 250, 1)
+    assert hist_with == hist_only_a
+
+
+def test_weekly_component_uses_own_stale_limit():
+    ref = pd.Timestamp("2026-10-08")
+    weekly = pd.Series(range(400), index=pd.date_range(end=ref - pd.Timedelta(days=12), periods=400, freq="7D"))
+    rows = {r["id"]: r for r in fm.evaluate(
+        {"w": fm.comp("W", weekly, False, "x", 1, stale_days=14), "d": fm.comp("D", weekly, False, "x", 1)},
+        ref, 10, 250, 21, 10, ref)}
+    assert rows["w"]["stale"] is False and rows["d"]["stale"] is True
+
+
+def test_positioning_missing_does_not_change_market_status(monkeypatch, tmp_path):
+    def stub(cands, settings, label, errors):
+        if label in ("cftc_spec", "naaim"):
+            errors[label] = "Testen simulerer at kilden er utilgjengelig"
+            return None, None
+        step = 0.1 if label.startswith("sector_") or label in ("spy", "spx", "bond") else 0.01
+        return ramp(700, start="2023-06-01", step=step), f"stub {label}"
+    monkeypatch.setattr(common, "DATA_DIR", tmp_path)
+    p = common.run_group("mood", lambda: fm.build(stub), common.get_logger("t"))
+    m = p["market"]
+    assert m["status"] == "ok" and m["n_total"] == 8
+    extra = {c["id"]: c for c in m["components"] if c["id"] in ("cftc_spec", "naaim")}
+    assert set(extra) == {"cftc_spec", "naaim"} and all(c["status"] == "missing" and not c["in_index"] for c in extra.values())
