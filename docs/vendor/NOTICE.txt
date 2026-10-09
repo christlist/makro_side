@@ -1,0 +1,4 @@
+Tredjepartsfiler som er lagt lokalt i repoet (ingen eksterne CDN-er):
+- plotly-basic.min.js: Plotly.js 2.35.2 (basic), MIT-lisens, https://github.com/plotly/plotly.js
+- ../fonts/ibm-plex-sans-*.woff2: IBM Plex Sans, SIL Open Font License 1.1, https://github.com/IBM/plex
+- ../fonts/newsreader-latin-wght-normal.woff2: Newsreader, SIL Open Font License 1.1, https://github.com/productiontype/Newsreader

@@ -107,3 +107,14 @@ def test_vstoxx_proxy_failing_keeps_data_mangler(monkeypatch):
     ind = fetch_volatility.vstoxx_proxy(cfg["volatility"], cfg["settings"], "V2TX feilet")
     assert ind["status"] == "missing" and "V2TX feilet" in ind["error"] and "Proxy:" in ind["error"]
     assert ind["last_value"] is None and ind["series"] == []
+
+
+def test_run_all_never_raises_when_a_step_crashes(monkeypatch):
+    from scripts import run_all
+
+    calls = []
+    steps = [("a", lambda: calls.append("a")), ("b", lambda: (_ for _ in ()).throw(RuntimeError("feil"))),
+             ("c", lambda: calls.append("c"))]
+    monkeypatch.setattr(run_all, "STEPS", steps)
+    run_all.main()
+    assert calls == ["a", "c"]  # steg c kjøres selv om b feilet

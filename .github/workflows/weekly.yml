@@ -41,25 +41,10 @@ jobs:
         continue-on-error: true
         run: python -m scripts.verify_sources | tee -a "$GITHUB_STEP_SUMMARY"
 
-      # Hvert steg feiler ikke jobben. Mangler skrives som status "missing" i JSON.
-      - name: Volatilitet
+      # Ett steg kjører alle gruppene. En feilet kilde gir «Data mangler» i JSON, ikke en feilet jobb.
+      - name: Hent data og bygg JSON
         continue-on-error: true
-        run: python -m scripts.fetch_volatility
-      - name: Kreditt, renter og råvarer
-        continue-on-error: true
-        run: python -m scripts.fetch_macro
-      - name: Aksjer og sektorer
-        continue-on-error: true
-        run: python -m scripts.fetch_equities
-      - name: Stemning (frykt og grådighet)
-        continue-on-error: true
-        run: python -m scripts.fetch_mood
-      - name: Regimestatus
-        continue-on-error: true
-        run: python -m scripts.build_regime
-      - name: Kjøringsinfo
-        continue-on-error: true
-        run: python -m scripts.finalize
+        run: python -m scripts.run_all
 
       - name: Commit oppdaterte data
         run: |

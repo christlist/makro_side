@@ -3,46 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Makro aksjemarked</title>
-<meta name="description" content="Ukentlig makrooversikt for globale aksjemarkeder: regime, volatilitet, kreditt, renter, råvarer og sektorer.">
+<title>Makro: globalt aksjemarked</title>
+<meta name="description" content="Ukentlig makrooversikt for globale aksjemarkeder: regime, volatilitet, kreditt, renter, aksjer og stemning. Bygget av åpne data.">
+<link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%232563b0'%3E%3Crect x='2' y='13' width='5' height='9' rx='1'/%3E%3Crect x='9.5' y='8' width='5' height='14' rx='1'/%3E%3Crect x='17' y='2' width='5' height='20' rx='1'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
-  <div>
-    <h1>Makro aksjemarked</h1>
-    <div class="meta" id="meta">Laster …</div>
+<a class="skip" href="#main">Hopp til innhold</a>
+
+<header class="masthead">
+  <div class="wrap mast-row">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><rect x="2" y="13" width="5" height="9" rx="1"/><rect x="9.5" y="8" width="5" height="14" rx="1"/><rect x="17" y="2" width="5" height="20" rx="1"/></svg>
+      <div>
+        <div class="brand-name">Makro</div>
+        <div class="brand-sub">Globalt aksjemarked · ukentlig oversikt</div>
+      </div>
+    </div>
+    <div class="status" id="status">Laster …</div>
+    <button id="theme" type="button" aria-label="Bytt mellom lyst og mørkt tema" title="Bytt tema"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
-  <button id="theme" type="button" aria-label="Bytt mellom lyst og mørkt tema">Tema</button>
+  <nav class="tabs" aria-label="Seksjoner">
+    <div class="wrap tabs-row">
+      <a href="#oversikt">Oversikt</a><a href="#volatilitet">Volatilitet</a><a href="#kreditt">Kreditt og renter</a><a href="#aksjer">Aksjer</a><a href="#stemning">Stemning</a><a href="#metodikk">Metodikk</a>
+    </div>
+  </nav>
 </header>
-<main>
-  <section id="regime"><h2>1. Regime</h2><div id="regime-body" class="body">Laster …</div></section>
-  <section id="vol"><h2>2. Volatilitet og opsjonsmarkedet</h2>
-    <p class="note">Tidsserier siste 10 år (ukentlig). Skygget bånd: 10.–90. persentil, mørkere: 25.–75. persentil, strek: median over samme vindu.</p>
-    <div id="vol-body" class="grid g2 body">Laster …</div></section>
-  <section id="macro"><h2>3. Kreditt, renter og råvarer</h2><div id="macro-body" class="grid g2 body">Laster …</div></section>
-  <section id="equities"><h2>4. Global aksjeutvikling og bredde</h2>
-    <div id="eq-body" class="body">Laster …</div>
-    <h3 class="sub">Sektorrelativ styrke (USA som proxy for global sektorutvikling)</h3>
-    <div id="sector-body" class="body">Laster …</div></section>
-  <section id="mood"><h2>5. Stemning: frykt og grådighet</h2><div id="mood-body" class="body">Laster …</div></section>
-  <section id="method"><h2>6. Metodikk og kilder</h2>
+
+<main id="main" class="wrap">
+  <noscript><div class="missing"><strong>JavaScript kreves.</strong> Siden leser data fra JSON-filer og tegner diagrammene i nettleseren.</div></noscript>
+
+  <section id="oversikt">
+    <p class="kicker">01 · Oversikt</p>
+    <h2>Slik ser markedet ut nå</h2>
+    <p class="lede">Regimet måler stress i markedet. Stemningen måler risikovilje. Begge bygger på persentilrang mot siste ti år, slik at hvert tall kan leses uten bakgrunnskunnskap.</p>
+    <div id="overview-body" class="body">Laster …</div>
+  </section>
+
+  <section id="volatilitet">
+    <p class="kicker">02 · Volatilitet og opsjonsmarkedet</p>
+    <h2>Hvor urolig forventer markedet å bli</h2>
+    <p class="lede">Opsjonspriser avslører hvor mye investorer betaler for å sikre seg. Skygget område viser normalområdet de siste ti årene (10. til 90. persentil), den stiplede linjen er medianen.</p>
+    <div id="vol-body" class="grid g2 body">Laster …</div>
+  </section>
+
+  <section id="kreditt">
+    <p class="kicker">03 · Kreditt, renter og råvarer</p>
+    <h2>Hva koster det å låne</h2>
+    <p class="lede">Kredittspreader og renter viser hvor mye kapitalmarkedene krever for risiko. Dollar og olje påvirker finansieringsforhold og inflasjon globalt.</p>
+    <div id="macro-body" class="grid g2 body">Laster …</div>
+  </section>
+
+  <section id="aksjer">
+    <p class="kicker">04 · Global aksjeutvikling og bredde</p>
+    <h2>Hvordan aksjemarkedene har utviklet seg</h2>
+    <p class="lede">Avkastning over ulike perioder, og avstand til 200 dagers glidende snitt som enkelt mål på trend. Positivt tall betyr at kursen ligger over snittet.</p>
+    <div class="split">
+      <div id="eq-body" class="body">Laster …</div>
+      <div id="breadth-body" class="body"></div>
+    </div>
+  </section>
+
+  <section id="stemning">
+    <p class="kicker">05 · Stemning</p>
+    <h2>Frykt og grådighet</h2>
+    <p class="lede">Prisbasert stemning, ikke en spørreundersøkelse. Hver komponent er persentilrang mot siste ti år: 0 betyr frykt, 100 betyr grådighet. Indeksen overlapper delvis med regimet, men ser også på momentum, bredde og risikoappetitt. Kontekst, ikke et handelssignal.</p>
+    <div id="mood-body" class="body">Laster …</div>
+  </section>
+
+  <section id="metodikk">
+    <p class="kicker">06 · Metodikk og kilder</p>
+    <h2>Slik er tallene laget</h2>
     <div class="body prose">
-      <p>Siden bygges hver lørdag av GitHub Actions fra offentlige kilder uten nøkler. Ingen verdier konstrueres: hvis en kilde feiler vises «Data mangler», og feilen logges. Alle tall vises med datoen for siste datapunkt.</p>
-      <ul>
-        <li><strong>Persentilrang:</strong> (andel observasjoner strengt lavere + andel lavere eller lik) / 2, mot siste 10 år (eller kortere hvis kilden har kortere historikk, vinduet vises).</li>
-        <li><strong>Endring 1 uke:</strong> mot siste observasjon på eller før sju dager før siste datapunkt. Absolutt endring for nivåer og spreader, prosent for kurser.</li>
-        <li><strong>Avstand til 200d snitt:</strong> kurs delt på 200 handelsdagers glidende snitt, minus 1.</li>
-        <li><strong>Bredde:</strong> andel av elleve SPDR-sektor-ETFer (USA) over 200d snitt. Proxy, ikke full markedsbredde.</li>
-        <li><strong>Stemning:</strong> snitt av persentilrang (0 frykt, 100 grådighet) for åtte komponenter: VIX, VIX/VIX3M, SKEW, høyavkastningsspread, S&amp;P 500 mot 200d snitt, andel sektorer over 200d snitt, aksjer mot statsobligasjoner (20 dager) og syklisk mot defensivt (63 dager). Minst fem må ha data. Sektorstemning er snittet av fem prisbaserte mål per sektor-ETF mot egen historikk. Prisbasert, ikke spørreundersøkelse.</li>
-        <li><strong>Utdatert:</strong> data eldre enn 10 dager merkes. Data eldre enn 21 dager utelates fra regimet.</li>
-      </ul>
-      <div id="method-body">Laster …</div>
+      <p>Siden bygges hver lørdag av GitHub Actions fra åpne kilder uten nøkler: CBOE, FRED og Yahoo Finance. Ingen verdier konstrueres. Hvis en kilde feiler vises «Data mangler», og feilen logges. Alle tall vises med datoen for siste datapunkt, og proxyer er merket.</p>
+      <details class="more" open><summary>Slik leser du tallene</summary>
+        <ul>
+          <li><strong>Persentilrang:</strong> andelen av dagene siste ti år der nivået har vært lavere (halvparten av like verdier regnes med). 50 er midt i fordelingen, over 90 er uvanlig høyt, under 10 uvanlig lavt. Noen serier har kortere historikk, og vinduet står oppgitt.</li>
+          <li><strong>Endring siste uke:</strong> mot siste observasjon på eller før sju dager før siste datapunkt. Absolutt endring for nivåer og spreader, prosent for kurser.</li>
+          <li><strong>Avstand til 200d snitt:</strong> kurs delt på 200 handelsdagers glidende snitt, minus 1.</li>
+          <li><strong>Bredde:</strong> andel av elleve SPDR-sektor-ETFer (USA) over 200d snitt. Proxy, ikke full markedsbredde.</li>
+          <li><strong>Stemning:</strong> snitt av åtte komponenter (VIX, VIX/VIX3M, SKEW, høyavkastningsspread, S&amp;P 500 mot 200d snitt, bredde, aksjer mot statsobligasjoner, syklisk mot defensivt). Minst fem må ha data. Sektorstemning er snittet av fem prisbaserte mål per sektor-ETF mot egen historikk.</li>
+          <li><strong>Utdatert:</strong> data eldre enn 10 dager merkes. Data eldre enn 21 dager utelates fra regime og stemning.</li>
+        </ul>
+      </details>
+      <details class="more"><summary>Kilder og begrensninger per indikator</summary><div id="method-body">Laster …</div></details>
     </div>
   </section>
 </main>
-<footer>Ikke finansiell rådgivning. Kildekode og terskler: <code>config.yaml</code> i repoet.</footer>
-<script src="https://cdn.plot.ly/plotly-basic-2.35.2.min.js" crossorigin="anonymous"></script>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Makro</strong> er et informasjonsverktøy og ikke finansiell rådgivning. Tallene bygger på åpne, delvis forsinkede kilder og kan inneholde feil eller mangler.</p>
+    <p class="small" id="foot-run"></p>
+  </div>
+</footer>
+
+<script src="vendor/plotly-basic.min.js"></script>
 <script src="render.js"></script>
 <script src="app.js"></script>
 </body>

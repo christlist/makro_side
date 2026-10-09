@@ -130,6 +130,21 @@ def clean_series(s: pd.Series) -> pd.Series:
     return s
 
 
+def level_for(percentile: Optional[float]) -> Optional[str]:
+    """Nivåetikett fra persentilrang: very_low under 10, low under 25, normal til 75, high til 90, very_high over."""
+    if percentile is None or (isinstance(percentile, float) and math.isnan(percentile)):
+        return None
+    if percentile < 10:
+        return "very_low"
+    if percentile < 25:
+        return "low"
+    if percentile < 75:
+        return "normal"
+    if percentile < 90:
+        return "high"
+    return "very_high"
+
+
 def _num(x: Optional[float], dec: int = 4) -> Optional[float]:
     if x is None or (isinstance(x, float) and (math.isnan(x) or math.isinf(x))):
         return None
@@ -156,6 +171,8 @@ def _base(spec: dict, ind_id: str, group: str) -> dict:
         "unit": spec.get("unit"),
         "decimals": spec.get("decimals", 2),
         "description": spec.get("description"),
+        "meaning": spec.get("meaning"),
+        "reading": spec.get("reading"),
         "frequency": spec.get("frequency"),
         "limitation": spec.get("limitation"),
     }
@@ -196,6 +213,7 @@ def build_indicator(spec: dict, ind_id: str, group: str, series: pd.Series,
         "stale": bool((today - last_date).days > settings["stale_days"]),
         "age_days": int((today - last_date).days),
         "percentile_10y": pct,
+        "level": level_for(pct),
         "window_start": win.index[0].strftime("%Y-%m-%d"),
         "window_years": _num((last_date - win.index[0]).days / 365.25, 1),
         "n_obs": int(len(win)),
