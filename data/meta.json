@@ -1,24 +1,24 @@
 {
- "run_at": "2026-10-08T13:34:13+00:00",
+ "run_at": "2026-10-09T07:40:06+00:00",
  "groups": {
   "volatility": {
-   "generated_at": "2026-10-08T13:09:14+00:00",
+   "generated_at": "2026-10-09T07:22:32+00:00",
    "ok": true
   },
   "macro": {
-   "generated_at": "2026-10-08T13:09:15+00:00",
+   "generated_at": "2026-10-09T07:22:34+00:00",
    "ok": true
   },
   "equities": {
-   "generated_at": "2026-10-08T13:09:24+00:00",
+   "generated_at": "2026-10-09T07:22:42+00:00",
    "ok": true
   },
   "sentiment": {
-   "generated_at": "2026-10-08T13:34:11+00:00",
+   "generated_at": "2026-10-09T07:40:04+00:00",
    "ok": true
   },
   "regime": {
-   "generated_at": "2026-10-08T13:34:12+00:00",
+   "generated_at": "2026-10-09T07:40:05+00:00",
    "ok": true
   }
  },
@@ -26,37 +26,42 @@
   {
    "group": "volatility",
    "id": "vstoxx",
-   "error": "yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX | stooq ^v2tx: SourceError: Fant ikke CSV-header med 'date' (første linje: <!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"no)"
+   "error": "yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX | stooq ^v2tx: SourceError: https://stooq.com/q/d/l/: HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=%5Ev2tx&i=d (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f9e97be6ff0>, 'Connection to stooq.com timed out. (connect timeout=30)'))"
   },
   {
    "group": "sentiment",
-   "id": "xlf",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "id": "xlk",
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
   {
    "group": "sentiment",
    "id": "xle",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
   {
    "group": "sentiment",
    "id": "xlv",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
   {
    "group": "sentiment",
    "id": "xly",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
   {
    "group": "sentiment",
-   "id": "xlp",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "id": "xlb",
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  },
+  {
+   "group": "sentiment",
+   "id": "xlu",
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
   {
    "group": "sentiment",
    "id": "xlc",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   }
  ]
 }

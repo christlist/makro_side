@@ -1,100 +1,120 @@
 {
  "indicators": {},
  "rows": {
-  "xlf": {
-   "id": "xlf",
-   "name": "Finans",
+  "xlk": {
+   "id": "xlk",
+   "name": "Teknologi",
    "status": "missing",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
   "xle": {
    "id": "xle",
    "name": "Energi",
    "status": "missing",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
   "xlv": {
    "id": "xlv",
    "name": "Helse",
    "status": "missing",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
   "xly": {
    "id": "xly",
    "name": "Syklisk forbruk",
    "status": "missing",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
-  "xlp": {
-   "id": "xlp",
-   "name": "Dagligvarer",
+  "xlb": {
+   "id": "xlb",
+   "name": "Materialer",
    "status": "missing",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+  },
+  "xlu": {
+   "id": "xlu",
+   "name": "Kraftforsyning",
+   "status": "missing",
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
   "xlc": {
    "id": "xlc",
    "name": "Kommunikasjon",
    "status": "missing",
-   "error": "https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
+   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
-  "xlk": {
-   "id": "xlk",
-   "name": "Teknologi",
+  "xlf": {
+   "id": "xlf",
+   "name": "Finans",
    "status": "ok",
    "error": null,
-   "n_articles": 192,
-   "mean_score": 0.0747,
+   "n_articles": 209,
+   "n_by_source": {
+    "yfinance": 0,
+    "gdelt": 209
+   },
+   "mean_score": 0.0467,
    "hidden": false,
-   "z": 1.01
+   "z": -0.13
+  },
+  "xlp": {
+   "id": "xlp",
+   "name": "Dagligvarer",
+   "status": "ok",
+   "error": null,
+   "n_articles": 221,
+   "n_by_source": {
+    "yfinance": 0,
+    "gdelt": 221
+   },
+   "mean_score": 0.0645,
+   "hidden": false,
+   "z": 1.06
   },
   "xli": {
    "id": "xli",
    "name": "Industri",
    "status": "ok",
    "error": null,
-   "n_articles": 170,
-   "mean_score": 0.0185,
+   "n_articles": 126,
+   "n_by_source": {
+    "yfinance": 0,
+    "gdelt": 126
+   },
+   "mean_score": 0.0346,
    "hidden": false,
-   "z": -0.02
-  },
-  "xlb": {
-   "id": "xlb",
-   "name": "Materialer",
-   "status": "ok",
-   "error": null,
-   "n_articles": 5,
-   "mean_score": -0.0383,
-   "hidden": true,
-   "z": null
-  },
-  "xlu": {
-   "id": "xlu",
-   "name": "Kraftforsyning",
-   "status": "ok",
-   "error": null,
-   "n_articles": 10,
-   "mean_score": 0.1594,
-   "hidden": true,
-   "z": null
+   "z": -0.93
   },
   "xlre": {
    "id": "xlre",
    "name": "Eiendom",
    "status": "ok",
    "error": null,
-   "n_articles": 35,
-   "mean_score": -0.0342,
-   "hidden": false,
-   "z": -0.99
+   "n_articles": 8,
+   "n_by_source": {
+    "yfinance": 0,
+    "gdelt": 8
+   },
+   "mean_score": 0.1649,
+   "hidden": true,
+   "z": null
   }
  },
  "min_articles": 15,
  "timespan": "7d",
  "model": "ProsusAI/finbert",
  "model_error": null,
- "source": "GDELT DOC API (artikkeltitler), FinBERT",
+ "source": "yfinance-nyheter for de største aksjene i hver sektor-ETF (GDELT som supplement), FinBERT",
  "z_note": "z-score er relativ: sektorens 7 dagers snitt mot snittet av sektorene med nok artikler denne uken.",
  "group": "sentiment",
- "generated_at": "2026-10-08T13:34:11+00:00",
- "missing": []
+ "generated_at": "2026-10-09T07:40:04+00:00",
+ "missing": [
+  "xlb",
+  "xlc",
+  "xle",
+  "xlk",
+  "xlu",
+  "xlv",
+  "xly"
+ ]
 }
