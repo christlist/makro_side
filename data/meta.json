@@ -1,24 +1,24 @@
 {
- "run_at": "2026-10-09T08:24:21+00:00",
+ "run_at": "2026-10-09T09:43:03+00:00",
  "groups": {
   "volatility": {
-   "generated_at": "2026-10-09T08:08:16+00:00",
+   "generated_at": "2026-10-09T09:42:49+00:00",
    "ok": true
   },
   "macro": {
-   "generated_at": "2026-10-09T08:08:17+00:00",
+   "generated_at": "2026-10-09T09:42:49+00:00",
    "ok": true
   },
   "equities": {
-   "generated_at": "2026-10-09T08:08:26+00:00",
+   "generated_at": "2026-10-09T09:42:58+00:00",
    "ok": true
   },
-  "sentiment": {
-   "generated_at": "2026-10-09T08:24:20+00:00",
+  "mood": {
+   "generated_at": "2026-10-09T09:43:03+00:00",
    "ok": true
   },
   "regime": {
-   "generated_at": "2026-10-09T08:24:21+00:00",
+   "generated_at": "2026-10-09T09:43:03+00:00",
    "ok": true
   }
  },
@@ -27,31 +27,6 @@
    "group": "volatility",
    "id": "vstoxx",
    "error": "yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX"
-  },
-  {
-   "group": "sentiment",
-   "id": "xlf",
-   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
-  },
-  {
-   "group": "sentiment",
-   "id": "xlp",
-   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
-  },
-  {
-   "group": "sentiment",
-   "id": "xli",
-   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
-  },
-  {
-   "group": "sentiment",
-   "id": "xlb",
-   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
-  },
-  {
-   "group": "sentiment",
-   "id": "xlc",
-   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   }
  ]
 }
