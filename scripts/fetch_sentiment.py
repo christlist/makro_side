@@ -50,29 +50,43 @@ def select_titles(items: list[dict], days: int, now: datetime) -> list[str]:
     return out
 
 
-def yf_titles(tickers: list[str], scfg: dict) -> tuple[list[str], list[str]]:
-    """Hent nyhetstitler for tickerne. Returnerer (unike titler, feilmeldinger per ticker).
-    Kaster SourceError hvis alle tickere feilet med unntak."""
+def yf_titles(tickers: list[str], scfg: dict) -> tuple[list[str], list[str], dict]:
+    """Hent nyhetstitler for tickerne. Returnerer (unike titler, feilmeldinger per ticker, statistikk).
+    Statistikken viser hvor mange råelementer yfinance ga, hvor mange som hadde tittel og dato,
+    og hvor mange som var nye nok. Kaster SourceError hvis alle tickere feilet med unntak."""
     import yfinance as yf  # importeres her slik at modulen kan testes uten yfinance
 
     now = datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=scfg["news_days"])
     seen, titles, errors = set(), [], []
+    stats = {"tickers": len(tickers), "raw_items": 0, "with_title": 0, "with_date": 0, "kept": 0, "sample_keys": []}
     for i, t in enumerate(tickers):
         if i:
             time.sleep(scfg["news_ticker_gap_seconds"])
         try:
-            items = yf.Ticker(t).news
+            items = yf.Ticker(t).news or []
         except Exception as exc:  # noqa: BLE001
             errors.append(f"{t}: {type(exc).__name__}: {exc}")
             log.error("yfinance news %s feilet: %s", t, exc)
             continue
-        for title in select_titles(items, scfg["news_days"], now):
-            if title.lower() not in seen:
+        stats["raw_items"] += len(items)
+        if items and not stats["sample_keys"]:
+            first = items[0]
+            stats["sample_keys"] = sorted(first.keys()) if isinstance(first, dict) else [type(first).__name__]
+            if isinstance(first.get("content"), dict):
+                stats["sample_keys"] += ["content." + k for k in sorted(first["content"].keys())]
+        for it in items:
+            title, ts = parse_news_item(it)
+            stats["with_title"] += bool(title)
+            stats["with_date"] += bool(title and ts)
+            if title and ts and ts >= cutoff and title.lower() not in seen:
                 seen.add(title.lower())
                 titles.append(title)
+                stats["kept"] += 1
+    log.info("yfinance news: %s", stats)
     if len(errors) == len(tickers) and tickers:
         raise SourceError("yfinance news feilet for alle tickere: " + " | ".join(errors[:3]))
-    return titles, errors
+    return titles, errors, stats
 
 
 def gdelt_titles(scfg: dict, keywords: list[str], settings: dict) -> list[str]:
@@ -133,6 +147,7 @@ def build() -> dict:
     rows: dict = {}
     titles_by_sector: dict[str, list[str]] = {}
     counts: dict[str, dict] = {}
+    diag: dict[str, dict] = {}
     model_error = None
 
     for sid, spec in scfg["sectors"].items():
@@ -140,8 +155,9 @@ def build() -> dict:
         titles: list[str] = []
         counts[sid] = {"yfinance": 0, "gdelt": 0}
         try:
-            titles, _ = yf_titles(spec["tickers"], scfg)
+            titles, _, stats = yf_titles(spec["tickers"], scfg)
             counts[sid]["yfinance"] = len(titles)
+            diag[sid] = stats
         except Exception as exc:  # noqa: BLE001
             errs.append(f"yfinance: {exc}")
             log.error("Nyheter %s feilet: %s", sid, exc)
@@ -176,7 +192,7 @@ def build() -> dict:
             continue
         mean = float(sum(scorer(titles)) / len(titles)) if titles else None
         rows[sid] = {"id": sid, "name": spec["name"], "status": "ok", "error": None,
-                     "n_articles": len(titles), "n_by_source": counts[sid],
+                     "n_articles": len(titles), "n_by_source": counts[sid], "yf_diag": diag.get(sid),
                      "mean_score": _num(mean, 4),
                      "hidden": len(titles) < scfg["min_articles"], "z": None}
 

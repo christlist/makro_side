@@ -23,12 +23,13 @@ def candidates(cfg: dict):
 def verify_news(cfg: dict) -> None:
     from .fetch_sentiment import yf_titles
 
-    print("\n| Sektor | Kilde | Status | Titler siste dager | Tickere uten feil |\n|---|---|---|---|---|")
+    print("\n| Sektor | Kilde | Status | Råelementer | Med tittel | Med dato | Nye nok | Tickere uten feil | Feltnavn (første element) |\n|---|---|---|---|---|---|---|---|---|")
     scfg = cfg["sentiment"]
     for sid, spec in scfg["sectors"].items():
         try:
-            titles, errs = yf_titles(spec["tickers"], scfg)
-            print(f"| {sid} | yfinance news | OK | {len(titles)} | {len(spec['tickers']) - len(errs)}/{len(spec['tickers'])} |")
+            titles, errs, st = yf_titles(spec["tickers"], scfg)
+            print(f"| {sid} | yfinance news | OK | {st['raw_items']} | {st['with_title']} | {st['with_date']} | {st['kept']} | "
+                  f"{len(spec['tickers']) - len(errs)}/{len(spec['tickers'])} | {', '.join(st['sample_keys'])[:120]} |")
         except Exception as exc:  # noqa: BLE001
             print(f"| {sid} | yfinance news | FEIL | {str(exc)[:80]} | |")
 
