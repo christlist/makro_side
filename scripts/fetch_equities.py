@@ -86,8 +86,7 @@ def build() -> dict:
     for sid, sspec in ecfg["sectors"].items():
         time.sleep(0.3)
         spec = {"name": sspec["name"], "description": f"SPDR {sspec['symbol']}",
-                "candidates": [{"source": "yfinance", "symbol": sspec["symbol"]},
-                               {"source": "stooq", "symbol": f"{sspec['symbol'].lower()}.us"}]}
+                "candidates": [{"source": "yfinance", "symbol": sspec["symbol"]}]}
         try:
             ind, dist, s = build_equity(spec, sid, "sectors", settings, [])
             row = {"id": sid, "name": sspec["name"], "symbol": sspec["symbol"], "status": "ok",

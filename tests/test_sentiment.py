@@ -47,3 +47,21 @@ def test_all_sources_down_gives_missing_rows_and_never_loads_model(monkeypatch, 
     assert payload["rows"] and all(r["status"] == "missing" and r["error"] for r in payload["rows"].values())
     assert sorted(payload["missing"]) == sorted(payload["rows"])  # mangler vises i missing-listen
     assert (tmp_path / "sentiment.json").exists()
+
+
+def test_yf_titles_stats_with_stubbed_yfinance(monkeypatch):
+    """Strukturtest av statistikken med en stub-modul (ingen nettverk, ingen markedsdata)."""
+    import sys
+    import types
+
+    recent = (datetime.now(timezone.utc) - timedelta(days=1)).isoformat()
+    old = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
+    news = [{"content": {"title": "A", "pubDate": recent}}, {"content": {"title": "B", "pubDate": old}},
+            {"content": {"title": "A", "pubDate": recent}}, {"content": {"title": "C"}}]
+    stub = types.SimpleNamespace(Ticker=lambda sym: types.SimpleNamespace(news=news))
+    monkeypatch.setitem(sys.modules, "yfinance", stub)
+    monkeypatch.setattr(fs.time, "sleep", lambda s: None)
+    titles, errs, st = fs.yf_titles(["T1"], {"news_days": 7, "news_ticker_gap_seconds": 0})
+    assert titles == ["A"] and errs == []
+    assert (st["raw_items"], st["with_title"], st["with_date"], st["kept"]) == (4, 4, 3, 1)
+    assert "content.title" in st["sample_keys"]

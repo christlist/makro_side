@@ -41,7 +41,6 @@ volatility:
         - {source: cboe, url: "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv", column: CLOSE}
         - {source: fred, id: VIXCLS}
         - {source: yfinance, symbol: "^VIX"}
-        - {source: stooq, symbol: "^vix"}
     vix3m:
       name: VIX3M
       unit: indekspunkter
@@ -86,7 +85,6 @@ volatility:
       limitation: Gratis kilde er ikke verifisert. Hvis den feiler vises "Data mangler".
       candidates:
         - {source: yfinance, symbol: "^V2TX"}
-        - {source: stooq, symbol: "^v2tx"}
   derived:
     vix_vix3m:
       name: VIX / VIX3M
@@ -169,7 +167,6 @@ equities:
       description: Amerikansk storselskapsindeks.
       candidates:
         - {source: yfinance, symbol: "^GSPC"}
-        - {source: stooq, symbol: "^spx"}
         - {source: yfinance, symbol: "SPY", proxy: true, label: "SPY (ETF)"}
     stoxx600:
       name: STOXX Europe 600
@@ -183,7 +180,6 @@ equities:
       description: Japansk aksjeindeks.
       candidates:
         - {source: yfinance, symbol: "^N225"}
-        - {source: stooq, symbol: "^nkx"}
         - {source: yfinance, symbol: "EWJ", proxy: true, label: "EWJ (ETF Japan, USD)"}
     msci_world:
       name: MSCI World (ETF-proxy)
@@ -209,7 +205,6 @@ equities:
     name: SPY (S&P 500 ETF)
     candidates:
       - {source: yfinance, symbol: "SPY"}
-      - {source: stooq, symbol: "spy.us"}
   sectors:
     xlk:  {name: Teknologi,          symbol: XLK}
     xlf:  {name: Finans,             symbol: XLF}
