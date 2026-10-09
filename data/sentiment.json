@@ -1,27 +1,21 @@
 {
  "indicators": {},
  "rows": {
-  "xlk": {
-   "id": "xlk",
-   "name": "Teknologi",
+  "xlf": {
+   "id": "xlf",
+   "name": "Finans",
    "status": "missing",
    "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
-  "xle": {
-   "id": "xle",
-   "name": "Energi",
+  "xlp": {
+   "id": "xlp",
+   "name": "Dagligvarer",
    "status": "missing",
    "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
-  "xlv": {
-   "id": "xlv",
-   "name": "Helse",
-   "status": "missing",
-   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
-  },
-  "xly": {
-   "id": "xly",
-   "name": "Syklisk forbruk",
+  "xli": {
+   "id": "xli",
+   "name": "Industri",
    "status": "missing",
    "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
@@ -31,71 +25,141 @@
    "status": "missing",
    "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
-  "xlu": {
-   "id": "xlu",
-   "name": "Kraftforsyning",
-   "status": "missing",
-   "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
-  },
   "xlc": {
    "id": "xlc",
    "name": "Kommunikasjon",
    "status": "missing",
    "error": "GDELT: https://api.gdeltproject.org/api/v2/doc/doc: HTTP 429 fra https://api.gdeltproject.org/api/v2/doc/doc"
   },
-  "xlf": {
-   "id": "xlf",
-   "name": "Finans",
+  "xlk": {
+   "id": "xlk",
+   "name": "Teknologi",
    "status": "ok",
    "error": null,
-   "n_articles": 209,
+   "n_articles": 192,
    "n_by_source": {
     "yfinance": 0,
-    "gdelt": 209
+    "gdelt": 192
    },
-   "mean_score": 0.0467,
+   "yf_diag": {
+    "tickers": 10,
+    "raw_items": 0,
+    "with_title": 0,
+    "with_date": 0,
+    "kept": 0,
+    "sample_keys": []
+   },
+   "mean_score": 0.0747,
    "hidden": false,
-   "z": -0.13
+   "z": 0.06
   },
-  "xlp": {
-   "id": "xlp",
-   "name": "Dagligvarer",
+  "xle": {
+   "id": "xle",
+   "name": "Energi",
    "status": "ok",
    "error": null,
-   "n_articles": 221,
+   "n_articles": 19,
    "n_by_source": {
     "yfinance": 0,
-    "gdelt": 221
+    "gdelt": 19
    },
-   "mean_score": 0.0645,
+   "yf_diag": {
+    "tickers": 10,
+    "raw_items": 0,
+    "with_title": 0,
+    "with_date": 0,
+    "kept": 0,
+    "sample_keys": []
+   },
+   "mean_score": 0.1208,
    "hidden": false,
-   "z": 1.06
+   "z": 1.39
   },
-  "xli": {
-   "id": "xli",
-   "name": "Industri",
+  "xlv": {
+   "id": "xlv",
+   "name": "Helse",
    "status": "ok",
    "error": null,
-   "n_articles": 126,
+   "n_articles": 207,
    "n_by_source": {
     "yfinance": 0,
-    "gdelt": 126
+    "gdelt": 207
    },
-   "mean_score": 0.0346,
+   "yf_diag": {
+    "tickers": 10,
+    "raw_items": 0,
+    "with_title": 0,
+    "with_date": 0,
+    "kept": 0,
+    "sample_keys": []
+   },
+   "mean_score": 0.052,
    "hidden": false,
-   "z": -0.93
+   "z": -0.6
+  },
+  "xly": {
+   "id": "xly",
+   "name": "Syklisk forbruk",
+   "status": "ok",
+   "error": null,
+   "n_articles": 213,
+   "n_by_source": {
+    "yfinance": 0,
+    "gdelt": 213
+   },
+   "yf_diag": {
+    "tickers": 10,
+    "raw_items": 0,
+    "with_title": 0,
+    "with_date": 0,
+    "kept": 0,
+    "sample_keys": []
+   },
+   "mean_score": 0.0432,
+   "hidden": false,
+   "z": -0.85
+  },
+  "xlu": {
+   "id": "xlu",
+   "name": "Kraftforsyning",
+   "status": "ok",
+   "error": null,
+   "n_articles": 1,
+   "n_by_source": {
+    "yfinance": 0,
+    "gdelt": 1
+   },
+   "yf_diag": {
+    "tickers": 10,
+    "raw_items": 0,
+    "with_title": 0,
+    "with_date": 0,
+    "kept": 0,
+    "sample_keys": []
+   },
+   "mean_score": 0.0287,
+   "hidden": true,
+   "z": null
   },
   "xlre": {
    "id": "xlre",
    "name": "Eiendom",
    "status": "ok",
    "error": null,
-   "n_articles": 8,
+   "n_articles": 5,
    "n_by_source": {
     "yfinance": 0,
-    "gdelt": 8
+    "gdelt": 5
    },
-   "mean_score": 0.1649,
+   "yf_diag": {
+    "tickers": 10,
+    "raw_items": 0,
+    "with_title": 0,
+    "with_date": 0,
+    "kept": 0,
+    "sample_keys": []
+   },
+   "mean_score": 0.0906,
    "hidden": true,
    "z": null
   }
@@ -107,14 +171,12 @@
  "source": "yfinance-nyheter for de største aksjene i hver sektor-ETF (GDELT som supplement), FinBERT",
  "z_note": "z-score er relativ: sektorens 7 dagers snitt mot snittet av sektorene med nok artikler denne uken.",
  "group": "sentiment",
- "generated_at": "2026-10-09T07:40:04+00:00",
+ "generated_at": "2026-10-09T08:24:20+00:00",
  "missing": [
   "xlb",
   "xlc",
-  "xle",
-  "xlk",
-  "xlu",
-  "xlv",
-  "xly"
+  "xlf",
+  "xli",
+  "xlp"
  ]
 }

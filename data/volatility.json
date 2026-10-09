@@ -8462,7 +8462,7 @@
    "frequency": "Daglig",
    "limitation": "Gratis kilde er ikke verifisert. Hvis den feiler vises \"Data mangler\".",
    "status": "missing",
-   "error": "yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX | stooq ^v2tx: SourceError: https://stooq.com/q/d/l/: HTTPSConnectionPool(host='stooq.com', port=443): Max retries exceeded with url: /q/d/l/?s=%5Ev2tx&i=d (Caused by ConnectTimeoutError(<HTTPSConnection(host='stooq.com', port=443) at 0x7f9e97be6ff0>, 'Connection to stooq.com timed out. (connect timeout=30)'))",
+   "error": "yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX",
    "source": null,
    "proxy": false,
    "last_date": null,
@@ -10586,7 +10586,7 @@
   }
  },
  "group": "volatility",
- "generated_at": "2026-10-09T07:22:32+00:00",
+ "generated_at": "2026-10-09T08:08:16+00:00",
  "missing": [
   "vstoxx"
  ]
