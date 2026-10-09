@@ -155,7 +155,7 @@
 
   /* ------------------------------------------------------------- sentiment */
   function renderSentiment(sd) {
-    var warn = '<div class="warn"><strong>Eksperimentell og støyende.</strong> Kun kontekst, ikke et signal. Basert på artikkeltitler fra GDELT og en språkmodell (FinBERT) som ikke er trent på sektorspesifikk nyhetsdekning. Antall artikler er tillitsindikator, og scoren skjules ved for få artikler.</div>';
+    var warn = '<div class="warn"><strong>Eksperimentell og støyende.</strong> Kun kontekst, ikke et signal. Basert på nyhetstitler om de største aksjene i hver sektor (Yahoo Finance via yfinance, GDELT som supplement) og en språkmodell (FinBERT) som ikke er trent på sektorspesifikk nyhetsdekning. Antall artikler er tillitsindikator, og scoren skjules ved for få artikler.</div>';
     if (!sd) return warn + missingBox('sektorsentiment', 'Filen sentiment.json kunne ikke leses.');
     var keys = Object.keys(sd.rows || {});
     if (!keys.length) return warn + missingBox('sektorsentiment', sd.group_error || sd.model_error || 'Ingen sektorer hentet.');

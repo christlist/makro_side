@@ -216,8 +216,9 @@ def run_group(name: str, builder, log: logging.Logger) -> dict:
         payload = {"indicators": {}, "group_error": f"{type(exc).__name__}: {exc}"}
     payload["group"] = name
     payload["generated_at"] = now_iso()
-    payload["missing"] = sorted(k for k, v in payload.get("indicators", {}).items()
-                                if v.get("status") != "ok")
+    parts = [payload.get("indicators", {}), payload.get("rows", {}),
+             (payload.get("sectors") or {}).get("rows", {})]
+    payload["missing"] = sorted(k for part in parts for k, v in part.items() if v.get("status") != "ok")
     write_json(name, payload)
     log.info("Skrev %s.json (%d indikatorer, %d mangler)", name,
              len(payload.get("indicators", {})), len(payload["missing"]))
