@@ -103,7 +103,8 @@
       '<dt>Persentil 10 år</dt><dd>' + (ind.percentile_10y == null ? 'for kort historikk' : fmt(ind.percentile_10y, 0)) + '</dd>' +
       '<dt>Endring 1 uke</dt><dd>' + changeText(ind) + '</dd></dl>' +
       '<div class="chart" id="' + esc(chartId) + '" role="img" aria-label="Tidsserie ' + esc(ind.name) + '"></div>' +
-      '<div class="src">Kilde: ' + esc(ind.source) + (ind.window_years != null ? ' · vindu ' + fmt(ind.window_years, 1) + ' år' : '') + '</div></div>';
+      '<div class="src">Kilde: ' + esc(ind.source) + (ind.window_years != null ? ' · vindu ' + fmt(ind.window_years, 1) + ' år' : '') + '</div>' +
+      (ind.proxy_reason ? '<div class="src stale">' + esc(ind.proxy_reason) + '</div>' : '') + '</div>';
   }
 
   /* ---------------------------------------------------------------- aksjer */

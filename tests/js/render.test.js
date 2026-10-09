@@ -67,6 +67,13 @@ test('utdaterte data vises med dato', () => {
   assert.match(html, /for kort historikk/);
 });
 
+test('proxy vises med merke og forklaring på hvorfor originalen mangler', () => {
+  const html = R.renderIndicatorCard({ id: 'vstoxx', name: 'Proxy X', status: 'ok', proxy: true, proxy_reason: 'VSTOXX (V2TX) utilgjengelig: ingen data',
+    last_date: '2026-10-08', last_value: 1, decimals: 1, percentile_10y: null, change_1w: null, source: 'Proxy: test' }, 'c');
+  assert.match(html, /Proxy<\/span>/);
+  assert.match(html, /V2TX\) utilgjengelig/);
+});
+
 test('HTML escapes feilmeldinger', () => {
   assert.doesNotMatch(R.missingBox('x', '<script>alert(1)</script>'), /<script>/);
 });
