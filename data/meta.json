@@ -1,32 +1,26 @@
 {
- "run_at": "2026-10-09T09:43:03+00:00",
+ "run_at": "2026-10-09T09:58:08+00:00",
  "groups": {
   "volatility": {
-   "generated_at": "2026-10-09T09:42:49+00:00",
+   "generated_at": "2026-10-09T09:57:54+00:00",
    "ok": true
   },
   "macro": {
-   "generated_at": "2026-10-09T09:42:49+00:00",
+   "generated_at": "2026-10-09T09:57:55+00:00",
    "ok": true
   },
   "equities": {
-   "generated_at": "2026-10-09T09:42:58+00:00",
+   "generated_at": "2026-10-09T09:58:03+00:00",
    "ok": true
   },
   "mood": {
-   "generated_at": "2026-10-09T09:43:03+00:00",
+   "generated_at": "2026-10-09T09:58:07+00:00",
    "ok": true
   },
   "regime": {
-   "generated_at": "2026-10-09T09:43:03+00:00",
+   "generated_at": "2026-10-09T09:58:08+00:00",
    "ok": true
   }
  },
- "missing": [
-  {
-   "group": "volatility",
-   "id": "vstoxx",
-   "error": "yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX"
-  }
- ]
+ "missing": []
 }
