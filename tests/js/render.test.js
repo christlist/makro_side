@@ -30,22 +30,34 @@ test('regime med status missing viser Data mangler og ingen samlet tilstand', ()
   assert.doesNotMatch(html, /state-calm|state-elevated|state-stress/);
 });
 
-test('aksjetabell, sektorer, sentiment og metodikk tåler manglende filer', () => {
+test('aksjetabell, sektorer, stemning og metodikk tåler manglende filer', () => {
   assert.match(R.renderEquityTable(null), /Data mangler/);
   assert.match(R.renderSectors(null), /Data mangler/);
-  assert.match(R.renderSentiment(null), /Data mangler/);
+  assert.match(R.renderMood(null), /Data mangler/);
   assert.match(R.renderMethodology({ volatility: null, macro: null, equities: null }), /Data mangler/);
   assert.match(R.renderMeta(null), /mangler/);
 });
 
-test('sentiment: skjuler score ved for få artikler og viser mangel per sektor', () => {
-  const html = R.renderSentiment({ min_articles: 15, rows: {
-    a: { id: 'a', name: 'Energi', status: 'ok', hidden: true, n_articles: 3, z: null, mean_score: 0.1 },
-    b: { id: 'b', name: 'Helse', status: 'missing', error: 'GDELT feilet' } } });
-  assert.match(html, /Skjult/);
-  assert.match(html, /For få artikler \(3 av minst 15\)/);
-  assert.match(html, /GDELT feilet/);
-  assert.match(html, /støyende/i);
+test('stemning: manglende marked og sektorer vises som Data mangler uten tall og tilstand', () => {
+  const html = R.renderMood({ market: { status: 'missing', score: null, label: null, error: 'Data mangler: 0 av 8 komponenter tilgjengelig',
+      components: [{ id: 'vix', label: 'VIX', status: 'missing', error: 'CBOE feilet' }], series: [] },
+    rows: { xlk: { id: 'xlk', name: 'Teknologi', symbol: 'XLK', status: 'missing', error: 'yfinance feilet' } } });
+  assert.match(html, /Data mangler/);
+  assert.match(html, /CBOE feilet/);
+  assert.match(html, /yfinance feilet/);
+  assert.doesNotMatch(html, /mood-extreme|mood-fear|mood-greed|mood-neutral/);
+  assert.doesNotMatch(html, /class="gauge"/);
+  assert.match(html, /ikke spørreundersøkelse/i);
+});
+
+test('stemning: gyldig struktur rendres med score, etikett og sektortabell (testverdier er kun struktur)', () => {
+  const html = R.renderMood({ market: { status: 'ok', score: 50, label: 'neutral', change_1w: 0, n_used: 8, n_total: 8, ref_date: '2026-10-08',
+      components: [{ id: 'vix', label: 'VIX', status: 'ok', score: 50, score_1w: 50, value: 1, decimals: 0, unit: 'x', last_date: '2026-10-08', note: '' }], series: [['2026-10-08', 50]] },
+    rows: { a: { id: 'a', name: 'Sektor A', symbol: 'AAA', status: 'ok', score: 50, label: 'neutral', change_1w: 0,
+      components: [{ id: 'mom200', status: 'ok', label: 'L', score: 50, value: 1, decimals: 0, unit: 'x' }] } } });
+  assert.match(html, /Nøytral/);
+  assert.match(html, /Sektor A/);
+  assert.match(html, /id="c-mood"/);
 });
 
 test('utdaterte data vises med dato', () => {

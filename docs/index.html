@@ -25,7 +25,7 @@
     <div id="eq-body" class="body">Laster …</div>
     <h3 class="sub">Sektorrelativ styrke (USA som proxy for global sektorutvikling)</h3>
     <div id="sector-body" class="body">Laster …</div></section>
-  <section id="sentiment"><h2>5. Sektorsentiment <span class="badge">eksperimentell</span></h2><div id="sent-body" class="body">Laster …</div></section>
+  <section id="mood"><h2>5. Stemning: frykt og grådighet</h2><div id="mood-body" class="body">Laster …</div></section>
   <section id="method"><h2>6. Metodikk og kilder</h2>
     <div class="body prose">
       <p>Siden bygges hver lørdag av GitHub Actions fra offentlige kilder uten nøkler. Ingen verdier konstrueres: hvis en kilde feiler vises «Data mangler», og feilen logges. Alle tall vises med datoen for siste datapunkt.</p>
@@ -34,7 +34,7 @@
         <li><strong>Endring 1 uke:</strong> mot siste observasjon på eller før sju dager før siste datapunkt. Absolutt endring for nivåer og spreader, prosent for kurser.</li>
         <li><strong>Avstand til 200d snitt:</strong> kurs delt på 200 handelsdagers glidende snitt, minus 1.</li>
         <li><strong>Bredde:</strong> andel av elleve SPDR-sektor-ETFer (USA) over 200d snitt. Proxy, ikke full markedsbredde.</li>
-        <li><strong>Sektorsentiment:</strong> nyhetstitler siste 7 dager om de største aksjene i hver sektor-ETF (yfinance, GDELT som supplement), FinBERT-score, z-score på tvers av sektorer. Støyende, kun kontekst.</li>
+        <li><strong>Stemning:</strong> snitt av persentilrang (0 frykt, 100 grådighet) for åtte komponenter: VIX, VIX/VIX3M, SKEW, høyavkastningsspread, S&amp;P 500 mot 200d snitt, andel sektorer over 200d snitt, aksjer mot statsobligasjoner (20 dager) og syklisk mot defensivt (63 dager). Minst fem må ha data. Sektorstemning er snittet av fem prisbaserte mål per sektor-ETF mot egen historikk. Prisbasert, ikke spørreundersøkelse.</li>
         <li><strong>Utdatert:</strong> data eldre enn 10 dager merkes. Data eldre enn 21 dager utelates fra regimet.</li>
       </ul>
       <div id="method-body">Laster …</div>

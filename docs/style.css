@@ -78,3 +78,13 @@ th { color: var(--muted); font-weight: 600; white-space: nowrap; } tr:last-child
 footer { max-width: 1200px; margin: 0 auto; padding: 0 16px 32px; color: var(--muted); font-size: .8rem; }
 .tile, .tile div { overflow-wrap: anywhere; min-width: 0; }
 .tiles { grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); }
+.mood-head { margin-bottom: 12px; }
+.mood-main .label { color: var(--muted); font-size: .85rem; }
+.mood-main .state { font-size: 2rem; font-weight: 700; }
+.mood-main .mood-text { font-size: 1.1rem; font-weight: 600; }
+.mood-main .sub { color: var(--muted); font-size: .85rem; }
+.gauge { position: relative; height: 10px; margin-top: 12px; border-radius: 999px; background: linear-gradient(90deg, rgba(60,120,210,.75), rgba(150,150,150,.35) 50%, rgba(230,140,40,.8)); }
+.gauge-mark { position: absolute; top: -4px; width: 4px; height: 18px; margin-left: -2px; border-radius: 2px; background: var(--text); }
+.gauge-ends { display: flex; justify-content: space-between; color: var(--muted); font-size: .72rem; margin-top: 4px; }
+.heat.strong { font-weight: 700; }
+td .muted { font-size: .72rem; }
