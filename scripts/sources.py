@@ -211,14 +211,24 @@ def fetch_cftc(dataset: str, code: str, measure: str, timeout: int, retries: int
 
 
 def find_naaim_xlsx_url(html: str, base: str) -> str:
-    """Finn lenken til Excel-filen med historiske data på NAAIM-siden."""
+    """Finn lenken til Excel-filen med historiske data på NAAIM-siden. Søker i lenkeattributter og i
+    løs tekst (skript og JSON), og kaster en feilmelding med diagnostikk hvis ingenting finnes."""
     import re
     from urllib.parse import urljoin
 
-    links = re.findall(r'href=["\']([^"\']+\.xlsx?[^"\']*)["\']', html, flags=re.I)
+    text = html.replace("\\/", "/")  # JSON-escapede skråstreker
+    found = re.findall(r"""(?:href|src|data-[\w-]+|content)=["']([^"']+\.xlsx?(?:\?[^"']*)?)["']""", text, flags=re.I)
+    found += re.findall(r"""https?://[^\s"'<>\\]+\.xlsx?(?:\?[^\s"'<>\\]*)?""", text, flags=re.I)
+    links = list(dict.fromkeys(found))
     if not links:
-        raise SourceError("NAAIM: fant ingen Excel-lenke på siden")
-    preferred = [l for l in links if "since" in l.lower() or "inception" in l.lower() or "use_data" in l.lower()]
+        title = re.search(r"<title[^>]*>(.*?)</title>", html, flags=re.I | re.S)
+        hints = [h for h in re.findall(r"""href=["']([^"']+)["']""", html, flags=re.I)
+                 if re.search(r"download|xls|csv|data|exposure", h, flags=re.I)][:4]
+        raise SourceError(
+            f"NAAIM: fant ingen Excel-lenke på siden (side med {len(html)} tegn, tittel "
+            f"{(title.group(1).strip()[:50] if title else 'mangler')!r}, 'xls' forekommer {len(re.findall('xls', html, flags=re.I))} ganger). "
+            f"Mulige lenker: {hints}")
+    preferred = [l for l in links if re.search(r"since|inception|use_data|exposure", l, flags=re.I)]
     return urljoin(base, (preferred or links)[0])
 
 
