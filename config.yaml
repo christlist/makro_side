@@ -218,41 +218,19 @@ equities:
     xlre: {name: Eiendom,            symbol: XLRE}
     xlc:  {name: Kommunikasjon,      symbol: XLC}
 
-sentiment:
-  min_articles: 15            # færre artikler => score skjules
-  news_days: 7                # kun artikler publisert siste N dager
-  news_ticker_gap_seconds: 0.5
-  gdelt_supplement: true      # GDELT brukes kun for sektorer under min_articles etter yfinance
-  gdelt_timespan: 7d
-  gdelt_maxrecords: 250
-  gdelt_url: "https://api.gdeltproject.org/api/v2/doc/doc"
-  request_gap_seconds: 12     # GDELT ber om maks ett kall per 5 sekunder, 429 ved tett trafikk
-  rate_limit_waits: [20, 40]  # sekunder å vente mellom nye forsøk ved 429
-  model: ProsusAI/finbert
-  max_tokens: 64              # kun titler analyseres
-  # tickers: de største beholdningene i sektor-ETFen (primærkilde: yfinance-nyheter per aksje).
-  # MÅ kontrolleres mot gjeldende beholdninger på spdrs.com og justeres her ved behov.
-  # keywords: GDELT-søk (engelsk), brukes kun som supplement. Justeres her.
-  sectors:
-    xlk:  {name: Teknologi, tickers: [AAPL, MSFT, NVDA, AVGO, ORCL, CRM, AMD, CSCO, ADBE, IBM],
-          keywords: ['"technology stocks"', '"tech stocks"', 'semiconductor stocks', '"software stocks"', 'chipmaker shares']}
-    xlf:  {name: Finans, tickers: [BRK-B, JPM, V, MA, BAC, WFC, GS, MS, AXP, C],
-          keywords: ['"bank stocks"', '"financial stocks"', '"banking sector"', 'insurer shares', '"regional banks"']}
-    xle:  {name: Energi, tickers: [XOM, CVX, COP, EOG, SLB, WMB, KMI, OXY, PSX, MPC],
-          keywords: ['"energy stocks"', '"oil stocks"', '"oil majors"', '"energy sector"']}
-    xlv:  {name: Helse, tickers: [LLY, UNH, JNJ, ABBV, MRK, TMO, ABT, ISRG, AMGN, PFE],
-          keywords: ['"healthcare stocks"', '"pharma stocks"', '"biotech stocks"', 'drugmaker shares']}
-    xly:  {name: Syklisk forbruk, tickers: [AMZN, TSLA, HD, MCD, BKNG, LOW, TJX, NKE, SBUX, ORLY],
-          keywords: ['"retail stocks"', '"consumer discretionary"', 'automaker shares', '"luxury stocks"']}
-    xlp:  {name: Dagligvarer, tickers: [PG, COST, WMT, KO, PEP, PM, MDLZ, MO, CL, TGT],
-          keywords: ['"consumer staples"', '"food and beverage stocks"', 'grocer shares']}
-    xli:  {name: Industri, tickers: [GE, CAT, RTX, UNP, HON, DE, BA, LMT, UPS, ETN],
-          keywords: ['"industrial stocks"', 'aerospace stocks', '"defense stocks"', '"transport stocks"']}
-    xlb:  {name: Materialer, tickers: [LIN, SHW, ECL, APD, FCX, NEM, CTVA, DD, NUE, DOW],
-          keywords: ['"mining stocks"', '"materials sector"', '"chemical stocks"', '"steel stocks"']}
-    xlu:  {name: Kraftforsyning, tickers: [NEE, SO, DUK, CEG, AEP, SRE, D, EXC, XEL, PEG],
-          keywords: ['"utilities sector"', '"utility stocks"', '"power producers"']}
-    xlre: {name: Eiendom, tickers: [PLD, AMT, EQIX, WELL, SPG, PSA, O, DLR, CCI, CBRE],
-           keywords: ['"real estate stocks"', '"real estate investment trust"', '"property stocks"']}
-    xlc:  {name: Kommunikasjon, tickers: [META, GOOGL, NFLX, DIS, T, VZ, CMCSA, TMUS, EA, TTWO],
-          keywords: ['"communication services stocks"', '"media stocks"', '"telecom stocks"', '"streaming stocks"']}
+# Stemningsindeks (frykt og grådighet). Prisbasert: persentilrang mot siste 10 år, 0 = frykt, 100 = grådighet.
+# Markedsindeksen er snittet av komponentene (VIX, VIX/VIX3M, SKEW, HY-spread, S&P 500 mot 200d snitt, bredde,
+# aksjer mot obligasjoner, syklisk mot defensivt). Sektorstemning er snittet av fem prisbaserte mål per sektor-ETF.
+mood:
+  min_components_market: 5
+  min_components_sector: 4
+  max_age_days: 21
+  index_weeks: 156
+  bands:
+    extreme_fear_below: 25
+    fear_below: 45
+    neutral_below: 55
+    greed_below: 75
+  bond_candidates:
+    - {source: yfinance, symbol: "TLT"}
+    - {source: yfinance, symbol: "IEF", proxy: true, label: "IEF (7 til 10 års statsobligasjoner)"}

@@ -153,19 +153,59 @@
       '<div class="tablewrap"><table><thead><tr><th>Sektor</th><th class="num">Rel. 1 uke</th><th class="num">Rel. 1 måned</th><th class="num">Rel. 3 måneder</th><th class="num">Avstand 200d</th><th class="num">Siste dato</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
   }
 
-  /* ------------------------------------------------------------- sentiment */
-  function renderSentiment(sd) {
-    var warn = '<div class="warn"><strong>Eksperimentell og støyende.</strong> Kun kontekst, ikke et signal. Basert på nyhetstitler om de største aksjene i hver sektor (Yahoo Finance via yfinance, GDELT som supplement) og en språkmodell (FinBERT) som ikke er trent på sektorspesifikk nyhetsdekning. Antall artikler er tillitsindikator, og scoren skjules ved for få artikler.</div>';
-    if (!sd) return warn + missingBox('sektorsentiment', 'Filen sentiment.json kunne ikke leses.');
-    var keys = Object.keys(sd.rows || {});
-    if (!keys.length) return warn + missingBox('sektorsentiment', sd.group_error || sd.model_error || 'Ingen sektorer hentet.');
-    var tiles = keys.map(function (k) {
-      var r = sd.rows[k];
-      if (r.status !== 'ok') return '<div class="tile tile-missing"><div class="t-name">' + esc(r.name) + '</div><div class="t-val">' + MISSING + '</div><div class="t-n">' + esc(String(r.error || '').slice(0, 60)) + '</div></div>';
-      if (r.hidden || !isNum(r.z)) return '<div class="tile tile-hidden"><div class="t-name">' + esc(r.name) + '</div><div class="t-val">Skjult</div><div class="t-n">For få artikler (' + r.n_articles + ' av minst ' + esc(sd.min_articles) + ')</div></div>';
-      return '<div class="tile" style="' + heat(r.z, 2) + '"><div class="t-name">' + esc(r.name) + '</div><div class="t-val">z ' + fmtSigned(r.z, 1) + '</div><div class="t-n">' + r.n_articles + ' artikler · snitt ' + fmtSigned(r.mean_score, 2) + '</div></div>';
+  /* --------------------------------------------------------------- stemning */
+  var MOOD_TEXT = { extreme_fear: 'Ekstrem frykt', fear: 'Frykt', neutral: 'Nøytral', greed: 'Grådighet', extreme_greed: 'Ekstrem grådighet' };
+
+  /* score 0 (frykt, blå) til 100 (grådighet, oransje) */
+  function moodColor(v) {
+    if (!isNum(v)) return '';
+    var d = (v - 50) / 50, a = (0.12 + 0.55 * Math.min(Math.abs(d), 1)).toFixed(2);
+    return 'background:' + (d >= 0 ? 'rgba(230,140,40,' : 'rgba(60,120,210,') + a + ')';
+  }
+  function scoreBar(v) {
+    if (!isNum(v)) return '';
+    return '<div class="gauge" role="img" aria-label="Score ' + fmt(v, 0) + ' av 100"><div class="gauge-mark" style="left:' + Math.max(0, Math.min(100, v)) + '%"></div></div>' +
+      '<div class="gauge-ends"><span>Frykt</span><span>Grådighet</span></div>';
+  }
+  function moodWeek(v) { return isNum(v) ? fmtSigned(v, 0) + ' siste uke' : 'endring siste uke mangler'; }
+
+  function renderMood(m) {
+    var intro = '<div class="warn"><strong>Prisbasert stemning, ikke spørreundersøkelse.</strong> Hver komponent er persentilrang mot siste 10 år (0 = frykt, 100 = grådighet). ' +
+      'Indeksen overlapper delvis med regimepanelet (VIX og kreditt), men regimet måler stress mens stemningen også ser på momentum, bredde og risikoappetitt. Sektorstemning sammenlignes mot sektorens egen historikk, ikke mot andre sektorer. Kontekst, ikke et handelssignal.</div>';
+    if (!m) return intro + missingBox('stemning', 'Filen mood.json kunne ikke leses.');
+    var mk = m.market || {};
+    var head;
+    if (mk.status === 'ok') {
+      head = '<div class="card mood-head"><div class="mood-main"><div class="label">Markedsstemning</div><div class="state mood-' + esc(mk.label) + '">' + fmt(mk.score, 0) + ' <span class="mood-text">' + esc(MOOD_TEXT[mk.label] || '') + '</span></div>' +
+        '<div class="sub">' + moodWeek(mk.change_1w) + ' · ' + mk.n_used + ' av ' + mk.n_total + ' komponenter' + (mk.ref_date ? ' · per ' + fmtDate(mk.ref_date) : '') + '</div></div>' + scoreBar(mk.score) + '</div>';
+    } else {
+      head = '<div class="card mood-head">' + missingBox('markedsstemning', mk.error || 'Ingen markedsdata.') + '</div>';
+    }
+    var comps = (mk.components || []).map(function (c) {
+      if (c.status !== 'ok') return '<tr><td>' + esc(c.label) + '</td><td colspan="4" class="miss-cell">' + MISSING + '<span class="reason"> ' + esc(String(c.error || '').slice(0, 160)) + '</span></td></tr>';
+      return '<tr><td>' + esc(c.label) + '<div class="muted">' + esc(c.note || '') + '</div></td><td class="num">' + fmt(c.value, c.decimals) + ' <span class="muted">' + esc(c.unit) + '</span></td>' +
+        '<td class="num heat" style="' + moodColor(c.score) + '">' + fmt(c.score, 0) + '</td><td class="num">' + fmtSigned(isNum(c.score) && isNum(c.score_1w) ? c.score - c.score_1w : null, 0) + '</td>' +
+        '<td class="num ' + (c.stale ? 'stale' : '') + '">' + fmtDate(c.last_date) + (c.stale ? ' (utdatert)' : '') + '</td></tr>';
     }).join('');
-    return warn + '<div class="tiles">' + tiles + '</div><p class="muted">7 dagers snittscore (P(positiv) minus P(negativ)) per sektor. ' + esc(sd.z_note || '') + '</p>';
+    var compTable = comps ? '<div class="tablewrap"><table><thead><tr><th>Komponent</th><th class="num">Nivå</th><th class="num">Score</th><th class="num">Endring 1 uke</th><th class="num">Siste dato</th></tr></thead><tbody>' + comps + '</tbody></table></div>' : '';
+    var chart = (mk.series && mk.series.length) ? '<div class="chart" id="c-mood" role="img" aria-label="Markedsstemning over tid"></div>' : '';
+
+    var rowsObj = m.rows || {};
+    var rows = Object.keys(rowsObj).map(function (k) { return rowsObj[k]; });
+    rows.sort(function (a, b) { return (isNum(b.score) ? b.score : -1) - (isNum(a.score) ? a.score : -1); });
+    var sec = rows.map(function (r) {
+      if (r.status !== 'ok') return '<tr><td>' + esc(r.name) + ' <span class="muted">' + esc(r.symbol) + '</span></td><td colspan="8" class="miss-cell">' + MISSING + '<span class="reason"> ' + esc(String(r.error || '').slice(0, 140)) + '</span></td></tr>';
+      var by = {};
+      (r.components || []).forEach(function (c) { by[c.id] = c; });
+      var cell = function (id) { var c = by[id]; return c && c.status === 'ok' ? '<td class="num heat" style="' + moodColor(c.score) + '" title="' + esc(c.label) + ': ' + fmt(c.value, c.decimals) + ' ' + esc(c.unit) + '">' + fmt(c.score, 0) + '</td>' : '<td class="num miss-cell">–</td>'; };
+      return '<tr><td>' + esc(r.name) + ' <span class="muted">' + esc(r.symbol) + '</span></td>' +
+        '<td class="num heat strong" style="' + moodColor(r.score) + '">' + fmt(r.score, 0) + '</td><td>' + esc(MOOD_TEXT[r.label] || '') + '</td><td class="num">' + (isNum(r.change_1w) ? fmtSigned(r.change_1w, 0) : '–') + '</td>' +
+        cell('mom200') + cell('ret1m') + cell('rs3m') + cell('vol') + cell('dd') + '</tr>';
+    }).join('');
+    var secTable = rows.length ? '<h3 class="sub">Stemning per sektor</h3><p class="note">Score 0 til 100 per sektor-ETF, snitt av fem prisbaserte mål mot sektorens egen 10 års historikk. Sortert etter score. Fargene viser frykt (blå) til grådighet (oransje). USA som proxy for global sektorutvikling.' +
+      (m.benchmark_ok === false ? ' <span class="stale">Referansen SPY mangler, relativ styrke utelates.</span>' : '') + '</p>' +
+      '<div class="tablewrap"><table><thead><tr><th>Sektor</th><th class="num">Score</th><th>Stemning</th><th class="num">Endring 1 uke</th><th class="num">200d snitt</th><th class="num">1 mnd</th><th class="num">Rel. styrke</th><th class="num">Ro (lav vol)</th><th class="num">Nær høy</th></tr></thead><tbody>' + sec + '</tbody></table></div>' : missingBox('stemning per sektor', 'Ingen sektordata.');
+    return intro + head + chart + '<h3 class="sub">Komponenter i markedsindeksen</h3>' + compTable + secTable;
   }
 
   /* ------------------------------------------------------------- metodikk */
@@ -195,6 +235,6 @@
 
   return { MISSING: MISSING, esc: esc, fmt: fmt, fmtSigned: fmtSigned, fmtDate: fmtDate, fmtDateTime: fmtDateTime,
     missingBox: missingBox, renderRegime: renderRegime, renderIndicatorCard: renderIndicatorCard,
-    renderEquityTable: renderEquityTable, renderSectors: renderSectors, renderSentiment: renderSentiment,
+    renderEquityTable: renderEquityTable, renderSectors: renderSectors, renderMood: renderMood,
     renderMethodology: renderMethodology, renderMeta: renderMeta };
 });

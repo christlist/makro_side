@@ -4,7 +4,7 @@ from __future__ import annotations
 from .common import get_logger, now_iso, read_json, write_json
 
 log = get_logger("finalize")
-GROUPS = ["volatility", "macro", "equities", "sentiment", "regime"]
+GROUPS = ["volatility", "macro", "equities", "mood", "regime"]
 
 
 def main() -> None:

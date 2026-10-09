@@ -37,6 +37,19 @@
     window.Plotly.newPlot(el, traces, layout, { displayModeBar: false, responsive: true });
   }
 
+  function drawMood(id, mood) {
+    var el = $(id);
+    if (!el) return;
+    if (!window.Plotly) { el.innerHTML = '<div class="muted">Diagrambiblioteket (Plotly) kunne ikke lastes.</div>'; return; }
+    var ser = mood.market.series, b = (mood.rule || {}).bands || {};
+    var rect = function (y0, y1, color) { return { type: 'rect', xref: 'paper', x0: 0, x1: 1, yref: 'y', y0: y0, y1: y1, fillcolor: color, line: { width: 0 }, layer: 'below' }; };
+    var shapes = [rect(0, b.fear_below || 45, 'rgba(60,120,210,.10)'), rect(b.greed_below || 75, 100, 'rgba(230,140,40,.12)')];
+    window.Plotly.newPlot(el, [{ x: ser.map(function (p) { return p[0]; }), y: ser.map(function (p) { return p[1]; }), type: 'scatter', mode: 'lines', name: 'Stemning', line: { color: css('--accent'), width: 1.6 }, hovertemplate: '%{x}<br>%{y}<extra></extra>' }],
+      { margin: { l: 36, r: 8, t: 6, b: 28 }, showlegend: false, paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', font: { color: css('--text'), size: 11 },
+        xaxis: { gridcolor: css('--line'), type: 'date' }, yaxis: { gridcolor: css('--line'), range: [0, 100], zeroline: false }, shapes: shapes },
+      { displayModeBar: false, responsive: true });
+  }
+
   function init() {
     var theme = $('theme');
     theme.addEventListener('click', function () {
@@ -49,7 +62,7 @@
     });
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) { /* ignorer */ }
 
-    var names = ['meta', 'regime', 'volatility', 'macro', 'equities', 'sentiment'];
+    var names = ['meta', 'regime', 'volatility', 'macro', 'equities', 'mood'];
     Promise.all(names.map(loadJSON)).then(function (res) {
       var d = {}; names.forEach(function (n, i) { d[n] = res[i]; });
       window.__data = d;
@@ -74,7 +87,7 @@
     $('macro-body').innerHTML = cards(d.macro, macroIds, 'c-mac-', 'kreditt, renter og råvarer');
     $('eq-body').innerHTML = R.renderEquityTable(d.equities);
     $('sector-body').innerHTML = R.renderSectors(d.equities);
-    $('sent-body').innerHTML = R.renderSentiment(d.sentiment);
+    $('mood-body').innerHTML = R.renderMood(d.mood);
     $('method-body').innerHTML = R.renderMethodology({ volatility: d.volatility, macro: d.macro, equities: d.equities });
 
     if (vol) {
@@ -85,6 +98,7 @@
         drawChart('c-vol-' + id, ind, extra);
       });
     }
+    if (d.mood && d.mood.market && d.mood.market.series && d.mood.market.series.length) drawMood('c-mood', d.mood);
     if (d.macro) macroIds.forEach(function (id) { drawChart('c-mac-' + id, (d.macro.indicators || {})[id]); });
   }
 

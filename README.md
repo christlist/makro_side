@@ -1,6 +1,6 @@
 # makro_side
 
-Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett minutt: regime, volatilitet, kreditt, renter, råvarer, aksjer, sektorer og eksperimentell sektorsentiment. Oppdateres hver lørdag av GitHub Actions og hostes på GitHub Pages.
+Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett minutt: regime, volatilitet, kreditt, renter, råvarer, aksjer, sektorer og stemning (frykt og grådighet). Oppdateres hver lørdag av GitHub Actions og hostes på GitHub Pages.
 
 ## Prinsipper for data
 
@@ -24,12 +24,11 @@ Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett m
 
 ```bash
 pip install -r requirements.txt -r requirements-dev.txt
-# valgfritt, for sentiment: pip install -r requirements-sentiment.txt
 python -m scripts.verify_sources          # sjekk at hver kilde virker
 python -m scripts.fetch_volatility
 python -m scripts.fetch_macro
 python -m scripts.fetch_equities
-python -m scripts.fetch_sentiment         # tung: laster FinBERT, ca. 7 s mellom GDELT-kall
+python -m scripts.fetch_mood              # stemningsindeks, markedet og per sektor
 python -m scripts.build_regime
 python -m scripts.finalize
 python -m scripts.build_site && python -m http.server -d site 8000
@@ -53,4 +52,5 @@ Regime-indikatorer: VIX, VIX/VIX3M, HY-spread, IG-spread, bred dollarindeks, S&P
 ## Kilder og proxyer
 
 Se tabellen under «Metodikk og kilder» på siden (genereres fra siste kjøring). Proxyer er merket «Proxy» der de brukes: MSCI World og EM via ETF (URTH, EEM), sektorer via SPDR-ETFer (USA), Euro STOXX 50/ETF hvis STOXX 600 mangler, NORW hvis Oslo Børs-indeks mangler.
-Sentiment: nyhetstitler per aksje fra yfinance for de største beholdningene i hver sektor-ETF (tickerlister i `config.yaml`, må kontrolleres mot spdrs.com), GDELT DOC API som supplement for sektorer med for få artikler, og FinBERT (ProsusAI/finbert) på CPU. Modellen caches i Actions. z-score er relativ på tvers av sektorer denne uken.
+Stemning (frykt og grådighet): prisbasert, ingen nyheter eller undersøkelser. Markedsindeksen er snittet av persentilrang (0 frykt, 100 grådighet, mot siste 10 år) for VIX, VIX/VIX3M, SKEW, høyavkastningsspread, S&P 500 mot 200d snitt, andel sektorer over 200d snitt, aksjer mot statsobligasjoner (SPY mot TLT, 20 dager) og syklisk mot defensivt (XLY mot XLP, 63 dager). Minst fem komponenter må ha data. Sektorstemning er snittet av fem mål per sektor-ETF mot sektorens egen historikk (avstand til 200d snitt, 1 måneds avkastning, relativ styrke mot SPY over 3 måneder, lav realisert volatilitet, nærhet til 52 ukers høy). Bånd i `config.yaml`. Indeksen overlapper delvis med regimepanelet.
+Nyhetssentiment (GDELT, yfinance-nyheter, FinBERT) ble fjernet: GDELT ga HTTP 429 fra GitHub-runnere og Yahoo ga ingen nyheter.
