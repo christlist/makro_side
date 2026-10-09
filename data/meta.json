@@ -1,26 +1,32 @@
 {
- "run_at": "2026-10-09T10:20:28+00:00",
+ "run_at": "2026-10-09T11:49:02+00:00",
  "groups": {
   "volatility": {
-   "generated_at": "2026-10-09T10:20:16+00:00",
+   "generated_at": "2026-10-09T11:48:50+00:00",
    "ok": true
   },
   "macro": {
-   "generated_at": "2026-10-09T10:20:17+00:00",
+   "generated_at": "2026-10-09T11:48:51+00:00",
    "ok": true
   },
   "equities": {
-   "generated_at": "2026-10-09T10:20:25+00:00",
+   "generated_at": "2026-10-09T11:48:58+00:00",
    "ok": true
   },
   "mood": {
-   "generated_at": "2026-10-09T10:20:28+00:00",
+   "generated_at": "2026-10-09T11:49:02+00:00",
    "ok": true
   },
   "regime": {
-   "generated_at": "2026-10-09T10:20:25+00:00",
+   "generated_at": "2026-10-09T11:48:59+00:00",
    "ok": true
   }
  },
- "missing": []
+ "missing": [
+  {
+   "group": "mood",
+   "id": "naaim",
+   "error": "Mangler: NAAIM Exposure Index: SourceError: NAAIM: fant ingen Excel-lenke på siden"
+  }
+ ]
 }

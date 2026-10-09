@@ -8480,10 +8480,10 @@
    "source": "Proxy: realisert vol 21d, yfinance ^STOXX50E",
    "proxy": true,
    "last_date": "2026-10-09",
-   "last_value": 13.8476,
+   "last_value": 13.8982,
    "stale": false,
    "age_days": 0,
-   "percentile_10y": 51.0,
+   "percentile_10y": 51.4,
    "level": "normal",
    "window_start": "2016-10-10",
    "window_years": 10.0,
@@ -8495,7 +8495,7 @@
     "p75": 17.9637,
     "p90": 24.1513
    },
-   "change_1w": 0.5366,
+   "change_1w": 0.5872,
    "change_kind": "abs",
    "series": [
     [
@@ -10576,7 +10576,7 @@
     ],
     [
      "2026-10-09",
-     13.8476
+     13.8982
     ]
    ],
    "proxy_reason": "VSTOXX (V2TX) utilgjengelig: yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX"
@@ -12701,6 +12701,6 @@
   }
  },
  "group": "volatility",
- "generated_at": "2026-10-09T10:20:16+00:00",
+ "generated_at": "2026-10-09T11:48:50+00:00",
  "missing": []
 }
