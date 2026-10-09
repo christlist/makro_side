@@ -74,6 +74,15 @@ test('stemning: gyldig struktur rendres med sektortabell (testverdier er kun str
   assert.match(html, /Nøytral/);
 });
 
+test('komponent utenfor indeksen får merke, også når den mangler data', () => {
+  const html = R.renderMood({ market: { status: 'ok', score: 50, label: 'neutral', n_used: 8, n_total: 8, components: [
+      { id: 'naaim', label: 'NAAIM', status: 'missing', in_index: false, error: 'NAAIM: 403' },
+      { id: 'vix', label: 'VIX', status: 'ok', in_index: true, score: 50, value: 1, decimals: 0, unit: 'x', last_date: '2026-10-08' }], series: [] }, rows: {} }, null);
+  assert.match(html, /Utenfor indeksen/);
+  assert.match(html, /NAAIM: 403/);
+  assert.strictEqual((html.match(/Utenfor indeksen/g) || []).length, 1);  // ikke VIX
+});
+
 test('utdaterte data vises med dato og uten nivåetikett når persentil mangler', () => {
   const html = R.renderIndicatorCard({ id: 'x', name: 'X', status: 'ok', stale: true, last_date: '2026-01-02', last_value: 1, decimals: 1,
     percentile_10y: null, change_1w: null, source: 'test' }, 'c');

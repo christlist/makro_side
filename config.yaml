@@ -269,6 +269,22 @@ mood:
     fear_below: 45
     neutral_below: 55
     greed_below: 75
+  # Posisjonering. Vises i tabellen, men teller ikke med i indeksen før in_index settes til true
+  # (gjøres først når kilden er bekreftet å virke fra GitHub-runnerne, se verifiseringstabellen).
+  positioning:
+    cftc_spec:
+      label: "Spekulantposisjon S&P 500-futures (CFTC)"
+      in_index: false
+      stale_days: 14        # ukentlige tall, publisert fredag for tirsdag
+      candidates:
+        - {source: cftc, dataset: "6dca-aqww", code: "13874A", measure: legacy_noncomm}
+        - {source: cftc, dataset: "gpe5-46if", code: "13874A", measure: tff_lev}
+    naaim:
+      label: "NAAIM Exposure Index (aktive forvaltere)"
+      in_index: false
+      stale_days: 14
+      candidates:
+        - {source: naaim, page: "https://naaim.org/programs/naaim-exposure-index/"}
   bond_candidates:
     - {source: yfinance, symbol: "TLT"}
     - {source: yfinance, symbol: "IEF", proxy: true, label: "IEF (7 til 10 års statsobligasjoner)"}

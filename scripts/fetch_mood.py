@@ -69,9 +69,12 @@ def dist200(s: pd.Series) -> pd.Series:
 # ---------------------------------------------------------------- komponenter
 
 def comp(label: str, x: Optional[pd.Series], invert: bool, unit: str, decimals: int,
-         source: Optional[str] = None, error: Optional[str] = None, note: str = "") -> dict:
+         source: Optional[str] = None, error: Optional[str] = None, note: str = "",
+         in_index: bool = True, stale_days: Optional[int] = None) -> dict:
+    """in_index=False: vises i tabellen med score, men teller ikke med i indeksen (kilden er ikke bekreftet ennå).
+    stale_days: egen grense for utdatert, for ukentlige serier."""
     return {"label": label, "x": x, "invert": invert, "unit": unit, "decimals": decimals,
-            "source": source, "error": error, "note": note}
+            "source": source, "error": error, "note": note, "in_index": in_index, "stale_days": stale_days}
 
 
 def market_components(series: dict, sources: dict, errors: dict) -> dict:
@@ -123,6 +126,24 @@ def market_components(series: dict, sources: dict, errors: dict) -> dict:
     return out
 
 
+def positioning_components(pcfg: dict, series: dict, sources: dict, errors: dict) -> dict:
+    """CFTC- og NAAIM-komponentene. Høy verdi = mer offensiv posisjonering = grådighet.
+    Vises alltid i tabellen, men teller bare med i indeksen hvis in_index er satt i config."""
+    spec = {"cftc_spec": ("prosent av åpne kontrakter", 1, "Netto lange spekulanter = grådighet"),
+            "naaim": ("poeng", 1, "Høy aksjeeksponering blant aktive forvaltere = grådighet")}
+    out = {}
+    for key, (unit, dec, note) in spec.items():
+        cfg = pcfg.get(key)
+        if not cfg:
+            continue
+        x = series.get(key)
+        err = None if x is not None else f"Mangler: {errors.get(key, 'ukjent feil')[:300]}"
+        out[key] = comp(cfg["label"], x, False, unit, dec, sources.get(key), err, note + (
+            "" if cfg.get("in_index") else ". Ikke med i indeksen ennå, kilden verifiseres"),
+            in_index=bool(cfg.get("in_index")), stale_days=cfg.get("stale_days"))
+    return out
+
+
 def sector_components(close: pd.Series, spy: Optional[pd.Series]) -> dict:
     ret = close.pct_change()
     rs = None
@@ -148,7 +169,8 @@ def evaluate(components: dict, ref: pd.Timestamp, years: int, min_obs: int, max_
     ref_1w = ref - pd.DateOffset(days=7)
     for cid, c in components.items():
         row = {"id": cid, "label": c["label"], "unit": c["unit"], "decimals": c["decimals"],
-               "source": c.get("source"), "note": c.get("note", ""), "status": "ok", "error": None,
+               "source": c.get("source"), "note": c.get("note", ""), "in_index": c.get("in_index", True),
+               "status": "ok", "error": None,
                "score": None, "score_1w": None, "value": None, "last_date": None, "stale": False}
         x = c["x"]
         if x is None or len(x.dropna()) == 0:
@@ -159,7 +181,7 @@ def evaluate(components: dict, ref: pd.Timestamp, years: int, min_obs: int, max_
         last = x.index[-1]
         row["last_date"] = last.strftime("%Y-%m-%d")
         row["value"] = _num(float(x.iloc[-1]), 4)
-        row["stale"] = bool((today - last).days > stale_days)
+        row["stale"] = bool((today - last).days > (c.get("stale_days") or stale_days))
         if (ref - last).days > max_age_days:
             row.update({"status": "missing", "error": f"Data for gamle (siste punkt {row['last_date']})"})
         else:
@@ -180,13 +202,15 @@ def index_history(components: dict, ref: pd.Timestamp, weeks: int, years: int, m
     pts = []
     for asof in pd.date_range(end=ref, periods=weeks, freq="7D"):
         sc = mean_score([score_at(c["x"].dropna(), asof, c["invert"], years, min_obs)
-                         for c in components.values() if c["x"] is not None], min_components)
+                         for c in components.values() if c["x"] is not None and c.get("in_index", True)], min_components)
         if sc is not None:
             pts.append([asof.strftime("%Y-%m-%d"), _num(sc, 1)])
     return pts
 
 
 def summarize(rows: list[dict], bands: dict, min_components: int) -> dict:
+    """Bare komponenter med in_index (standard True) teller med i indeksen og i n_used/n_total."""
+    rows = [r for r in rows if r.get("in_index", True)]
     ok = [r for r in rows if r["status"] == "ok"]
     score = mean_score([r["score"] for r in ok], min_components)
     prev = mean_score([r["score_1w"] for r in ok], min_components)
@@ -234,6 +258,9 @@ def build(fetcher: Callable = fetch_series) -> dict:
     sec_cfg = cfg["equities"]["sectors"]
     for sid, sp in sec_cfg.items():
         wanted[f"sector_{sid}"] = [{"source": "yfinance", "symbol": sp["symbol"]}]
+    pcfg = mcfg.get("positioning") or {}
+    for key, pc in pcfg.items():
+        wanted[key] = pc["candidates"]
     for name, cands in wanted.items():
         series[name], sources[name] = fetcher(cands, settings, name, errors)
     series["_sector_ids"] = [k for k in sec_cfg if series.get(f"sector_{k}") is not None]
@@ -247,7 +274,9 @@ def build(fetcher: Callable = fetch_series) -> dict:
 
     # --- marked
     mcomps = market_components(series, sources, errors)
-    last_dates = [c["x"].dropna().index[-1] for c in mcomps.values() if c["x"] is not None and len(c["x"].dropna())]
+    mcomps.update(positioning_components(pcfg, series, sources, errors))
+    last_dates = [c["x"].dropna().index[-1] for c in mcomps.values()
+                  if c["x"] is not None and len(c["x"].dropna()) and c.get("in_index", True)]
     ref = max(last_dates) if last_dates else today
     rows = evaluate(mcomps, ref, years, min_obs, mcfg["max_age_days"], settings["stale_days"], today)
     market = summarize(rows, bands, mcfg["min_components_market"])

@@ -41,7 +41,7 @@ def mood_point(mood: Optional[dict]) -> Optional[dict]:
     ch = mk.get("change_1w")
     move = "" if ch is None else (f", {signed(ch, 0)} poeng siste uke" if ch else ", uendret siste uke")
     text = f"Stemningen er {MOOD_NB.get(mk['label'], mk['label'])} ({nb(mk['score'])} av 100{move})."
-    comps = [c for c in mk.get("components", []) if c.get("status") == "ok"]
+    comps = [c for c in mk.get("components", []) if c.get("status") == "ok" and c.get("in_index", True)]
     if len(comps) >= 2:
         hi = max(comps, key=lambda c: c["score"])
         lo = min(comps, key=lambda c: c["score"])
@@ -110,6 +110,8 @@ def health(files: dict, mood: Optional[dict]) -> dict:
             else:
                 missing.append(ind.get("name", k))
     for c in ((mood or {}).get("market") or {}).get("components", []):
+        if not c.get("in_index", True):
+            continue  # eksperimentelle komponenter teller ikke i datahelsen før de er med i indeksen
         total += 1
         if c.get("status") == "ok":
             ok += 1

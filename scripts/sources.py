@@ -94,6 +94,10 @@ def candidate_label(c: dict) -> str:
     src = c["source"]
     if src == "cboe":
         return "CBOE " + c["url"].rsplit("/", 1)[-1]
+    if src == "cftc":
+        return f"CFTC {c['dataset']} {c['code']} ({c['measure']})"
+    if src == "naaim":
+        return "NAAIM Exposure Index"
     if src == "fred":
         return f"FRED {c['id']}"
     return f"{src} {c.get('symbol')}"
@@ -110,6 +114,10 @@ def fetch_candidate(c: dict, settings: dict) -> pd.Series:
         s = fetch_yfinance(c["symbol"], years)
     elif src == "stooq":
         s = fetch_stooq(c["symbol"], to, rt)
+    elif src == "cftc":
+        s = fetch_cftc(c["dataset"], c["code"], c["measure"], to, rt)
+    elif src == "naaim":
+        s = fetch_naaim(c["page"], to, rt)
     else:
         raise SourceError(f"Ukjent kilde: {src}")
     if s.empty:
@@ -155,3 +163,87 @@ def build_series_group(specs: dict, group: str, settings: dict) -> tuple[dict, d
             log.error("%s.%s mangler: %s", group, ind_id, exc)
             indicators[ind_id] = missing_indicator(spec, ind_id, group, str(exc))
     return indicators, raw
+
+
+# ------------------------------------------------------------------ posisjonering (CFTC, NAAIM)
+
+CFTC_URL = "https://publicreporting.cftc.gov/resource/{dataset}.json"
+# Mulige feltnavn per mål. Første som finnes i svaret brukes.
+CFTC_FIELDS = {
+    "legacy_noncomm": (["noncomm_positions_long_all"], ["noncomm_positions_short_all"]),
+    "tff_lev": (["lev_money_positions_long_all", "lev_money_positions_long"],
+                ["lev_money_positions_short_all", "lev_money_positions_short"]),
+}
+
+
+def parse_cftc_rows(rows: list, measure: str) -> pd.Series:
+    """Netto posisjon som prosent av åpne kontrakter, fra Socrata-rader. Kaster SourceError ved uventet format."""
+    if not isinstance(rows, list) or not rows:
+        raise SourceError("CFTC ga ingen rader")
+    if measure not in CFTC_FIELDS:
+        raise SourceError(f"Ukjent CFTC-mål: {measure}")
+    keys = set(rows[0].keys())
+    longs, shorts = CFTC_FIELDS[measure]
+    lf = next((f for f in longs if f in keys), None)
+    sf = next((f for f in shorts if f in keys), None)
+    if lf is None or sf is None or "open_interest_all" not in keys or "report_date_as_yyyy_mm_dd" not in keys:
+        raise SourceError(f"CFTC: fant ikke forventede felt. Felt i svaret: {sorted(keys)[:12]}")
+    df = pd.DataFrame(rows)
+    d = pd.to_datetime(df["report_date_as_yyyy_mm_dd"], errors="coerce")
+    lo, sh, oi = (pd.to_numeric(df[c], errors="coerce") for c in (lf, sf, "open_interest_all"))
+    s = pd.Series(((lo - sh) / oi * 100.0).values, index=d)
+    s = s[s.index.notna()].replace([float("inf"), float("-inf")], float("nan")).dropna()
+    if s.empty:
+        raise SourceError("CFTC: ingen gyldige observasjoner")
+    return clean_series(s)
+
+
+def fetch_cftc(dataset: str, code: str, measure: str, timeout: int, retries: int) -> pd.Series:
+    r = http_get(CFTC_URL.format(dataset=dataset),
+                 params={"$where": f"cftc_contract_market_code='{code}'",
+                         "$order": "report_date_as_yyyy_mm_dd DESC", "$limit": 1200},
+                 timeout=timeout, retries=retries)
+    try:
+        rows = r.json()
+    except ValueError as exc:
+        raise SourceError(f"CFTC ga ikke JSON: {r.text[:100]!r}") from exc
+    return parse_cftc_rows(rows, measure)
+
+
+def find_naaim_xlsx_url(html: str, base: str) -> str:
+    """Finn lenken til Excel-filen med historiske data på NAAIM-siden."""
+    import re
+    from urllib.parse import urljoin
+
+    links = re.findall(r'href=["\']([^"\']+\.xlsx?[^"\']*)["\']', html, flags=re.I)
+    if not links:
+        raise SourceError("NAAIM: fant ingen Excel-lenke på siden")
+    preferred = [l for l in links if "since" in l.lower() or "inception" in l.lower() or "use_data" in l.lower()]
+    return urljoin(base, (preferred or links)[0])
+
+
+def parse_naaim_frame(df: pd.DataFrame) -> pd.Series:
+    """NAAIM Number per dato fra en innlest tabell. Kaster SourceError hvis kolonnene ikke gjenkjennes."""
+    cols = {str(c).strip().lower(): c for c in df.columns}
+    date_col = next((c for k, c in cols.items() if k.startswith("date")), None)
+    val_col = next((c for k, c in cols.items() if "naaim" in k), None)
+    if date_col is None or val_col is None:
+        raise SourceError(f"NAAIM: fant ikke dato- og verdikolonne. Kolonner: {[str(c) for c in df.columns][:10]}")
+    s = pd.Series(pd.to_numeric(df[val_col], errors="coerce").values, index=pd.to_datetime(df[date_col], errors="coerce"))
+    s = s[s.index.notna()].dropna()
+    if s.empty:
+        raise SourceError("NAAIM: ingen gyldige observasjoner")
+    return clean_series(s)
+
+
+def fetch_naaim(page: str, timeout: int, retries: int) -> pd.Series:
+    import io as _io
+
+    html = http_get(page, timeout=timeout, retries=retries).text
+    url = find_naaim_xlsx_url(html, page)
+    content = http_get(url, timeout=timeout, retries=retries).content
+    try:
+        df = pd.read_excel(_io.BytesIO(content))
+    except Exception as exc:  # noqa: BLE001
+        raise SourceError(f"NAAIM: kunne ikke lese Excel-filen ({type(exc).__name__}: {exc})") from exc
+    return parse_naaim_frame(df)
