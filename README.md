@@ -53,4 +53,4 @@ Regime-indikatorer: VIX, VIX/VIX3M, HY-spread, IG-spread, bred dollarindeks, S&P
 ## Kilder og proxyer
 
 Se tabellen under «Metodikk og kilder» på siden (genereres fra siste kjøring). Proxyer er merket «Proxy» der de brukes: MSCI World og EM via ETF (URTH, EEM), sektorer via SPDR-ETFer (USA), Euro STOXX 50/ETF hvis STOXX 600 mangler, NORW hvis Oslo Børs-indeks mangler.
-Sentiment: GDELT DOC API (artikkeltitler) og FinBERT (ProsusAI/finbert) på CPU, modellen caches i Actions. z-score er relativ på tvers av sektorer denne uken.
+Sentiment: nyhetstitler per aksje fra yfinance for de største beholdningene i hver sektor-ETF (tickerlister i `config.yaml`, må kontrolleres mot spdrs.com), GDELT DOC API som supplement for sektorer med for få artikler, og FinBERT (ProsusAI/finbert) på CPU. Modellen caches i Actions. z-score er relativ på tvers av sektorer denne uken.
