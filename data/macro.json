@@ -15,23 +15,23 @@
    "error": null,
    "source": "FRED BAMLH0A0HYM2",
    "proxy": false,
-   "last_date": "2026-10-07",
-   "last_value": 3.09,
+   "last_date": "2026-10-08",
+   "last_value": 3.15,
    "stale": false,
    "age_days": 2,
-   "percentile_10y": 54.7,
+   "percentile_10y": 62.7,
    "level": "normal",
-   "window_start": "2023-10-09",
+   "window_start": "2023-10-10",
    "window_years": 3.0,
    "n_obs": 786,
    "bands": {
     "p10": 2.69,
     "p25": 2.8,
     "p50": 3.02,
-    "p75": 3.24,
-    "p90": 3.6
+    "p75": 3.2375,
+    "p90": 3.595
    },
-   "change_1w": -0.03,
+   "change_1w": -0.09,
    "change_kind": "abs",
    "series": [
     [
@@ -659,8 +659,8 @@
      3.1
     ],
     [
-     "2026-10-07",
-     3.09
+     "2026-10-08",
+     3.15
     ]
    ]
   },
@@ -679,13 +679,13 @@
    "error": null,
    "source": "FRED BAMLC0A0CM",
    "proxy": false,
-   "last_date": "2026-10-07",
+   "last_date": "2026-10-08",
    "last_value": 0.82,
    "stale": false,
    "age_days": 2,
    "percentile_10y": 41.1,
    "level": "normal",
-   "window_start": "2023-10-09",
+   "window_start": "2023-10-10",
    "window_years": 3.0,
    "n_obs": 785,
    "bands": {
@@ -695,7 +695,7 @@
     "p75": 0.95,
     "p90": 1.06
    },
-   "change_1w": -0.02,
+   "change_1w": -0.04,
    "change_kind": "abs",
    "series": [
     [
@@ -1323,7 +1323,7 @@
      0.85
     ],
     [
-     "2026-10-07",
+     "2026-10-08",
      0.82
     ]
    ]
@@ -1343,15 +1343,15 @@
    "error": null,
    "source": "FRED T10Y2Y",
    "proxy": false,
-   "last_date": "2026-10-08",
-   "last_value": 0.47,
+   "last_date": "2026-10-09",
+   "last_value": 0.44,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 55.5,
+   "percentile_10y": 52.9,
    "level": "normal",
    "window_start": "2016-10-11",
    "window_years": 10.0,
-   "n_obs": 2499,
+   "n_obs": 2500,
    "bands": {
     "p10": -0.45,
     "p25": 0.09,
@@ -1359,7 +1359,7 @@
     "p75": 0.67,
     "p90": 1.1
    },
-   "change_1w": 0.01,
+   "change_1w": -0.01,
    "change_kind": "abs",
    "series": [
     [
@@ -3439,8 +3439,8 @@
      0.45
     ],
     [
-     "2026-10-08",
-     0.47
+     "2026-10-09",
+     0.44
     ]
    ]
   },
@@ -3459,15 +3459,15 @@
    "error": null,
    "source": "FRED DGS10",
    "proxy": false,
-   "last_date": "2026-10-07",
-   "last_value": 5.28,
+   "last_date": "2026-10-08",
+   "last_value": 5.22,
    "stale": false,
    "age_days": 2,
-   "percentile_10y": 99.9,
+   "percentile_10y": 99.7,
    "level": "very_high",
    "window_start": "2016-10-11",
    "window_years": 10.0,
-   "n_obs": 2498,
+   "n_obs": 2499,
    "bands": {
     "p10": 1.25,
     "p25": 1.85,
@@ -3475,7 +3475,7 @@
     "p75": 4.14,
     "p90": 4.43
    },
-   "change_1w": -0.01,
+   "change_1w": -0.02,
    "change_kind": "abs",
    "series": [
     [
@@ -5555,8 +5555,8 @@
      5.28
     ],
     [
-     "2026-10-07",
-     5.28
+     "2026-10-08",
+     5.22
     ]
    ]
   },
@@ -5578,7 +5578,7 @@
    "last_date": "2026-10-02",
    "last_value": 121.3848,
    "stale": false,
-   "age_days": 7,
+   "age_days": 8,
    "percentile_10y": 79.1,
    "level": "high",
    "window_start": "2016-10-03",
@@ -7694,7 +7694,7 @@
    "last_date": "2026-10-06",
    "last_value": 96.24,
    "stale": false,
-   "age_days": 3,
+   "age_days": 4,
    "percentile_10y": 93.6,
    "level": "very_high",
    "window_start": "2016-10-07",
@@ -9794,6 +9794,6 @@
   }
  },
  "group": "macro",
- "generated_at": "2026-10-09T13:01:55+00:00",
+ "generated_at": "2026-10-10T11:15:20+00:00",
  "missing": []
 }

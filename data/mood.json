@@ -43,10 +43,10 @@
  },
  "market": {
   "status": "ok",
-  "score": 45.5,
+  "score": 47.1,
   "label": "neutral",
-  "score_1w": 40.3,
-  "change_1w": 5.3,
+  "score_1w": 46.1,
+  "change_1w": 1.0,
   "n_used": 8,
   "n_total": 8,
   "error": null,
@@ -61,10 +61,10 @@
     "in_index": true,
     "status": "ok",
     "error": null,
-    "score": 63.6,
-    "score_1w": 54.5,
-    "value": 15.41,
-    "last_date": "2026-10-08",
+    "score": 68.0,
+    "score_1w": 64.3,
+    "value": 14.84,
+    "last_date": "2026-10-09",
     "stale": false,
     "window_years": 10.0
    },
@@ -78,10 +78,10 @@
     "in_index": true,
     "status": "ok",
     "error": null,
-    "score": 64.9,
-    "score_1w": 48.1,
-    "value": 0.8523,
-    "last_date": "2026-10-08",
+    "score": 75.8,
+    "score_1w": 66.5,
+    "value": 0.8351,
+    "last_date": "2026-10-09",
     "stale": false,
     "window_years": 10.0
    },
@@ -95,10 +95,10 @@
     "in_index": true,
     "status": "ok",
     "error": null,
-    "score": 14.6,
-    "score_1w": 30.1,
-    "value": 149.19,
-    "last_date": "2026-10-08",
+    "score": 6.9,
+    "score_1w": 24.1,
+    "value": 154.34,
+    "last_date": "2026-10-09",
     "stale": false,
     "window_years": 10.0
    },
@@ -112,10 +112,10 @@
     "in_index": true,
     "status": "ok",
     "error": null,
-    "score": 45.3,
-    "score_1w": 24.9,
-    "value": 3.09,
-    "last_date": "2026-10-07",
+    "score": 37.3,
+    "score_1w": 43.7,
+    "value": 3.15,
+    "last_date": "2026-10-08",
     "stale": false,
     "window_years": 3.0
    },
@@ -129,10 +129,10 @@
     "in_index": true,
     "status": "ok",
     "error": null,
-    "score": 59.4,
-    "score_1w": 48.4,
-    "value": 7.1681,
-    "last_date": "2026-10-08",
+    "score": 63.6,
+    "score_1w": 57.5,
+    "value": 7.736,
+    "last_date": "2026-10-09",
     "stale": false,
     "window_years": 10.0
    },
@@ -147,9 +147,9 @@
     "status": "ok",
     "error": null,
     "score": 15.1,
-    "score_1w": 10.4,
+    "score_1w": 10.5,
     "value": 45.4545,
-    "last_date": "2026-10-08",
+    "last_date": "2026-10-09",
     "stale": false,
     "window_years": 10.0
    },
@@ -163,10 +163,10 @@
     "in_index": true,
     "status": "ok",
     "error": null,
-    "score": 80.9,
-    "score_1w": 77.1,
-    "value": 5.5922,
-    "last_date": "2026-10-08",
+    "score": 79.6,
+    "score_1w": 77.6,
+    "value": 5.3066,
+    "last_date": "2026-10-09",
     "stale": false,
     "window_years": 10.0
    },
@@ -180,10 +180,10 @@
     "in_index": true,
     "status": "ok",
     "error": null,
-    "score": 20.4,
-    "score_1w": 28.6,
-    "value": -4.3348,
-    "last_date": "2026-10-08",
+    "score": 30.4,
+    "score_1w": 24.6,
+    "value": -1.8254,
+    "last_date": "2026-10-09",
     "stale": false,
     "window_years": 10.0
    },
@@ -197,10 +197,10 @@
     "in_index": false,
     "status": "ok",
     "error": null,
-    "score": 18.5,
+    "score": 16.6,
     "score_1w": 18.5,
-    "value": -7.5161,
-    "last_date": "2026-09-29",
+    "value": -7.9737,
+    "last_date": "2026-10-06",
     "stale": false,
     "window_years": 10.0
    },
@@ -221,631 +221,631 @@
     "stale": false
    }
   ],
-  "ref_date": "2026-10-08",
+  "ref_date": "2026-10-09",
   "series": [
    [
-    "2023-10-19",
-    32.5
+    "2023-10-20",
+    30.5
    ],
    [
-    "2023-10-26",
-    23.9
-   ],
-   [
-    "2023-11-02",
-    36.0
-   ],
-   [
-    "2023-11-09",
-    34.2
-   ],
-   [
-    "2023-11-16",
-    40.4
-   ],
-   [
-    "2023-11-23",
-    56.2
-   ],
-   [
-    "2023-11-30",
-    53.1
-   ],
-   [
-    "2023-12-07",
-    55.8
-   ],
-   [
-    "2023-12-14",
-    53.9
-   ],
-   [
-    "2023-12-21",
-    56.8
-   ],
-   [
-    "2023-12-28",
-    65.7
-   ],
-   [
-    "2024-01-04",
-    54.9
-   ],
-   [
-    "2024-01-11",
-    52.4
-   ],
-   [
-    "2024-01-18",
-    51.6
-   ],
-   [
-    "2024-01-25",
-    61.1
-   ],
-   [
-    "2024-02-01",
-    57.7
-   ],
-   [
-    "2024-02-08",
-    64.0
-   ],
-   [
-    "2024-02-15",
-    58.8
-   ],
-   [
-    "2024-02-22",
-    54.7
-   ],
-   [
-    "2024-02-29",
-    61.0
-   ],
-   [
-    "2024-03-07",
-    53.5
-   ],
-   [
-    "2024-03-14",
-    54.5
-   ],
-   [
-    "2024-03-21",
-    57.6
-   ],
-   [
-    "2024-03-28",
-    57.0
-   ],
-   [
-    "2024-04-04",
-    51.5
-   ],
-   [
-    "2024-04-11",
-    59.8
-   ],
-   [
-    "2024-04-18",
-    42.2
-   ],
-   [
-    "2024-04-25",
-    49.4
-   ],
-   [
-    "2024-05-02",
-    55.5
-   ],
-   [
-    "2024-05-09",
-    55.6
-   ],
-   [
-    "2024-05-16",
-    55.0
-   ],
-   [
-    "2024-05-23",
-    51.3
-   ],
-   [
-    "2024-05-30",
-    48.8
-   ],
-   [
-    "2024-06-06",
-    55.1
-   ],
-   [
-    "2024-06-13",
-    57.7
-   ],
-   [
-    "2024-06-20",
-    54.2
-   ],
-   [
-    "2024-06-27",
-    57.9
-   ],
-   [
-    "2024-07-04",
-    65.8
-   ],
-   [
-    "2024-07-11",
-    59.3
-   ],
-   [
-    "2024-07-18",
-    51.5
-   ],
-   [
-    "2024-07-25",
-    46.1
-   ],
-   [
-    "2024-08-01",
-    43.5
-   ],
-   [
-    "2024-08-08",
-    25.0
-   ],
-   [
-    "2024-08-15",
-    48.6
-   ],
-   [
-    "2024-08-22",
-    42.2
-   ],
-   [
-    "2024-08-29",
-    48.7
-   ],
-   [
-    "2024-09-05",
-    38.1
-   ],
-   [
-    "2024-09-12",
-    44.0
-   ],
-   [
-    "2024-09-19",
-    58.3
-   ],
-   [
-    "2024-09-26",
-    58.0
-   ],
-   [
-    "2024-10-03",
-    52.8
-   ],
-   [
-    "2024-10-10",
-    53.1
-   ],
-   [
-    "2024-10-17",
-    56.3
-   ],
-   [
-    "2024-10-24",
-    60.0
-   ],
-   [
-    "2024-10-31",
-    51.9
-   ],
-   [
-    "2024-11-07",
-    69.6
-   ],
-   [
-    "2024-11-14",
-    69.6
-   ],
-   [
-    "2024-11-21",
-    61.3
-   ],
-   [
-    "2024-11-28",
-    68.7
-   ],
-   [
-    "2024-12-05",
-    65.3
-   ],
-   [
-    "2024-12-12",
-    62.6
-   ],
-   [
-    "2024-12-19",
-    42.2
-   ],
-   [
-    "2024-12-26",
-    62.5
-   ],
-   [
-    "2025-01-02",
-    49.4
-   ],
-   [
-    "2025-01-09",
-    52.0
-   ],
-   [
-    "2025-01-16",
-    51.5
-   ],
-   [
-    "2025-01-23",
-    63.2
-   ],
-   [
-    "2025-01-30",
-    60.2
-   ],
-   [
-    "2025-02-06",
-    54.6
-   ],
-   [
-    "2025-02-13",
-    55.6
-   ],
-   [
-    "2025-02-20",
-    52.4
-   ],
-   [
-    "2025-02-27",
-    28.3
-   ],
-   [
-    "2025-03-06",
-    24.7
-   ],
-   [
-    "2025-03-13",
-    16.3
-   ],
-   [
-    "2025-03-20",
-    22.1
-   ],
-   [
-    "2025-03-27",
-    26.5
-   ],
-   [
-    "2025-04-03",
-    8.5
-   ],
-   [
-    "2025-04-10",
-    14.1
-   ],
-   [
-    "2025-04-17",
-    13.5
-   ],
-   [
-    "2025-04-24",
-    17.0
-   ],
-   [
-    "2025-05-01",
-    21.7
-   ],
-   [
-    "2025-05-08",
-    29.6
-   ],
-   [
-    "2025-05-15",
-    43.0
-   ],
-   [
-    "2025-05-22",
-    39.1
-   ],
-   [
-    "2025-05-29",
-    45.2
-   ],
-   [
-    "2025-06-05",
-    47.5
-   ],
-   [
-    "2025-06-12",
-    44.9
-   ],
-   [
-    "2025-06-19",
-    37.0
-   ],
-   [
-    "2025-06-26",
-    49.0
-   ],
-   [
-    "2025-07-03",
-    64.1
-   ],
-   [
-    "2025-07-10",
-    64.7
-   ],
-   [
-    "2025-07-17",
-    63.4
-   ],
-   [
-    "2025-07-24",
-    67.7
-   ],
-   [
-    "2025-07-31",
-    57.4
-   ],
-   [
-    "2025-08-07",
-    54.7
-   ],
-   [
-    "2025-08-14",
-    56.5
-   ],
-   [
-    "2025-08-21",
-    52.3
-   ],
-   [
-    "2025-08-28",
-    66.7
-   ],
-   [
-    "2025-09-04",
-    64.9
-   ],
-   [
-    "2025-09-11",
-    66.8
-   ],
-   [
-    "2025-09-18",
-    62.0
-   ],
-   [
-    "2025-09-25",
-    57.4
-   ],
-   [
-    "2025-10-02",
-    60.6
-   ],
-   [
-    "2025-10-09",
-    63.4
-   ],
-   [
-    "2025-10-16",
-    39.6
-   ],
-   [
-    "2025-10-23",
-    53.5
-   ],
-   [
-    "2025-10-30",
-    59.9
-   ],
-   [
-    "2025-11-06",
-    47.2
-   ],
-   [
-    "2025-11-13",
-    51.9
-   ],
-   [
-    "2025-11-20",
-    29.4
-   ],
-   [
-    "2025-11-27",
-    52.4
-   ],
-   [
-    "2025-12-04",
-    59.3
-   ],
-   [
-    "2025-12-11",
-    62.2
-   ],
-   [
-    "2025-12-18",
-    50.5
-   ],
-   [
-    "2025-12-25",
-    64.9
-   ],
-   [
-    "2026-01-01",
-    56.2
-   ],
-   [
-    "2026-01-08",
-    58.2
-   ],
-   [
-    "2026-01-15",
-    60.1
-   ],
-   [
-    "2026-01-22",
-    60.4
-   ],
-   [
-    "2026-01-29",
-    55.1
-   ],
-   [
-    "2026-02-05",
-    37.2
-   ],
-   [
-    "2026-02-12",
-    34.1
-   ],
-   [
-    "2026-02-19",
-    36.5
-   ],
-   [
-    "2026-02-26",
-    35.6
-   ],
-   [
-    "2026-03-05",
-    26.6
-   ],
-   [
-    "2026-03-12",
-    22.6
-   ],
-   [
-    "2026-03-19",
+    "2023-10-27",
     24.9
    ],
    [
-    "2026-03-26",
-    16.4
+    "2023-11-03",
+    35.2
    ],
    [
-    "2026-04-02",
-    20.3
+    "2023-11-10",
+    42.9
    ],
    [
-    "2026-04-09",
-    36.8
+    "2023-11-17",
+    44.7
    ],
    [
-    "2026-04-16",
-    54.0
-   ],
-   [
-    "2026-04-23",
-    51.6
-   ],
-   [
-    "2026-04-30",
-    58.8
-   ],
-   [
-    "2026-05-07",
-    66.7
-   ],
-   [
-    "2026-05-14",
-    71.2
-   ],
-   [
-    "2026-05-21",
-    69.1
-   ],
-   [
-    "2026-05-28",
-    73.1
-   ],
-   [
-    "2026-06-04",
-    63.9
-   ],
-   [
-    "2026-06-11",
-    44.6
-   ],
-   [
-    "2026-06-18",
-    55.2
-   ],
-   [
-    "2026-06-25",
-    40.8
-   ],
-   [
-    "2026-07-02",
-    53.4
-   ],
-   [
-    "2026-07-09",
+    "2023-11-24",
     61.1
    ],
    [
-    "2026-07-16",
-    53.6
+    "2023-12-01",
+    56.1
    ],
    [
-    "2026-07-23",
-    44.8
+    "2023-12-08",
+    56.5
    ],
    [
-    "2026-07-30",
-    47.2
+    "2023-12-15",
+    58.1
    ],
    [
-    "2026-08-06",
-    64.2
+    "2023-12-22",
+    60.0
    ],
    [
-    "2026-08-13",
-    67.9
+    "2023-12-29",
+    63.7
    ],
    [
-    "2026-08-20",
+    "2024-01-05",
+    61.8
+   ],
+   [
+    "2024-01-12",
+    52.1
+   ],
+   [
+    "2024-01-19",
+    59.5
+   ],
+   [
+    "2024-01-26",
+    64.4
+   ],
+   [
+    "2024-02-02",
+    61.1
+   ],
+   [
+    "2024-02-09",
+    62.5
+   ],
+   [
+    "2024-02-16",
+    57.7
+   ],
+   [
+    "2024-02-23",
+    55.9
+   ],
+   [
+    "2024-03-01",
+    63.2
+   ],
+   [
+    "2024-03-08",
+    52.1
+   ],
+   [
+    "2024-03-15",
     55.4
    ],
    [
-    "2026-08-27",
-    57.4
+    "2024-03-22",
+    57.0
    ],
    [
-    "2026-09-03",
-    53.5
+    "2024-03-29",
+    57.0
    ],
    [
-    "2026-09-10",
-    42.4
+    "2024-04-05",
+    55.6
    ],
    [
-    "2026-09-17",
-    48.5
+    "2024-04-12",
+    47.7
    ],
    [
-    "2026-09-24",
-    51.3
+    "2024-04-19",
+    33.9
    ],
    [
-    "2026-10-01",
-    40.3
+    "2024-04-26",
+    49.4
    ],
    [
-    "2026-10-08",
-    45.5
+    "2024-05-03",
+    54.5
+   ],
+   [
+    "2024-05-10",
+    58.6
+   ],
+   [
+    "2024-05-17",
+    60.6
+   ],
+   [
+    "2024-05-24",
+    55.0
+   ],
+   [
+    "2024-05-31",
+    53.6
+   ],
+   [
+    "2024-06-07",
+    59.3
+   ],
+   [
+    "2024-06-14",
+    55.0
+   ],
+   [
+    "2024-06-21",
+    53.7
+   ],
+   [
+    "2024-06-28",
+    60.8
+   ],
+   [
+    "2024-07-05",
+    64.6
+   ],
+   [
+    "2024-07-12",
+    61.5
+   ],
+   [
+    "2024-07-19",
+    50.5
+   ],
+   [
+    "2024-07-26",
+    51.2
+   ],
+   [
+    "2024-08-02",
+    31.1
+   ],
+   [
+    "2024-08-09",
+    28.8
+   ],
+   [
+    "2024-08-16",
+    52.6
+   ],
+   [
+    "2024-08-23",
+    48.8
+   ],
+   [
+    "2024-08-30",
+    58.8
+   ],
+   [
+    "2024-09-06",
+    23.6
+   ],
+   [
+    "2024-09-13",
+    43.2
+   ],
+   [
+    "2024-09-20",
+    55.8
+   ],
+   [
+    "2024-09-27",
+    53.3
+   ],
+   [
+    "2024-10-04",
+    57.1
+   ],
+   [
+    "2024-10-11",
+    53.1
+   ],
+   [
+    "2024-10-18",
+    57.9
+   ],
+   [
+    "2024-10-25",
+    58.5
+   ],
+   [
+    "2024-11-01",
+    54.5
+   ],
+   [
+    "2024-11-08",
+    69.2
+   ],
+   [
+    "2024-11-15",
+    62.1
+   ],
+   [
+    "2024-11-22",
+    65.1
+   ],
+   [
+    "2024-11-29",
+    72.5
+   ],
+   [
+    "2024-12-06",
+    68.3
+   ],
+   [
+    "2024-12-13",
+    64.9
+   ],
+   [
+    "2024-12-20",
+    51.2
+   ],
+   [
+    "2024-12-27",
+    58.7
+   ],
+   [
+    "2025-01-03",
+    57.3
+   ],
+   [
+    "2025-01-10",
+    48.0
+   ],
+   [
+    "2025-01-17",
+    57.5
+   ],
+   [
+    "2025-01-24",
+    61.7
+   ],
+   [
+    "2025-01-31",
+    56.0
+   ],
+   [
+    "2025-02-07",
+    50.1
+   ],
+   [
+    "2025-02-14",
+    56.4
+   ],
+   [
+    "2025-02-21",
+    35.1
+   ],
+   [
+    "2025-02-28",
+    29.2
+   ],
+   [
+    "2025-03-07",
+    24.5
+   ],
+   [
+    "2025-03-14",
+    21.7
+   ],
+   [
+    "2025-03-21",
+    20.3
+   ],
+   [
+    "2025-03-28",
+    16.1
+   ],
+   [
+    "2025-04-04",
+    6.1
+   ],
+   [
+    "2025-04-11",
+    13.7
+   ],
+   [
+    "2025-04-18",
+    13.5
+   ],
+   [
+    "2025-04-25",
+    17.4
+   ],
+   [
+    "2025-05-02",
+    30.5
+   ],
+   [
+    "2025-05-09",
+    32.9
+   ],
+   [
+    "2025-05-16",
+    48.7
+   ],
+   [
+    "2025-05-23",
+    35.0
+   ],
+   [
+    "2025-05-30",
+    43.6
+   ],
+   [
+    "2025-06-06",
+    55.3
+   ],
+   [
+    "2025-06-13",
+    38.2
+   ],
+   [
+    "2025-06-20",
+    37.7
+   ],
+   [
+    "2025-06-27",
+    56.1
+   ],
+   [
+    "2025-07-04",
+    63.2
+   ],
+   [
+    "2025-07-11",
+    62.6
+   ],
+   [
+    "2025-07-18",
+    63.6
+   ],
+   [
+    "2025-07-25",
+    70.2
+   ],
+   [
+    "2025-08-01",
+    37.2
+   ],
+   [
+    "2025-08-08",
+    58.2
+   ],
+   [
+    "2025-08-15",
+    58.6
+   ],
+   [
+    "2025-08-22",
+    64.2
+   ],
+   [
+    "2025-08-29",
+    66.4
+   ],
+   [
+    "2025-09-05",
+    64.3
+   ],
+   [
+    "2025-09-12",
+    63.7
+   ],
+   [
+    "2025-09-19",
+    64.5
+   ],
+   [
+    "2025-09-26",
+    63.5
+   ],
+   [
+    "2025-10-03",
+    63.8
+   ],
+   [
+    "2025-10-10",
+    41.3
+   ],
+   [
+    "2025-10-17",
+    48.3
+   ],
+   [
+    "2025-10-24",
+    57.1
+   ],
+   [
+    "2025-10-31",
+    58.5
+   ],
+   [
+    "2025-11-07",
+    54.4
+   ],
+   [
+    "2025-11-14",
+    51.7
+   ],
+   [
+    "2025-11-21",
+    32.0
+   ],
+   [
+    "2025-11-28",
+    59.4
+   ],
+   [
+    "2025-12-05",
+    63.3
+   ],
+   [
+    "2025-12-12",
+    56.2
+   ],
+   [
+    "2025-12-19",
+    59.1
+   ],
+   [
+    "2025-12-26",
+    63.7
+   ],
+   [
+    "2026-01-02",
+    59.2
+   ],
+   [
+    "2026-01-09",
+    64.9
+   ],
+   [
+    "2026-01-16",
+    62.5
+   ],
+   [
+    "2026-01-23",
+    58.0
+   ],
+   [
+    "2026-01-30",
+    52.7
+   ],
+   [
+    "2026-02-06",
+    48.1
+   ],
+   [
+    "2026-02-13",
+    34.9
+   ],
+   [
+    "2026-02-20",
+    38.8
+   ],
+   [
+    "2026-02-27",
+    31.2
+   ],
+   [
+    "2026-03-06",
+    20.5
+   ],
+   [
+    "2026-03-13",
+    22.4
+   ],
+   [
+    "2026-03-20",
+    18.9
+   ],
+   [
+    "2026-03-27",
+    14.2
+   ],
+   [
+    "2026-04-03",
+    21.1
+   ],
+   [
+    "2026-04-10",
+    39.1
+   ],
+   [
+    "2026-04-17",
+    60.4
+   ],
+   [
+    "2026-04-24",
+    53.0
+   ],
+   [
+    "2026-05-01",
+    59.1
+   ],
+   [
+    "2026-05-08",
+    66.7
+   ],
+   [
+    "2026-05-15",
+    58.1
+   ],
+   [
+    "2026-05-22",
+    71.4
+   ],
+   [
+    "2026-05-29",
+    72.2
+   ],
+   [
+    "2026-06-05",
+    43.0
+   ],
+   [
+    "2026-06-12",
+    52.0
+   ],
+   [
+    "2026-06-19",
+    54.8
+   ],
+   [
+    "2026-06-26",
+    41.6
+   ],
+   [
+    "2026-07-03",
+    54.0
+   ],
+   [
+    "2026-07-10",
+    67.2
+   ],
+   [
+    "2026-07-17",
+    44.0
+   ],
+   [
+    "2026-07-24",
+    44.6
+   ],
+   [
+    "2026-07-31",
+    52.5
+   ],
+   [
+    "2026-08-07",
+    67.0
+   ],
+   [
+    "2026-08-14",
+    68.7
+   ],
+   [
+    "2026-08-21",
+    60.1
+   ],
+   [
+    "2026-08-28",
+    55.9
+   ],
+   [
+    "2026-09-04",
+    52.4
+   ],
+   [
+    "2026-09-11",
+    48.7
+   ],
+   [
+    "2026-09-18",
+    48.9
+   ],
+   [
+    "2026-09-25",
+    51.2
+   ],
+   [
+    "2026-10-02",
+    46.1
+   ],
+   [
+    "2026-10-09",
+    47.1
    ]
   ]
  },
@@ -855,14 +855,14 @@
    "name": "Teknologi",
    "symbol": "XLK",
    "status": "ok",
-   "score": 67.6,
+   "score": 74.7,
    "label": "greed",
-   "score_1w": 83.6,
-   "change_1w": -16.0,
+   "score_1w": 83.9,
+   "change_1w": -9.2,
    "n_used": 5,
    "n_total": 5,
    "error": null,
-   "last_date": "2026-10-08",
+   "last_date": "2026-10-09",
    "components": [
     {
      "id": "mom200",
@@ -874,10 +874,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 91.0,
-     "score_1w": 93.6,
-     "value": 19.3124,
-     "last_date": "2026-10-08",
+     "score": 92.0,
+     "score_1w": 95.1,
+     "value": 19.7201,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -891,10 +891,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 72.3,
-     "score_1w": 87.0,
-     "value": 5.3978,
-     "last_date": "2026-10-08",
+     "score": 85.0,
+     "score_1w": 90.6,
+     "value": 7.4463,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -908,10 +908,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 67.0,
-     "score_1w": 86.1,
-     "value": 3.8149,
-     "last_date": "2026-10-08",
+     "score": 80.0,
+     "score_1w": 82.8,
+     "value": 5.5991,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -925,10 +925,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 53.4,
-     "score_1w": 59.5,
-     "value": 18.9494,
-     "last_date": "2026-10-08",
+     "score": 57.5,
+     "score_1w": 59.2,
+     "value": 17.961,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -942,10 +942,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 54.4,
+     "score": 59.1,
      "score_1w": 92.0,
-     "value": -2.0891,
-     "last_date": "2026-10-08",
+     "value": -1.5941,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     }
@@ -957,14 +957,14 @@
    "name": "Finans",
    "symbol": "XLF",
    "status": "ok",
-   "score": 35.1,
+   "score": 35.8,
    "label": "fear",
-   "score_1w": 28.0,
-   "change_1w": 7.1,
+   "score_1w": 28.3,
+   "change_1w": 7.5,
    "n_used": 5,
    "n_total": 5,
    "error": null,
-   "last_date": "2026-10-08",
+   "last_date": "2026-10-09",
    "components": [
     {
      "id": "mom200",
@@ -976,10 +976,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 32.8,
-     "score_1w": 27.1,
-     "value": 1.6916,
-     "last_date": "2026-10-08",
+     "score": 36.8,
+     "score_1w": 27.4,
+     "value": 2.6285,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -993,10 +993,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 11.2,
-     "score_1w": 7.2,
-     "value": -4.6233,
-     "last_date": "2026-10-08",
+     "score": 16.4,
+     "score_1w": 5.9,
+     "value": -3.4224,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1010,10 +1010,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 16.9,
-     "score_1w": 11.3,
-     "value": -5.0807,
-     "last_date": "2026-10-08",
+     "score": 12.0,
+     "score_1w": 8.9,
+     "value": -6.2268,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1027,10 +1027,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 78.8,
-     "score_1w": 64.8,
-     "value": 11.9964,
-     "last_date": "2026-10-08",
+     "score": 73.5,
+     "score_1w": 69.4,
+     "value": 12.622,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1044,10 +1044,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 35.6,
-     "score_1w": 29.4,
-     "value": -7.0664,
-     "last_date": "2026-10-08",
+     "score": 40.2,
+     "score_1w": 29.8,
+     "value": -6.2095,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     }
@@ -1059,14 +1059,14 @@
    "name": "Energi",
    "symbol": "XLE",
    "status": "ok",
-   "score": 71.8,
+   "score": 70.6,
    "label": "greed",
-   "score_1w": 65.3,
-   "change_1w": 6.5,
+   "score_1w": 65.4,
+   "change_1w": 5.3,
    "n_used": 5,
    "n_total": 5,
    "error": null,
-   "last_date": "2026-10-08",
+   "last_date": "2026-10-09",
    "components": [
     {
      "id": "mom200",
@@ -1078,10 +1078,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 83.5,
+     "score": 82.8,
      "score_1w": 78.0,
-     "value": 15.8888,
-     "last_date": "2026-10-08",
+     "value": 15.3819,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1095,10 +1095,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 46.7,
-     "score_1w": 28.8,
-     "value": 0.4866,
-     "last_date": "2026-10-08",
+     "score": 48.7,
+     "score_1w": 26.8,
+     "value": 0.8268,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1112,10 +1112,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 88.4,
-     "score_1w": 87.5,
-     "value": 16.3813,
-     "last_date": "2026-10-08",
+     "score": 81.8,
+     "score_1w": 88.2,
+     "value": 11.198,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1129,10 +1129,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 48.4,
-     "score_1w": 58.9,
-     "value": 21.9599,
-     "last_date": "2026-10-08",
+     "score": 49.0,
+     "score_1w": 59.5,
+     "value": 21.872,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1146,10 +1146,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 91.9,
-     "score_1w": 73.3,
-     "value": -0.4584,
-     "last_date": "2026-10-08",
+     "score": 90.9,
+     "score_1w": 74.4,
+     "value": -0.7025,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     }
@@ -1161,14 +1161,14 @@
    "name": "Helse",
    "symbol": "XLV",
    "status": "ok",
-   "score": 62.0,
+   "score": 69.5,
    "label": "greed",
-   "score_1w": 42.9,
-   "change_1w": 19.1,
+   "score_1w": 44.2,
+   "change_1w": 25.3,
    "n_used": 5,
    "n_total": 5,
    "error": null,
-   "last_date": "2026-10-08",
+   "last_date": "2026-10-09",
    "components": [
     {
      "id": "mom200",
@@ -1180,10 +1180,214 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 74.6,
-     "score_1w": 68.7,
-     "value": 7.916,
-     "last_date": "2026-10-08",
+     "score": 84.9,
+     "score_1w": 68.3,
+     "value": 9.5554,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    },
+    {
+     "id": "ret1m",
+     "label": "Avkastning 1 måned",
+     "unit": "prosent",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 74.0,
+     "score_1w": 12.3,
+     "value": 3.5034,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    },
+    {
+     "id": "rs3m",
+     "label": "Relativ styrke 3 mnd mot SPY",
+     "unit": "prosentpoeng",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 70.6,
+     "score_1w": 59.8,
+     "value": 2.0463,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    },
+    {
+     "id": "vol",
+     "label": "Realisert volatilitet 21d",
+     "unit": "prosent p.a.",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 54.4,
+     "score_1w": 40.7,
+     "value": 12.2362,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    },
+    {
+     "id": "dd",
+     "label": "Avstand til 52 ukers høy",
+     "unit": "prosent",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 63.7,
+     "score_1w": 40.0,
+     "value": -2.4,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    }
+   ],
+   "source": "yfinance XLV"
+  },
+  "xly": {
+   "id": "xly",
+   "name": "Syklisk forbruk",
+   "symbol": "XLY",
+   "status": "ok",
+   "score": 32.8,
+   "label": "fear",
+   "score_1w": 22.6,
+   "change_1w": 10.2,
+   "n_used": 5,
+   "n_total": 5,
+   "error": null,
+   "last_date": "2026-10-09",
+   "components": [
+    {
+     "id": "mom200",
+     "label": "Avstand til 200d snitt",
+     "unit": "prosent",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 16.3,
+     "score_1w": 11.2,
+     "value": -2.4418,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    },
+    {
+     "id": "ret1m",
+     "label": "Avkastning 1 måned",
+     "unit": "prosent",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 45.9,
+     "score_1w": 16.7,
+     "value": 1.0169,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    },
+    {
+     "id": "rs3m",
+     "label": "Relativ styrke 3 mnd mot SPY",
+     "unit": "prosentpoeng",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 10.0,
+     "score_1w": 3.3,
+     "value": -6.7173,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    },
+    {
+     "id": "vol",
+     "label": "Realisert volatilitet 21d",
+     "unit": "prosent p.a.",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 66.6,
+     "score_1w": 61.6,
+     "value": 14.0673,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    },
+    {
+     "id": "dd",
+     "label": "Avstand til 52 ukers høy",
+     "unit": "prosent",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 25.1,
+     "score_1w": 20.2,
+     "value": -8.8086,
+     "last_date": "2026-10-09",
+     "stale": false,
+     "window_years": 10.0
+    }
+   ],
+   "source": "yfinance XLY"
+  },
+  "xlp": {
+   "id": "xlp",
+   "name": "Dagligvarer",
+   "symbol": "XLP",
+   "status": "ok",
+   "score": 35.7,
+   "label": "fear",
+   "score_1w": 20.9,
+   "change_1w": 14.8,
+   "n_used": 5,
+   "n_total": 5,
+   "error": null,
+   "last_date": "2026-10-09",
+   "components": [
+    {
+     "id": "mom200",
+     "label": "Avstand til 200d snitt",
+     "unit": "prosent",
+     "decimals": 1,
+     "source": null,
+     "note": "",
+     "in_index": true,
+     "status": "ok",
+     "error": null,
+     "score": 30.3,
+     "score_1w": 10.3,
+     "value": 0.7438,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1198,9 +1402,9 @@
      "status": "ok",
      "error": null,
      "score": 52.4,
-     "score_1w": 16.6,
-     "value": 1.3348,
-     "last_date": "2026-10-08",
+     "score_1w": 5.5,
+     "value": 1.0696,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1214,214 +1418,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 71.4,
-     "score_1w": 51.1,
-     "value": 2.1826,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    },
-    {
-     "id": "vol",
-     "label": "Realisert volatilitet 21d",
-     "unit": "prosent p.a.",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 62.6,
-     "score_1w": 38.1,
-     "value": 11.3363,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    },
-    {
-     "id": "dd",
-     "label": "Avstand til 52 ukers høy",
-     "unit": "prosent",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 48.8,
-     "score_1w": 40.0,
-     "value": -3.9142,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    }
-   ],
-   "source": "yfinance XLV"
-  },
-  "xly": {
-   "id": "xly",
-   "name": "Syklisk forbruk",
-   "symbol": "XLY",
-   "status": "ok",
-   "score": 29.2,
-   "label": "fear",
-   "score_1w": 21.7,
-   "change_1w": 7.6,
-   "n_used": 5,
-   "n_total": 5,
-   "error": null,
-   "last_date": "2026-10-08",
-   "components": [
-    {
-     "id": "mom200",
-     "label": "Avstand til 200d snitt",
-     "unit": "prosent",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 13.9,
-     "score_1w": 9.7,
-     "value": -3.4638,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    },
-    {
-     "id": "ret1m",
-     "label": "Avkastning 1 måned",
-     "unit": "prosent",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 33.7,
-     "score_1w": 13.4,
-     "value": -0.4481,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    },
-    {
-     "id": "rs3m",
-     "label": "Relativ styrke 3 mnd mot SPY",
-     "unit": "prosentpoeng",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 7.9,
-     "score_1w": 2.5,
-     "value": -7.2756,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    },
-    {
-     "id": "vol",
-     "label": "Realisert volatilitet 21d",
-     "unit": "prosent p.a.",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 68.0,
-     "score_1w": 64.4,
-     "value": 13.7072,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    },
-    {
-     "id": "dd",
-     "label": "Avstand til 52 ukers høy",
-     "unit": "prosent",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 22.7,
-     "score_1w": 18.4,
-     "value": -9.7298,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    }
-   ],
-   "source": "yfinance XLY"
-  },
-  "xlp": {
-   "id": "xlp",
-   "name": "Dagligvarer",
-   "symbol": "XLP",
-   "status": "ok",
-   "score": 38.7,
-   "label": "fear",
-   "score_1w": 18.8,
-   "change_1w": 19.9,
-   "n_used": 5,
-   "n_total": 5,
-   "error": null,
-   "last_date": "2026-10-08",
-   "components": [
-    {
-     "id": "mom200",
-     "label": "Avstand til 200d snitt",
-     "unit": "prosent",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 30.5,
-     "score_1w": 9.5,
-     "value": 0.7745,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    },
-    {
-     "id": "ret1m",
-     "label": "Avkastning 1 måned",
-     "unit": "prosent",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 52.7,
-     "score_1w": 5.8,
-     "value": 1.1061,
-     "last_date": "2026-10-08",
-     "stale": false,
-     "window_years": 10.0
-    },
-    {
-     "id": "rs3m",
-     "label": "Relativ styrke 3 mnd mot SPY",
-     "unit": "prosentpoeng",
-     "decimals": 1,
-     "source": null,
-     "note": "",
-     "in_index": true,
-     "status": "ok",
-     "error": null,
-     "score": 47.5,
-     "score_1w": 15.3,
-     "value": -2.9486,
-     "last_date": "2026-10-08",
+     "score": 32.6,
+     "score_1w": 23.4,
+     "value": -4.9051,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1436,9 +1436,9 @@
      "status": "ok",
      "error": null,
      "score": 32.5,
-     "score_1w": 52.9,
-     "value": 13.3135,
-     "last_date": "2026-10-08",
+     "score_1w": 53.4,
+     "value": 13.3143,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1453,9 +1453,9 @@
      "status": "ok",
      "error": null,
      "score": 30.5,
-     "score_1w": 10.6,
-     "value": -5.5359,
-     "last_date": "2026-10-08",
+     "score_1w": 11.8,
+     "value": -5.5245,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     }
@@ -1467,14 +1467,14 @@
    "name": "Industri",
    "symbol": "XLI",
    "status": "ok",
-   "score": 22.4,
+   "score": 24.8,
    "label": "extreme_fear",
-   "score_1w": 23.5,
-   "change_1w": -1.1,
+   "score_1w": 24.7,
+   "change_1w": 0.1,
    "n_used": 5,
    "n_total": 5,
    "error": null,
-   "last_date": "2026-10-08",
+   "last_date": "2026-10-09",
    "components": [
     {
      "id": "mom200",
@@ -1486,10 +1486,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 13.7,
-     "score_1w": 14.6,
-     "value": -1.9815,
-     "last_date": "2026-10-08",
+     "score": 14.7,
+     "score_1w": 16.1,
+     "value": -1.5253,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1503,10 +1503,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 24.7,
-     "score_1w": 21.9,
-     "value": -1.7099,
-     "last_date": "2026-10-08",
+     "score": 34.2,
+     "score_1w": 27.0,
+     "value": -0.4955,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1522,8 +1522,8 @@
      "error": null,
      "score": 2.4,
      "score_1w": 1.6,
-     "value": -9.9517,
-     "last_date": "2026-10-08",
+     "value": -10.0953,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1537,10 +1537,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 56.7,
-     "score_1w": 64.4,
-     "value": 14.0391,
-     "last_date": "2026-10-08",
+     "score": 57.1,
+     "score_1w": 62.3,
+     "value": 13.9736,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1554,10 +1554,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 14.4,
-     "score_1w": 14.8,
-     "value": -9.4673,
-     "last_date": "2026-10-08",
+     "score": 15.5,
+     "score_1w": 16.3,
+     "value": -9.0103,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     }
@@ -1569,14 +1569,14 @@
    "name": "Materialer",
    "symbol": "XLB",
    "status": "ok",
-   "score": 29.1,
+   "score": 31.6,
    "label": "fear",
-   "score_1w": 22.9,
-   "change_1w": 6.3,
+   "score_1w": 26.1,
+   "change_1w": 5.5,
    "n_used": 5,
    "n_total": 5,
    "error": null,
-   "last_date": "2026-10-08",
+   "last_date": "2026-10-09",
    "components": [
     {
      "id": "mom200",
@@ -1588,10 +1588,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 16.7,
-     "score_1w": 13.2,
-     "value": -2.1236,
-     "last_date": "2026-10-08",
+     "score": 17.2,
+     "score_1w": 14.7,
+     "value": -1.8481,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1605,10 +1605,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 16.3,
-     "score_1w": 7.1,
-     "value": -3.6841,
-     "last_date": "2026-10-08",
+     "score": 25.7,
+     "score_1w": 5.2,
+     "value": -2.172,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1622,10 +1622,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 20.0,
-     "score_1w": 5.8,
-     "value": -5.5064,
-     "last_date": "2026-10-08",
+     "score": 16.5,
+     "score_1w": 8.2,
+     "value": -6.0063,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1639,10 +1639,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 63.5,
-     "score_1w": 67.6,
-     "value": 14.3285,
-     "last_date": "2026-10-08",
+     "score": 67.6,
+     "score_1w": 77.9,
+     "value": 13.8954,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1656,10 +1656,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 29.2,
-     "score_1w": 20.6,
-     "value": -7.7758,
-     "last_date": "2026-10-08",
+     "score": 31.2,
+     "score_1w": 24.7,
+     "value": -7.4763,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     }
@@ -1671,14 +1671,14 @@
    "name": "Kraftforsyning",
    "symbol": "XLU",
    "status": "ok",
-   "score": 15.0,
+   "score": 17.5,
    "label": "extreme_fear",
-   "score_1w": 14.9,
-   "change_1w": 0.1,
+   "score_1w": 15.4,
+   "change_1w": 2.0,
    "n_used": 5,
    "n_total": 5,
    "error": null,
-   "last_date": "2026-10-08",
+   "last_date": "2026-10-09",
    "components": [
     {
      "id": "mom200",
@@ -1690,10 +1690,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 5.5,
-     "score_1w": 2.0,
-     "value": -6.1691,
-     "last_date": "2026-10-08",
+     "score": 7.2,
+     "score_1w": 2.4,
+     "value": -5.3903,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1707,10 +1707,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 15.0,
-     "score_1w": 5.8,
-     "value": -3.6516,
-     "last_date": "2026-10-08",
+     "score": 26.6,
+     "score_1w": 6.2,
+     "value": -1.8944,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1724,10 +1724,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 9.2,
-     "score_1w": 3.4,
-     "value": -11.661,
-     "last_date": "2026-10-08",
+     "score": 6.7,
+     "score_1w": 5.1,
+     "value": -12.9434,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1741,10 +1741,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 31.1,
-     "score_1w": 56.5,
-     "value": 17.1395,
-     "last_date": "2026-10-08",
+     "score": 30.5,
+     "score_1w": 55.9,
+     "value": 17.2101,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1758,10 +1758,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 14.3,
-     "score_1w": 6.8,
-     "value": -12.1574,
-     "last_date": "2026-10-08",
+     "score": 16.4,
+     "score_1w": 7.6,
+     "value": -11.4302,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     }
@@ -1773,14 +1773,14 @@
    "name": "Eiendom",
    "symbol": "XLRE",
    "status": "ok",
-   "score": 28.3,
+   "score": 29.2,
    "label": "fear",
-   "score_1w": 27.0,
-   "change_1w": 1.3,
+   "score_1w": 28.3,
+   "change_1w": 0.8,
    "n_used": 5,
    "n_total": 5,
    "error": null,
-   "last_date": "2026-10-08",
+   "last_date": "2026-10-09",
    "components": [
     {
      "id": "mom200",
@@ -1792,10 +1792,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 14.1,
-     "score_1w": 13.2,
-     "value": -4.0121,
-     "last_date": "2026-10-08",
+     "score": 20.5,
+     "score_1w": 13.9,
+     "value": -2.2535,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1809,10 +1809,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 11.0,
-     "score_1w": 6.3,
-     "value": -5.1052,
-     "last_date": "2026-10-08",
+     "score": 20.9,
+     "score_1w": 8.7,
+     "value": -2.5314,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1826,10 +1826,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 9.7,
-     "score_1w": 6.8,
-     "value": -10.0941,
-     "last_date": "2026-10-08",
+     "score": 8.9,
+     "score_1w": 10.4,
+     "value": -10.3116,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1843,10 +1843,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 79.5,
-     "score_1w": 82.9,
-     "value": 11.6742,
-     "last_date": "2026-10-08",
+     "score": 62.7,
+     "score_1w": 81.9,
+     "value": 13.5503,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     },
@@ -1860,10 +1860,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 27.0,
-     "score_1w": 25.7,
-     "value": -10.4676,
-     "last_date": "2026-10-08",
+     "score": 32.8,
+     "score_1w": 26.7,
+     "value": -8.8019,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 10.0
     }
@@ -1875,14 +1875,14 @@
    "name": "Kommunikasjon",
    "symbol": "XLC",
    "status": "ok",
-   "score": 34.0,
+   "score": 26.2,
    "label": "fear",
-   "score_1w": 27.9,
-   "change_1w": 6.0,
+   "score_1w": 27.3,
+   "change_1w": -1.1,
    "n_used": 5,
    "n_total": 5,
    "error": null,
-   "last_date": "2026-10-08",
+   "last_date": "2026-10-09",
    "components": [
     {
      "id": "mom200",
@@ -1894,10 +1894,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 22.7,
-     "score_1w": 18.8,
-     "value": -0.8693,
-     "last_date": "2026-10-08",
+     "score": 19.7,
+     "score_1w": 19.3,
+     "value": -2.3416,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 7.5
     },
@@ -1911,10 +1911,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 48.4,
-     "score_1w": 32.7,
-     "value": 1.4521,
-     "last_date": "2026-10-08",
+     "score": 32.2,
+     "score_1w": 27.1,
+     "value": -0.6782,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 8.2
     },
@@ -1928,10 +1928,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 30.1,
-     "score_1w": 29.1,
-     "value": -2.0526,
-     "last_date": "2026-10-08",
+     "score": 18.6,
+     "score_1w": 28.6,
+     "value": -4.9407,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 8.1
     },
@@ -1945,10 +1945,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 33.8,
-     "score_1w": 31.6,
-     "value": 21.0299,
-     "last_date": "2026-10-08",
+     "score": 32.2,
+     "score_1w": 33.1,
+     "value": 21.6269,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 8.2
     },
@@ -1962,10 +1962,10 @@
      "in_index": true,
      "status": "ok",
      "error": null,
-     "score": 34.8,
-     "score_1w": 27.4,
-     "value": -5.8198,
-     "last_date": "2026-10-08",
+     "score": 28.4,
+     "score_1w": 28.3,
+     "value": -7.24,
+     "last_date": "2026-10-09",
      "stale": false,
      "window_years": 7.3
     }
@@ -1986,7 +1986,7 @@
  },
  "benchmark_ok": true,
  "group": "mood",
- "generated_at": "2026-10-09T13:02:06+00:00",
+ "generated_at": "2026-10-10T11:15:33+00:00",
  "missing": [
   "naaim"
  ]
