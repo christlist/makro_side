@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T11:15:33+00:00",
+ "generated_at": "2026-10-12T13:38:44+00:00",
  "points": [
   {
    "kind": "regime",
@@ -7,7 +7,7 @@
   },
   {
    "kind": "mood",
-   "text": "Stemningen er nøytral (47 av 100, +1 poeng siste uke). Komponentene spriker: Aksjer minus statsobligasjoner (20d) peker mot grådighet, SKEW mot frykt."
+   "text": "Stemningen er nøytral (47 av 100, −1 poeng siste uke). Komponentene spriker: Aksjer minus statsobligasjoner (20d) peker mot grådighet, SKEW mot frykt."
   },
   {
    "kind": "unusual",
@@ -15,7 +15,7 @@
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt +2,3 % siste måned og ligger 7,7 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt +2,1 % siste måned og ligger 7,8 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
@@ -59,9 +59,9 @@
   "status": "ok"
  },
  "mood": {
-  "score": 47.1,
+  "score": 46.7,
   "label": "neutral",
-  "change_1w": 1.0,
+  "change_1w": -1.0,
   "status": "ok"
  },
  "health": {
@@ -73,7 +73,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-10-09",
+  "latest_data_date": "2026-10-12",
   "oldest_data_date": "2026-10-02"
  }
 }
