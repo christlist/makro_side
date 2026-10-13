@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-12T13:38:44+00:00",
+ "generated_at": "2026-10-13T10:34:19+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er rolig. Snittet av stress-persentilene er 46 av 100, og 4 av 6 indikatorer er grønne."
+   "text": "Regimet er rolig. Snittet av stress-persentilene er 48 av 100, og 4 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er nøytral (47 av 100, −1 poeng siste uke). Komponentene spriker: Aksjer minus statsobligasjoner (20d) peker mot grådighet, SKEW mot frykt."
+   "text": "Stemningen er frykt (43 av 100, −2 poeng siste uke). Komponentene spriker: Aksjer minus statsobligasjoner (20d) peker mot grådighet, SKEW mot frykt."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 100), WTI råolje (persentil 94), SKEW (persentil 93)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 100), SKEW (persentil 94), WTI råolje (persentil 94)."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt +2,1 % siste måned og ligger 7,8 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt +2,0 % siste måned og ligger 7,6 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
@@ -31,6 +31,17 @@
    "window_years": 10.0
   },
   {
+   "id": "skew",
+   "name": "SKEW",
+   "percentile": 93.8,
+   "value": 155.06,
+   "decimals": 1,
+   "unit": "indekspunkter",
+   "last_date": "2026-10-12",
+   "direction": "high",
+   "window_years": 10.0
+  },
+  {
    "id": "wti",
    "name": "WTI råolje",
    "percentile": 93.6,
@@ -40,40 +51,29 @@
    "last_date": "2026-10-06",
    "direction": "high",
    "window_years": 10.0
-  },
-  {
-   "id": "skew",
-   "name": "SKEW",
-   "percentile": 93.1,
-   "value": 154.34,
-   "decimals": 1,
-   "unit": "indekspunkter",
-   "last_date": "2026-10-09",
-   "direction": "high",
-   "window_years": 10.0
   }
  ],
  "regime": {
   "state": "calm",
-  "mean_stress": 45.9,
+  "mean_stress": 47.9,
   "status": "ok"
  },
  "mood": {
-  "score": 46.7,
-  "label": "neutral",
-  "change_1w": -1.0,
+  "score": 43.4,
+  "label": "fear",
+  "change_1w": -2.0,
   "status": "ok"
  },
  "health": {
-  "n_total": 26,
-  "n_ok": 26,
+  "n_total": 28,
+  "n_ok": 28,
   "missing": [],
   "proxies": [
    "Europeisk volatilitet (proxy: realisert vol Euro STOXX 50, 21d)",
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-10-12",
+  "latest_data_date": "2026-10-13",
   "oldest_data_date": "2026-10-02"
  }
 }
