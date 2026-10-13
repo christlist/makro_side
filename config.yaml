@@ -173,6 +173,7 @@ macro:
       candidates:
         - {source: fred, id: DGS10}
     usd:
+      stale_days: 14   # publiseres ukentlig med noen dagers forsinkelse, så 10 dager er normalt
       name: Bred dollarindeks
       meaning: Dollarens verdi mot et bredt utvalg handelspartnere.
       reading: Sterkere dollar strammer inn global finansiering og er ofte krevende for fremvoksende markeder.
@@ -269,22 +270,24 @@ mood:
     fear_below: 45
     neutral_below: 55
     greed_below: 75
-  # Posisjonering. Vises i tabellen, men teller ikke med i indeksen før in_index settes til true
-  # (gjøres først når kilden er bekreftet å virke fra GitHub-runnerne, se verifiseringstabellen).
+  # Posisjonering fra CFTC Commitments of Traders (ukentlig, publisert fredag for tirsdag), åpent API.
+  # in_index: false gir en komponent som vises i tabellen, men ikke teller med i indeksen.
+  # NAAIM Exposure Index er fjernet: dataene krever nå abonnement (naaim.org), og det finnes ingen åpen fil.
   positioning:
     cftc_spec:
       label: "Spekulantposisjon S&P 500-futures (CFTC)"
-      in_index: false
-      stale_days: 14        # ukentlige tall, publisert fredag for tirsdag
+      in_index: true
+      stale_days: 14
       candidates:
         - {source: cftc, dataset: "6dca-aqww", code: "13874A", measure: legacy_noncomm}
         - {source: cftc, dataset: "gpe5-46if", code: "13874A", measure: tff_lev}
-    naaim:
-      label: "NAAIM Exposure Index (aktive forvaltere)"
-      in_index: false
+    cftc_vix:
+      label: "Spekulantposisjon VIX-futures (CFTC)"
+      in_index: true
       stale_days: 14
       candidates:
-        - {source: naaim, page: "https://naaim.org/programs/naaim-exposure-index/"}
+        - {source: cftc, dataset: "6dca-aqww", code: "1170E1", measure: legacy_noncomm}
+        - {source: cftc, dataset: "gpe5-46if", code: "1170E1", measure: tff_lev}
   bond_candidates:
     - {source: yfinance, symbol: "TLT"}
     - {source: yfinance, symbol: "IEF", proxy: true, label: "IEF (7 til 10 års statsobligasjoner)"}

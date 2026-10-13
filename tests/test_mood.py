@@ -93,7 +93,7 @@ def test_full_pipeline_with_ramp_stubs(monkeypatch, tmp_path):
     monkeypatch.setattr(common, "DATA_DIR", tmp_path)
     payload = common.run_group("mood", lambda: fm.build(stub), common.get_logger("t"))
     m = payload["market"]
-    assert m["status"] == "ok" and 0 <= m["score"] <= 100 and m["n_total"] == 8
+    assert m["status"] == "ok" and 0 <= m["score"] <= 100 and m["n_total"] == 10
     assert all(math.isfinite(p[1]) for p in m["series"]) and len(m["series"]) > 10
     assert len(payload["rows"]) == 11 and all(r["status"] == "ok" for r in payload["rows"].values())
     assert all(len(r["components"]) == 5 for r in payload["rows"].values())
@@ -138,9 +138,10 @@ def test_weekly_component_uses_own_stale_limit():
     assert rows["w"]["stale"] is False and rows["d"]["stale"] is True
 
 
-def test_positioning_missing_does_not_change_market_status(monkeypatch, tmp_path):
+def test_positioning_missing_leaves_market_ok_with_fewer_components(monkeypatch, tmp_path):
+    """Feiler begge CFTC-kildene, beregnes indeksen fortsatt av de åtte andre. n_total teller de som er med i indeksen."""
     def stub(cands, settings, label, errors):
-        if label in ("cftc_spec", "naaim"):
+        if label in ("cftc_spec", "cftc_vix"):
             errors[label] = "Testen simulerer at kilden er utilgjengelig"
             return None, None
         step = 0.1 if label.startswith("sector_") or label in ("spy", "spx", "bond") else 0.01
@@ -148,6 +149,20 @@ def test_positioning_missing_does_not_change_market_status(monkeypatch, tmp_path
     monkeypatch.setattr(common, "DATA_DIR", tmp_path)
     p = common.run_group("mood", lambda: fm.build(stub), common.get_logger("t"))
     m = p["market"]
-    assert m["status"] == "ok" and m["n_total"] == 8
-    extra = {c["id"]: c for c in m["components"] if c["id"] in ("cftc_spec", "naaim")}
-    assert set(extra) == {"cftc_spec", "naaim"} and all(c["status"] == "missing" and not c["in_index"] for c in extra.values())
+    assert m["status"] == "ok" and m["n_total"] == 10 and m["n_used"] == 8
+    extra = {c["id"]: c for c in m["components"] if c["id"] in ("cftc_spec", "cftc_vix")}
+    assert set(extra) == {"cftc_spec", "cftc_vix"} and all(c["status"] == "missing" and c["in_index"] for c in extra.values())
+
+
+def test_positioning_directions_and_inclusion(monkeypatch, tmp_path):
+    """S&P-posisjonering teller som grådighet ved høy verdi, VIX-posisjonering motsatt. Rampeserie som testvektor."""
+    def stub(cands, settings, label, errors):
+        step = 0.1 if label.startswith("sector_") or label in ("spy", "spx", "bond") else 0.01
+        return ramp(700, start="2023-06-01", step=step), f"stub {label}"
+    monkeypatch.setattr(common, "DATA_DIR", tmp_path)
+    m = common.run_group("mood", lambda: fm.build(stub), common.get_logger("t"))["market"]
+    by = {c["id"]: c for c in m["components"]}
+    assert m["n_total"] == 10 and m["n_used"] == 10
+    # stigende serie har høy persentil: S&P-posisjonering gir høy score, VIX-posisjonering (invertert) lav score
+    assert by["cftc_spec"]["score"] > 50 > by["cftc_vix"]["score"]
+    assert abs(by["cftc_spec"]["score"] + by["cftc_vix"]["score"] - 100) < 0.2

@@ -1,6 +1,6 @@
 # makro_side
 
-Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett minutt: regime, volatilitet, kreditt, renter, råvarer, aksjer, sektorer og stemning (frykt og grådighet). Oppdateres hver lørdag av GitHub Actions og hostes på GitHub Pages.
+Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett minutt: regime, volatilitet, kreditt, renter, råvarer, aksjer, sektorer og stemning (frykt og grådighet). Oppdateres hver morgen ca. kl. 06 norsk tid av GitHub Actions og hostes på GitHub Pages.
 
 ## Prinsipper for data
 
@@ -18,7 +18,7 @@ Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett m
 | `data/` | JSON generert av skriptene |
 | `docs/` | Statisk side (HTML, CSS, vanilla JS). Plotly og skrifter (IBM Plex Sans, Newsreader) ligger lokalt i `docs/vendor` og `docs/fonts`, uten eksterne avhengigheter |
 | `tests/` | `pytest` (persentil, z-score, regel, manglende data) og `node --test` (siden ved manglende data) |
-| `.github/workflows/weekly.yml` | Lørdagskjøring (cron, UTC) og manuell kjøring |
+| `.github/workflows/weekly.yml` | Daglig kjøring ca. kl. 06 norsk tid (to cron-tidspunkt i UTC og en port som velger riktig for sommer- og vintertid) og manuell kjøring |
 
 ## Kjøre lokalt
 
@@ -50,7 +50,7 @@ Regime-indikatorer: VIX, VIX/VIX3M, HY-spread, IG-spread, bred dollarindeks, S&P
 
 Se tabellen under «Metodikk og kilder» på siden (genereres fra siste kjøring). Proxyer er merket «Proxy» der de brukes: VSTOXX erstattes av realisert 21d volatilitet i Euro STOXX 50 hvis V2TX ikke finnes (bakoverskuende, ikke implisitt vol), MSCI World og EM via ETF (URTH, EEM), sektorer via SPDR-ETFer (USA), Euro STOXX 50/ETF hvis STOXX 600 mangler, NORW hvis Oslo Børs-indeks mangler.
 Stemning (frykt og grådighet): prisbasert, ingen nyheter eller undersøkelser. Markedsindeksen er snittet av persentilrang (0 frykt, 100 grådighet, mot siste 10 år) for VIX, VIX/VIX3M, SKEW, høyavkastningsspread, S&P 500 mot 200d snitt, andel sektorer over 200d snitt, aksjer mot statsobligasjoner (SPY mot TLT, 20 dager) og syklisk mot defensivt (XLY mot XLP, 63 dager). Minst fem komponenter må ha data. Sektorstemning er snittet av fem mål per sektor-ETF mot sektorens egen historikk (avstand til 200d snitt, 1 måneds avkastning, relativ styrke mot SPY over 3 måneder, lav realisert volatilitet, nærhet til 52 ukers høy). Bånd i `config.yaml`. Indeksen overlapper delvis med regimepanelet.
-Posisjonering (eksperimentell, ikke med i indeksen ennå): CFTC Commitments of Traders (ikke-kommersielle spekulanters netto posisjon i E-mini S&P 500, prosent av åpne kontrakter, ukentlig, via publicreporting.cftc.gov) og NAAIM Exposure Index (aktive forvalteres aksjeeksponering, ukentlig, Excel-fil fra naaim.org). Begge vises i stemningstabellen med «Utenfor indeksen». Kildene er ikke verifisert fra GitHub-runnerne ennå: se verifiseringstabellen i jobbens summary. Når de virker, settes `in_index: true` under `mood.positioning` i `config.yaml`.
+Posisjonering: CFTC Commitments of Traders via åpent API (publicreporting.cftc.gov, legacy-rapporten, ikke-kommersielle spekulanters netto posisjon i prosent av åpne kontrakter, ukentlig, publisert fredag for tirsdag) for E-mini S&P 500-futures (kode 13874A, netto lange = grådighet) og VIX-futures (kode 1170E1, netto lange = sikring = frykt, invertert). Reserve er TFF-rapporten (leveraged funds). Begge teller med i indeksen. NAAIM Exposure Index ble fjernet: dataene krever nå abonnement og det finnes ingen åpen fil. CBOE put/call-filene er utdaterte (slutter i 2019) og brukes ikke.
 Nyhetssentiment (GDELT, yfinance-nyheter, FinBERT) ble fjernet: GDELT ga HTTP 429 fra GitHub-runnere og Yahoo ga ingen nyheter.
 
 ## Siden

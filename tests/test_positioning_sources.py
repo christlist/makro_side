@@ -1,6 +1,4 @@
-"""Parsere for CFTC og NAAIM mot små strukturelle testvektorer (ikke markedsdata). Nettverket brukes ikke."""
-import io
-
+"""Parser for CFTC mot små strukturelle testvektorer (ikke markedsdata). Nettverket brukes ikke."""
 import pandas as pd
 import pytest
 
@@ -38,49 +36,10 @@ def test_cftc_bad_input_gives_clear_source_error():
         sources.parse_cftc_rows(zero_oi, "legacy_noncomm")
 
 
-def test_naaim_frame_parsing_and_errors():
-    df = pd.DataFrame({"Date": ["2026-10-01", "2026-09-24"], "NAAIM Number": [60.0, "70"], "Mean/Average": [1, 2]})
-    s = sources.parse_naaim_frame(df)
-    assert list(s) == [70.0, 60.0] and str(s.index[0].date()) == "2026-09-24"
-    with pytest.raises(SourceError, match="fant ikke"):
-        sources.parse_naaim_frame(pd.DataFrame({"x": [1]}))
-    with pytest.raises(SourceError, match="ingen gyldige"):
-        sources.parse_naaim_frame(pd.DataFrame({"Date": ["x"], "NAAIM Number": [None]}))
+def test_cftc_candidate_label_and_vix_contract_code_in_config():
+    from scripts.common import load_config
 
-
-def test_naaim_excel_roundtrip_with_openpyxl():
-    buf = io.BytesIO()
-    pd.DataFrame({"Date": ["2026-10-01"], "NAAIM Number": [55.5]}).to_excel(buf, index=False)
-    s = sources.parse_naaim_frame(pd.read_excel(io.BytesIO(buf.getvalue())))
-    assert float(s.iloc[0]) == 55.5
-
-
-def test_find_naaim_xlsx_url():
-    html = '<a href="/a.pdf">x</a><a href="/wp-content/uploads/USE_Data-since-Inception_2026.xlsx">d</a><a href="/other.xlsx">y</a>'
-    assert sources.find_naaim_xlsx_url(html, "https://naaim.org/programs/naaim-exposure-index/") == \
-        "https://naaim.org/wp-content/uploads/USE_Data-since-Inception_2026.xlsx"
-    with pytest.raises(SourceError, match="ingen Excel-lenke"):
-        sources.find_naaim_xlsx_url("<html></html>", "https://x")
-
-
-def test_candidate_labels():
-    assert sources.candidate_label({"source": "naaim", "page": "p"}) == "NAAIM Exposure Index"
     assert "6dca-aqww" in sources.candidate_label({"source": "cftc", "dataset": "6dca-aqww", "code": "13874A", "measure": "legacy_noncomm"})
-
-
-def test_find_naaim_url_in_script_json_and_escaped_slashes():
-    html = '<script>var d = {"file":"https:\\/\\/naaim.org\\/wp-content\\/uploads\\/USE_Data-since-Inception_2026.xlsx"};</script>'
-    assert sources.find_naaim_xlsx_url(html, "https://naaim.org/x/") == "https://naaim.org/wp-content/uploads/USE_Data-since-Inception_2026.xlsx"
-
-
-def test_find_naaim_url_in_data_attribute_with_query():
-    html = '<div data-file="/uploads/data.xlsx?ver=3"></div>'
-    assert sources.find_naaim_xlsx_url(html, "https://naaim.org/x/") == "https://naaim.org/uploads/data.xlsx?ver=3"
-
-
-def test_naaim_error_includes_diagnostics():
-    html = '<html><head><title>Just a moment...</title></head><body><a href="/download-the-data">Data</a></body></html>'
-    with pytest.raises(SourceError) as e:
-        sources.find_naaim_xlsx_url(html, "https://naaim.org/")
-    msg = str(e.value)
-    assert "Just a moment" in msg and "tegn" in msg and "/download-the-data" in msg
+    pos = load_config()["mood"]["positioning"]
+    assert {k: v["candidates"][0]["code"] for k, v in pos.items()} == {"cftc_spec": "13874A", "cftc_vix": "1170E1"}
+    assert all(v["in_index"] for v in pos.values())

@@ -96,8 +96,6 @@ def candidate_label(c: dict) -> str:
         return "CBOE " + c["url"].rsplit("/", 1)[-1]
     if src == "cftc":
         return f"CFTC {c['dataset']} {c['code']} ({c['measure']})"
-    if src == "naaim":
-        return "NAAIM Exposure Index"
     if src == "fred":
         return f"FRED {c['id']}"
     return f"{src} {c.get('symbol')}"
@@ -116,8 +114,6 @@ def fetch_candidate(c: dict, settings: dict) -> pd.Series:
         s = fetch_stooq(c["symbol"], to, rt)
     elif src == "cftc":
         s = fetch_cftc(c["dataset"], c["code"], c["measure"], to, rt)
-    elif src == "naaim":
-        s = fetch_naaim(c["page"], to, rt)
     else:
         raise SourceError(f"Ukjent kilde: {src}")
     if s.empty:
@@ -165,7 +161,7 @@ def build_series_group(specs: dict, group: str, settings: dict) -> tuple[dict, d
     return indicators, raw
 
 
-# ------------------------------------------------------------------ posisjonering (CFTC, NAAIM)
+# ------------------------------------------------------------------ posisjonering (CFTC)
 
 CFTC_URL = "https://publicreporting.cftc.gov/resource/{dataset}.json"
 # Mulige feltnavn per mål. Første som finnes i svaret brukes.
@@ -208,52 +204,3 @@ def fetch_cftc(dataset: str, code: str, measure: str, timeout: int, retries: int
     except ValueError as exc:
         raise SourceError(f"CFTC ga ikke JSON: {r.text[:100]!r}") from exc
     return parse_cftc_rows(rows, measure)
-
-
-def find_naaim_xlsx_url(html: str, base: str) -> str:
-    """Finn lenken til Excel-filen med historiske data på NAAIM-siden. Søker i lenkeattributter og i
-    løs tekst (skript og JSON), og kaster en feilmelding med diagnostikk hvis ingenting finnes."""
-    import re
-    from urllib.parse import urljoin
-
-    text = html.replace("\\/", "/")  # JSON-escapede skråstreker
-    found = re.findall(r"""(?:href|src|data-[\w-]+|content)=["']([^"']+\.xlsx?(?:\?[^"']*)?)["']""", text, flags=re.I)
-    found += re.findall(r"""https?://[^\s"'<>\\]+\.xlsx?(?:\?[^\s"'<>\\]*)?""", text, flags=re.I)
-    links = list(dict.fromkeys(found))
-    if not links:
-        title = re.search(r"<title[^>]*>(.*?)</title>", html, flags=re.I | re.S)
-        hints = [h for h in re.findall(r"""href=["']([^"']+)["']""", html, flags=re.I)
-                 if re.search(r"download|xls|csv|data|exposure", h, flags=re.I)][:4]
-        raise SourceError(
-            f"NAAIM: fant ingen Excel-lenke på siden (side med {len(html)} tegn, tittel "
-            f"{(title.group(1).strip()[:50] if title else 'mangler')!r}, 'xls' forekommer {len(re.findall('xls', html, flags=re.I))} ganger). "
-            f"Mulige lenker: {hints}")
-    preferred = [l for l in links if re.search(r"since|inception|use_data|exposure", l, flags=re.I)]
-    return urljoin(base, (preferred or links)[0])
-
-
-def parse_naaim_frame(df: pd.DataFrame) -> pd.Series:
-    """NAAIM Number per dato fra en innlest tabell. Kaster SourceError hvis kolonnene ikke gjenkjennes."""
-    cols = {str(c).strip().lower(): c for c in df.columns}
-    date_col = next((c for k, c in cols.items() if k.startswith("date")), None)
-    val_col = next((c for k, c in cols.items() if "naaim" in k), None)
-    if date_col is None or val_col is None:
-        raise SourceError(f"NAAIM: fant ikke dato- og verdikolonne. Kolonner: {[str(c) for c in df.columns][:10]}")
-    s = pd.Series(pd.to_numeric(df[val_col], errors="coerce").values, index=pd.to_datetime(df[date_col], errors="coerce"))
-    s = s[s.index.notna()].dropna()
-    if s.empty:
-        raise SourceError("NAAIM: ingen gyldige observasjoner")
-    return clean_series(s)
-
-
-def fetch_naaim(page: str, timeout: int, retries: int) -> pd.Series:
-    import io as _io
-
-    html = http_get(page, timeout=timeout, retries=retries).text
-    url = find_naaim_xlsx_url(html, page)
-    content = http_get(url, timeout=timeout, retries=retries).content
-    try:
-        df = pd.read_excel(_io.BytesIO(content))
-    except Exception as exc:  # noqa: BLE001
-        raise SourceError(f"NAAIM: kunne ikke lese Excel-filen ({type(exc).__name__}: {exc})") from exc
-    return parse_naaim_frame(df)
