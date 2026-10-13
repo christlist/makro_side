@@ -76,10 +76,10 @@ test('stemning: gyldig struktur rendres med sektortabell (testverdier er kun str
 
 test('komponent utenfor indeksen får merke, også når den mangler data', () => {
   const html = R.renderMood({ market: { status: 'ok', score: 50, label: 'neutral', n_used: 8, n_total: 8, components: [
-      { id: 'naaim', label: 'NAAIM', status: 'missing', in_index: false, error: 'NAAIM: 403' },
+      { id: 'cftc_x', label: 'Posisjonering', status: 'missing', in_index: false, error: 'CFTC: 503' },
       { id: 'vix', label: 'VIX', status: 'ok', in_index: true, score: 50, value: 1, decimals: 0, unit: 'x', last_date: '2026-10-08' }], series: [] }, rows: {} }, null);
   assert.match(html, /Utenfor indeksen/);
-  assert.match(html, /NAAIM: 403/);
+  assert.match(html, /CFTC: 503/);
   assert.strictEqual((html.match(/Utenfor indeksen/g) || []).length, 1);  // ikke VIX
 });
 

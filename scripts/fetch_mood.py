@@ -127,20 +127,21 @@ def market_components(series: dict, sources: dict, errors: dict) -> dict:
 
 
 def positioning_components(pcfg: dict, series: dict, sources: dict, errors: dict) -> dict:
-    """CFTC- og NAAIM-komponentene. Høy verdi = mer offensiv posisjonering = grådighet.
-    Vises alltid i tabellen, men teller bare med i indeksen hvis in_index er satt i config."""
-    spec = {"cftc_spec": ("prosent av åpne kontrakter", 1, "Netto lange spekulanter = grådighet"),
-            "naaim": ("poeng", 1, "Høy aksjeeksponering blant aktive forvaltere = grådighet")}
+    """CFTC-komponentene (spekulantenes netto posisjon i prosent av åpne kontrakter, ukentlig).
+    S&P 500-futures: netto lange = grådighet. VIX-futures: netto lange = sikring mot fall = frykt, så invertert.
+    Teller med i indeksen når in_index er satt i config (ellers vises de bare i tabellen)."""
+    spec = {"cftc_spec": (False, "Netto lange spekulanter i S&P 500-futures = grådighet"),
+            "cftc_vix": (True, "Netto lange spekulanter i VIX-futures = sikring mot fall = frykt")}
     out = {}
-    for key, (unit, dec, note) in spec.items():
+    for key, (invert, note) in spec.items():
         cfg = pcfg.get(key)
         if not cfg:
             continue
         x = series.get(key)
-        err = None if x is not None else f"Mangler: {errors.get(key, 'ukjent feil')[:300]}"
-        out[key] = comp(cfg["label"], x, False, unit, dec, sources.get(key), err, note + (
-            "" if cfg.get("in_index") else ". Ikke med i indeksen ennå, kilden verifiseres"),
-            in_index=bool(cfg.get("in_index")), stale_days=cfg.get("stale_days"))
+        err = None if x is not None else f"Mangler: {errors.get(key, 'ukjent feil')[:600]}"
+        out[key] = comp(cfg["label"], x, invert, "prosent av åpne kontrakter", 1, sources.get(key), err,
+                        note + ("" if cfg.get("in_index") else ". Ikke med i indeksen ennå"),
+                        in_index=bool(cfg.get("in_index")), stale_days=cfg.get("stale_days"))
     return out
 
 
