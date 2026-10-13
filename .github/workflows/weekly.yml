@@ -2,7 +2,11 @@ name: Oppdater makroside
 
 on:
   schedule:
-    - cron: "23 5 * * 6"   # hver lørdag 05:23 UTC
+    # Hver dag ca. 06:00 norsk tid. GitHub bruker UTC, så begge tidspunkt er planlagt og port-jobben
+    # under slipper bare gjennom kjøringen der klokken er 06 i Oslo (sommertid 04:07 UTC, vintertid 05:07 UTC).
+    # Minuttet 07 (ikke 00) unngår køen ved hel time, som kan forsinke planlagte kjøringer.
+    - cron: "7 4 * * *"
+    - cron: "7 5 * * *"
   workflow_dispatch:
 
 permissions:
@@ -15,7 +19,30 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.g.outputs.run }}
+    steps:
+      - id: g
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "Manuell kjøring: kjører alltid."
+            exit 0
+          fi
+          h=$(TZ=Europe/Oslo date +%H)
+          if [ "$h" = "06" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "Klokken er 06 i Oslo: kjører."
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Klokken er $h i Oslo: hopper over (den andre planlagte kjøringen tar den)."
+          fi
+
   update:
+    needs: gate
+    if: needs.gate.outputs.run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:

@@ -173,6 +173,7 @@ macro:
       candidates:
         - {source: fred, id: DGS10}
     usd:
+      stale_days: 14   # publiseres ukentlig med noen dagers forsinkelse, så 10 dager er normalt
       name: Bred dollarindeks
       meaning: Dollarens verdi mot et bredt utvalg handelspartnere.
       reading: Sterkere dollar strammer inn global finansiering og er ofte krevende for fremvoksende markeder.

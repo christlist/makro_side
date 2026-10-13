@@ -1,6 +1,6 @@
 # makro_side
 
-Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett minutt: regime, volatilitet, kreditt, renter, råvarer, aksjer, sektorer og stemning (frykt og grådighet). Oppdateres hver lørdag av GitHub Actions og hostes på GitHub Pages.
+Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett minutt: regime, volatilitet, kreditt, renter, råvarer, aksjer, sektorer og stemning (frykt og grådighet). Oppdateres hver morgen ca. kl. 06 norsk tid av GitHub Actions og hostes på GitHub Pages.
 
 ## Prinsipper for data
 
@@ -18,7 +18,7 @@ Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett m
 | `data/` | JSON generert av skriptene |
 | `docs/` | Statisk side (HTML, CSS, vanilla JS). Plotly og skrifter (IBM Plex Sans, Newsreader) ligger lokalt i `docs/vendor` og `docs/fonts`, uten eksterne avhengigheter |
 | `tests/` | `pytest` (persentil, z-score, regel, manglende data) og `node --test` (siden ved manglende data) |
-| `.github/workflows/weekly.yml` | Lørdagskjøring (cron, UTC) og manuell kjøring |
+| `.github/workflows/weekly.yml` | Daglig kjøring ca. kl. 06 norsk tid (to cron-tidspunkt i UTC og en port som velger riktig for sommer- og vintertid) og manuell kjøring |
 
 ## Kjøre lokalt
 

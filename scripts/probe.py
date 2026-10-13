@@ -1,7 +1,5 @@
-"""Midlertidig diagnostikk: hva leverer NAAIM og mulige V2TX-kilder til GitHub-runnerne? Bare lesing, skriver til stdout."""
+"""Midlertidig diagnostikk, runde 2: frie alternativer til NAAIM (posisjonering og opsjonsstemning). Bare lesing."""
 from __future__ import annotations
-
-import re
 
 import requests
 
@@ -12,62 +10,56 @@ def get(url, **kw):
     try:
         return requests.get(url, headers=UA, timeout=30, **kw)
     except Exception as exc:  # noqa: BLE001
-        print(f"  FEIL {url}: {type(exc).__name__}: {str(exc)[:150]}")
+        print(f"  FEIL {url}: {type(exc).__name__}: {str(exc)[:120]}")
         return None
 
 
-def naaim():
-    print("=== NAAIM ===")
-    url = "https://naaim.org/programs/naaim-exposure-index/"
-    r = get(url)
-    if r is None:
-        return
-    h = r.text
-    print("status", r.status_code, "endelig url", r.url, "lengde", len(h), "type", r.headers.get("content-type"))
-    print("antall <table:", len(re.findall("<table", h, flags=re.I)), "| wp-json:", h.count("wp-json"), "| admin-ajax:", h.count("admin-ajax"),
-          "| chart:", len(re.findall("chart", h, flags=re.I)), "| csv:", len(re.findall("csv", h, flags=re.I)), "| download:", len(re.findall("download", h, flags=re.I)))
-    anchors = re.findall(r"""<a\s[^>]*href=["']([^"']+)["'][^>]*>(.*?)</a>""", h, flags=re.I | re.S)
-    keep = [(a, re.sub(r"<[^>]+>|\s+", " ", t).strip()[:50]) for a, t in anchors
-            if re.search(r"download|data|xls|csv|histor|inception|upload|zip|pdf", a + t, flags=re.I)]
-    print("lenker med data-ord:", len(keep))
-    for a, t in keep[:40]:
-        print("  ", a[:140], "|", t)
-    print("uploads-url-er:", sorted(set(re.findall(r"""https?://[^\s"'<>]*wp-content/uploads/[^\s"'<>]+""", h)))[:30])
-    print("skript:", re.findall(r"""<script[^>]+src=["']([^"']+)["']""", h)[:25])
-    for m in list(re.finditer(r"download|histor|inception", h, flags=re.I))[:8]:
-        s = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", h[max(0, m.start() - 120):m.end() + 160]))
-        print("  ...", s.strip()[:260])
-    tbl = re.search(r"<table.*?</table>", h, flags=re.I | re.S)
-    if tbl:
-        print("første tabell (tekst):", re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", tbl.group(0)))[:500])
-    # Vanlige datafilsti-gjetninger (HEAD)
-    for g in ["https://naaim.org/wp-json/wp/v2/pages?slug=naaim-exposure-index", "https://naaim.org/naaim-exposure-index.csv"]:
-        rr = get(g)
-        if rr is not None:
-            print("gjetning", g, rr.status_code, rr.headers.get("content-type"), rr.text[:150].replace("\n", " "))
+def cftc():
+    print("=== CFTC ===")
+    for ds, name in (("6dca-aqww", "legacy"), ("gpe5-46if", "tff")):
+        for code in ("13874A", "209742", "239742", "1170E1"):
+            r = get(f"https://publicreporting.cftc.gov/resource/{ds}.json",
+                    params={"$where": f"cftc_contract_market_code='{code}'", "$order": "report_date_as_yyyy_mm_dd DESC", "$limit": 600})
+            if r is None:
+                continue
+            try:
+                rows = r.json()
+            except ValueError:
+                print(f"  {name} {code}: ikke JSON {r.text[:100]!r}")
+                continue
+            if not isinstance(rows, list) or not rows:
+                print(f"  {name} {code}: {r.status_code} ingen rader {str(rows)[:100]}")
+                continue
+            f = rows[0]
+            keys = [k for k in f if "noncomm_positions_long_all" == k or "noncomm_positions_short_all" == k or k.startswith("lev_money_positions") or k == "open_interest_all"]
+            print(f"  {name} {code}: {len(rows)} rader, siste {f.get('report_date_as_yyyy_mm_dd', '')[:10]}, eldste {rows[-1].get('report_date_as_yyyy_mm_dd', '')[:10]}, "
+                  f"{f.get('market_and_exchange_names')} | {[(k, f[k]) for k in keys][:6]}")
 
 
-def v2tx():
-    print("=== V2TX ===")
-    for sym in ["^V2TX", "^VSTOXX", "V2TX.DE", "V2TX.F", "^V2X", "VSTOXX.FGI"]:
+def cboe_pcr():
+    print("=== CBOE put/call ===")
+    base = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/"
+    for name in ("totalpc.csv", "equitypc.csv", "indexpc.csv", "vixpc.csv", "spxpc.csv"):
+        r = get(base + name)
+        if r is None:
+            continue
+        lines = r.text.splitlines()
+        print(f"  {name}: {r.status_code} {len(lines)} linjer | første: {lines[:3]} | siste: {lines[-2:]}")
+
+
+def yahoo_vol():
+    print("=== Yahoo volatilitetsindekser ===")
+    import yfinance as yf
+
+    for sym in ["^VDAX", "^VXN", "^RVX", "^VXEEM", "^GVZ", "^OVX", "^VIX9D", "^VIX6M", "^V1X", "^VHSI", "^VKOSPI"]:
         try:
-            import yfinance as yf
-
             df = yf.Ticker(sym).history(period="10d")
-            print(f"  yfinance {sym}: {len(df)} rader", (str(df.index[-1].date()) + " " + str(round(float(df['Close'].iloc[-1]), 2))) if len(df) else "")
+            print(f"  {sym}: {len(df)} rader", (str(df.index[-1].date()) + " " + str(round(float(df['Close'].iloc[-1]), 2))) if len(df) else "")
         except Exception as exc:  # noqa: BLE001
-            print(f"  yfinance {sym}: FEIL {type(exc).__name__}")
-    for u in ["https://www.stoxx.com/document/Indices/Current/HistoricalData/h_v2tx.txt",
-              "https://www.stoxx.com/document/Indices/Current/HistoricalData/hV2TX.txt",
-              "https://www.stoxx.com/document/Indices/Current/HistoricalData/v2tx.txt",
-              "https://www.stoxx.com/index-details?symbol=V2TX",
-              "https://stooq.com/q/d/l/?s=v2tx.f&i=d",
-              "https://query1.finance.yahoo.com/v8/finance/chart/%5EV2TX?range=5d&interval=1d"]:
-        r = get(u)
-        if r is not None:
-            print(f"  {r.status_code} {u} | {r.headers.get('content-type')} | {len(r.text)} tegn | {r.text[:160]!r}")
+            print(f"  {sym}: FEIL {type(exc).__name__}")
 
 
 if __name__ == "__main__":
-    naaim()
-    v2tx()
+    cftc()
+    cboe_pcr()
+    yahoo_vol()
