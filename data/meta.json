@@ -1,24 +1,24 @@
 {
- "run_at": "2026-10-13T10:34:19+00:00",
+ "run_at": "2026-10-14T05:31:15+00:00",
  "groups": {
   "volatility": {
-   "generated_at": "2026-10-13T10:34:06+00:00",
+   "generated_at": "2026-10-14T05:31:01+00:00",
    "ok": true
   },
   "macro": {
-   "generated_at": "2026-10-13T10:34:07+00:00",
+   "generated_at": "2026-10-14T05:31:02+00:00",
    "ok": true
   },
   "equities": {
-   "generated_at": "2026-10-13T10:34:15+00:00",
+   "generated_at": "2026-10-14T05:31:09+00:00",
    "ok": true
   },
   "mood": {
-   "generated_at": "2026-10-13T10:34:19+00:00",
+   "generated_at": "2026-10-14T05:31:15+00:00",
    "ok": true
   },
   "regime": {
-   "generated_at": "2026-10-13T10:34:15+00:00",
+   "generated_at": "2026-10-14T05:31:09+00:00",
    "ok": true
   }
  },

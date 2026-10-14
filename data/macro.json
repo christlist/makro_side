@@ -15,29 +15,25 @@
    "error": null,
    "source": "FRED BAMLH0A0HYM2",
    "proxy": false,
-   "last_date": "2026-10-08",
-   "last_value": 3.15,
+   "last_date": "2026-10-12",
+   "last_value": 3.11,
    "stale": false,
-   "age_days": 5,
-   "percentile_10y": 62.7,
+   "age_days": 2,
+   "percentile_10y": 57.5,
    "level": "normal",
-   "window_start": "2023-10-10",
+   "window_start": "2023-10-16",
    "window_years": 3.0,
-   "n_obs": 786,
+   "n_obs": 784,
    "bands": {
     "p10": 2.69,
     "p25": 2.8,
     "p50": 3.02,
-    "p75": 3.2375,
-    "p90": 3.595
+    "p75": 3.23,
+    "p90": 3.577
    },
-   "change_1w": -0.09,
+   "change_1w": -0.01,
    "change_kind": "abs",
    "series": [
-    [
-     "2023-10-13",
-     4.3
-    ],
     [
      "2023-10-20",
      4.52
@@ -659,8 +655,12 @@
      3.1
     ],
     [
-     "2026-10-08",
-     3.15
+     "2026-10-09",
+     3.11
+    ],
+    [
+     "2026-10-12",
+     3.11
     ]
    ]
   },
@@ -679,29 +679,25 @@
    "error": null,
    "source": "FRED BAMLC0A0CM",
    "proxy": false,
-   "last_date": "2026-10-08",
-   "last_value": 0.82,
+   "last_date": "2026-10-12",
+   "last_value": 0.83,
    "stale": false,
-   "age_days": 5,
-   "percentile_10y": 41.1,
+   "age_days": 2,
+   "percentile_10y": 45.4,
    "level": "normal",
-   "window_start": "2023-10-10",
+   "window_start": "2023-10-16",
    "window_years": 3.0,
-   "n_obs": 785,
+   "n_obs": 783,
    "bands": {
     "p10": 0.76,
     "p25": 0.8,
     "p50": 0.84,
-    "p75": 0.95,
-    "p90": 1.06
+    "p75": 0.94,
+    "p90": 1.05
    },
-   "change_1w": -0.04,
+   "change_1w": -0.01,
    "change_kind": "abs",
    "series": [
-    [
-     "2023-10-13",
-     1.27
-    ],
     [
      "2023-10-20",
      1.33
@@ -1323,8 +1319,12 @@
      0.85
     ],
     [
-     "2026-10-08",
-     0.82
+     "2026-10-09",
+     0.83
+    ],
+    [
+     "2026-10-12",
+     0.83
     ]
    ]
   },
@@ -1343,15 +1343,15 @@
    "error": null,
    "source": "FRED T10Y2Y",
    "proxy": false,
-   "last_date": "2026-10-09",
-   "last_value": 0.44,
+   "last_date": "2026-10-13",
+   "last_value": 0.42,
    "stale": false,
-   "age_days": 4,
-   "percentile_10y": 52.9,
+   "age_days": 1,
+   "percentile_10y": 51.7,
    "level": "normal",
-   "window_start": "2016-10-11",
+   "window_start": "2016-10-14",
    "window_years": 10.0,
-   "n_obs": 2500,
+   "n_obs": 2498,
    "bands": {
     "p10": -0.45,
     "p25": 0.09,
@@ -1359,13 +1359,9 @@
     "p75": 0.67,
     "p90": 1.1
    },
-   "change_1w": -0.01,
+   "change_1w": -0.06,
    "change_kind": "abs",
    "series": [
-    [
-     "2016-10-28",
-     1.0
-    ],
     [
      "2016-11-04",
      0.99
@@ -3441,6 +3437,10 @@
     [
      "2026-10-09",
      0.44
+    ],
+    [
+     "2026-10-13",
+     0.42
     ]
    ]
   },
@@ -3459,15 +3459,15 @@
    "error": null,
    "source": "FRED DGS10",
    "proxy": false,
-   "last_date": "2026-10-08",
-   "last_value": 5.22,
+   "last_date": "2026-10-09",
+   "last_value": 5.24,
    "stale": false,
    "age_days": 5,
    "percentile_10y": 99.7,
    "level": "very_high",
    "window_start": "2016-10-11",
    "window_years": 10.0,
-   "n_obs": 2499,
+   "n_obs": 2500,
    "bands": {
     "p10": 1.25,
     "p25": 1.85,
@@ -3475,7 +3475,7 @@
     "p75": 4.14,
     "p90": 4.43
    },
-   "change_1w": -0.02,
+   "change_1w": -0.04,
    "change_kind": "abs",
    "series": [
     [
@@ -5555,8 +5555,8 @@
      5.28
     ],
     [
-     "2026-10-08",
-     5.22
+     "2026-10-09",
+     5.24
     ]
    ]
   },
@@ -5575,29 +5575,25 @@
    "error": null,
    "source": "FRED DTWEXBGS",
    "proxy": false,
-   "last_date": "2026-10-02",
-   "last_value": 121.3848,
+   "last_date": "2026-10-09",
+   "last_value": 121.6023,
    "stale": false,
-   "age_days": 11,
-   "percentile_10y": 79.1,
+   "age_days": 5,
+   "percentile_10y": 80.6,
    "level": "high",
-   "window_start": "2016-10-03",
+   "window_start": "2016-10-11",
    "window_years": 10.0,
    "n_obs": 2495,
    "bands": {
     "p10": 111.5867,
-    "p25": 114.2799,
-    "p50": 117.6176,
-    "p75": 120.931,
+    "p25": 114.3453,
+    "p50": 117.644,
+    "p75": 120.9418,
     "p90": 123.4655
    },
-   "change_1w": 0.8766,
+   "change_1w": 0.1792,
    "change_kind": "pct",
    "series": [
-    [
-     "2016-10-21",
-     113.9015
-    ],
     [
      "2016-10-28",
      114.0931
@@ -7673,6 +7669,10 @@
     [
      "2026-10-02",
      121.3848
+    ],
+    [
+     "2026-10-09",
+     121.6023
     ]
    ]
   },
@@ -7694,7 +7694,7 @@
    "last_date": "2026-10-06",
    "last_value": 96.24,
    "stale": false,
-   "age_days": 7,
+   "age_days": 8,
    "percentile_10y": 93.6,
    "level": "very_high",
    "window_start": "2016-10-07",
@@ -9794,6 +9794,6 @@
   }
  },
  "group": "macro",
- "generated_at": "2026-10-13T10:34:07+00:00",
+ "generated_at": "2026-10-14T05:31:02+00:00",
  "missing": []
 }
