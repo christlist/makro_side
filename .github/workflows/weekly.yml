@@ -2,14 +2,16 @@ name: Oppdater makroside
 
 on:
   schedule:
-    # Mål: oppdatering hver dag kl. 06:00 norsk tid. GitHub bruker UTC og forsinker planlagte kjøringer, noen ganger
-    # med timer. Derfor er flere tidspunkt planlagt (04:07 til 06:07 UTC), og port-jobben (scripts/should_run.py)
-    # slipper bare gjennom første kjøring som starter etter 06:00 i Oslo og som ikke allerede er oppdatert i dag.
-    # Minuttene 07 og 37 (ikke 00) unngår køen ved hel time.
+    # Mål: oppdatering hver natt rett etter midnatt norsk tid. GitHub bruker UTC og forsinker planlagte kjøringer,
+    # ofte med flere timer, så en kjøring planlagt ved midnatt er normalt ferdig om morgenen. Flere tidspunkt er
+    # planlagt (22:07 til 23:37 UTC dekker midnatt både sommer og vinter, 04:07 og 06:07 UTC er reserve), og
+    # port-jobben (scripts/should_run.py) slipper bare gjennom første kjøring som starter etter 00:00 i Oslo
+    # og som ikke allerede er oppdatert i dag. Minuttene 07 og 37 (ikke 00) unngår køen ved hel time.
+    - cron: "7 22 * * *"
+    - cron: "37 22 * * *"
+    - cron: "7 23 * * *"
+    - cron: "37 23 * * *"
     - cron: "7 4 * * *"
-    - cron: "37 4 * * *"
-    - cron: "7 5 * * *"
-    - cron: "37 5 * * *"
     - cron: "7 6 * * *"
   workflow_dispatch:
 
