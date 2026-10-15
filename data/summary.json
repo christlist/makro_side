@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-15T09:05:57+00:00",
+ "generated_at": "2026-10-15T13:43:04+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 58 av 100, og 4 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 59 av 100, og 4 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (36 av 100, −11 poeng siste uke). Komponentene spriker: Aksjer minus statsobligasjoner (20d) peker mot grådighet, SKEW mot frykt."
+   "text": "Stemningen er frykt (34 av 100, −9 poeng siste uke)."
   },
   {
    "kind": "unusual",
@@ -15,7 +15,7 @@
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt +1,3 % siste måned og ligger 6,3 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt +1,5 % siste måned og ligger 5,9 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
@@ -55,13 +55,13 @@
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 58.4,
+  "mean_stress": 59.0,
   "status": "ok"
  },
  "mood": {
-  "score": 36.5,
+  "score": 34.2,
   "label": "fear",
-  "change_1w": -11.1,
+  "change_1w": -9.3,
   "status": "ok"
  },
  "health": {

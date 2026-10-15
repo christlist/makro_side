@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T09:05:53+00:00",
+ "generated_at": "2026-10-15T13:42:50+00:00",
  "items": [
   {
    "id": "vix",
@@ -97,14 +97,14 @@
    "label": "S&P 500 avstand til 200d snitt",
    "direction": "lower_is_stress",
    "status": "ok",
-   "value": 6.2713,
+   "value": 5.9159,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-10-14",
+   "last_date": "2026-10-15",
    "stale": false,
-   "percentile_10y": 49.3,
-   "stress_percentile": 50.7,
-   "change_1w": -1.4685,
+   "percentile_10y": 45.3,
+   "stress_percentile": 54.7,
+   "change_1w": -1.2521,
    "change_kind": "abs",
    "window_years": 10.0,
    "light": "green"
@@ -126,6 +126,6 @@
  },
  "status": "ok",
  "state": "elevated",
- "mean_stress": 58.4,
+ "mean_stress": 59.0,
  "error": null
 }
