@@ -1,32 +1,43 @@
 {
- "generated_at": "2026-10-14T05:31:15+00:00",
+ "generated_at": "2026-10-15T09:05:57+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er rolig. Snittet av stress-persentilene er 48 av 100, og 5 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 58 av 100, og 4 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (44 av 100, −6 poeng siste uke). Komponentene spriker: Aksjer minus statsobligasjoner (20d) peker mot grådighet, SKEW mot frykt."
+   "text": "Stemningen er frykt (36 av 100, −11 poeng siste uke). Komponentene spriker: Aksjer minus statsobligasjoner (20d) peker mot grådighet, SKEW mot frykt."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 100), WTI råolje (persentil 94), SKEW (persentil 93)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 100), SKEW (persentil 96), WTI råolje (persentil 94)."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt +1,9 % siste måned og ligger 7,5 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt +1,3 % siste måned og ligger 6,3 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 99.7,
-   "value": 5.24,
+   "percentile": 99.6,
+   "value": 5.21,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-10-09",
+   "last_date": "2026-10-13",
+   "direction": "high",
+   "window_years": 10.0
+  },
+  {
+   "id": "skew",
+   "name": "SKEW",
+   "percentile": 95.6,
+   "value": 157.3,
+   "decimals": 1,
+   "unit": "indekspunkter",
+   "last_date": "2026-10-14",
    "direction": "high",
    "window_years": 10.0
   },
@@ -40,28 +51,17 @@
    "last_date": "2026-10-06",
    "direction": "high",
    "window_years": 10.0
-  },
-  {
-   "id": "skew",
-   "name": "SKEW",
-   "percentile": 93.4,
-   "value": 154.74,
-   "decimals": 1,
-   "unit": "indekspunkter",
-   "last_date": "2026-10-13",
-   "direction": "high",
-   "window_years": 10.0
   }
  ],
  "regime": {
-  "state": "calm",
-  "mean_stress": 48.4,
+  "state": "elevated",
+  "mean_stress": 58.4,
   "status": "ok"
  },
  "mood": {
-  "score": 43.5,
+  "score": 36.5,
   "label": "fear",
-  "change_1w": -6.5,
+  "change_1w": -11.1,
   "status": "ok"
  },
  "health": {
@@ -73,7 +73,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-10-14",
+  "latest_data_date": "2026-10-15",
   "oldest_data_date": "2026-10-06"
  }
 }
