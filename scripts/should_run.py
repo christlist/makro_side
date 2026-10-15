@@ -1,9 +1,11 @@
 """Port for planlagte kjøringer: skal pipelinen kjøre nå? Bare standardbibliotek, så den kan kjøres uten installasjon.
 
 GitHub forsinker planlagte kjøringer, noen ganger med timer. Derfor er regelen ikke «klokken er 06», men:
-kjør hvis klokken i Oslo er 06:00 eller senere, og forrige oppdatering skjedde før dagens 06:00 (Oslo).
-Første kjøring som starter etter 06 tar dagens oppdatering, uansett hvor sent. De andre planlagte kjøringene
-samme dag ser at det allerede er oppdatert og hopper over. Manuell kjøring kjører alltid."""
+kjør hvis klokken i Oslo er RUN_HOUR:00 eller senere, og forrige oppdatering skjedde før dagens RUN_HOUR:00 (Oslo).
+RUN_HOUR er 0: dagens oppdatering starter ved midnatt, slik at selv med flere timers forsinkelse er siden oppdatert
+i løpet av natten eller tidlig morgen. Første kjøring som starter etter midnatt tar dagens oppdatering, uansett hvor sent.
+De andre planlagte kjøringene samme dag ser at det allerede er oppdatert og hopper over. Kjøringer som starter før
+midnatt i Oslo (22:07 UTC om vinteren) hoppes over. Manuell kjøring kjører alltid."""
 from __future__ import annotations
 
 import json
@@ -14,7 +16,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 OSLO = ZoneInfo("Europe/Oslo")
-RUN_HOUR = 6
+RUN_HOUR = 0
 
 
 def last_run(meta_path: Path) -> datetime | None:

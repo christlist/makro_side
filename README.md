@@ -1,6 +1,6 @@
 # makro_side
 
-Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett minutt: regime, volatilitet, kreditt, renter, råvarer, aksjer, sektorer og stemning (frykt og grådighet). Oppdateres hver morgen fra kl. 06 norsk tid av GitHub Actions (planlagte kjøringer kan bli forsinket) og hostes på GitHub Pages.
+Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett minutt: regime, volatilitet, kreditt, renter, råvarer, aksjer, sektorer og stemning (frykt og grådighet). Oppdateres hver natt fra midnatt norsk tid av GitHub Actions (planlagte kjøringer blir ofte forsinket med flere timer, så siden er normalt oppdatert om morgenen) og hostes på GitHub Pages.
 
 ## Prinsipper for data
 
@@ -18,7 +18,7 @@ Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett m
 | `data/` | JSON generert av skriptene |
 | `docs/` | Statisk side (HTML, CSS, vanilla JS). Plotly og skrifter (IBM Plex Sans, Newsreader) ligger lokalt i `docs/vendor` og `docs/fonts`, uten eksterne avhengigheter |
 | `tests/` | `pytest` (persentil, z-score, regel, manglende data) og `node --test` (siden ved manglende data) |
-| `.github/workflows/weekly.yml` | Daglig kjøring fra kl. 06 norsk tid og manuell kjøring. GitHub forsinker planlagte kjøringer (opptil timer), så fem cron-tidspunkt er planlagt og `scripts/should_run.py` slipper gjennom bare den første som starter etter 06:00 i Oslo og som ikke allerede er oppdatert i dag |
+| `.github/workflows/weekly.yml` | Daglig kjøring fra midnatt norsk tid og manuell kjøring. GitHub forsinker planlagte kjøringer (opptil timer), så seks cron-tidspunkt er planlagt og `scripts/should_run.py` slipper gjennom bare den første som starter etter 00:00 i Oslo og som ikke allerede er oppdatert i dag |
 
 ## Kjøre lokalt
 
