@@ -1,32 +1,43 @@
 {
- "generated_at": "2026-10-15T13:43:04+00:00",
+ "generated_at": "2026-10-16T00:19:05+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 59 av 100, og 4 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 60 av 100, og 4 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (34 av 100, −9 poeng siste uke)."
+   "text": "Stemningen er frykt (36 av 100, −8 poeng siste uke). Komponentene spriker: Aksjer minus statsobligasjoner (20d) peker mot grådighet, SKEW mot frykt."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 100), SKEW (persentil 96), WTI råolje (persentil 94)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 100), WTI råolje (persentil 96), SKEW (persentil 96)."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt +1,5 % siste måned og ligger 5,9 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt +2,1 % siste måned og ligger 6,6 % over 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 99.6,
-   "value": 5.21,
+   "percentile": 99.5,
+   "value": 5.19,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-10-13",
+   "last_date": "2026-10-14",
+   "direction": "high",
+   "window_years": 10.0
+  },
+  {
+   "id": "wti",
+   "name": "WTI råolje",
+   "percentile": 95.9,
+   "value": 101.91,
+   "decimals": 2,
+   "unit": "USD per fat",
+   "last_date": "2026-10-14",
    "direction": "high",
    "window_years": 10.0
   },
@@ -40,28 +51,17 @@
    "last_date": "2026-10-14",
    "direction": "high",
    "window_years": 10.0
-  },
-  {
-   "id": "wti",
-   "name": "WTI råolje",
-   "percentile": 93.6,
-   "value": 96.24,
-   "decimals": 2,
-   "unit": "USD per fat",
-   "last_date": "2026-10-06",
-   "direction": "high",
-   "window_years": 10.0
   }
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 59.0,
+  "mean_stress": 60.3,
   "status": "ok"
  },
  "mood": {
-  "score": 34.2,
+  "score": 35.7,
   "label": "fear",
-  "change_1w": -9.3,
+  "change_1w": -7.8,
   "status": "ok"
  },
  "health": {
@@ -73,7 +73,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-10-15",
+  "latest_data_date": "2026-10-16",
   "oldest_data_date": "2026-10-06"
  }
 }
