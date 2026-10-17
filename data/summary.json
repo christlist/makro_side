@@ -1,17 +1,17 @@
 {
- "generated_at": "2026-10-17T00:21:47+00:00",
+ "generated_at": "2026-10-17T23:59:16+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 61 av 100, og 4 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 70 av 100, og 2 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (36 av 100, −10 poeng siste uke). Komponentene spriker: Spekulantposisjon VIX-futures (CFTC) peker mot grådighet, SKEW mot frykt."
+   "text": "Stemningen er frykt (28 av 100, −18 poeng siste uke). Komponentene spriker: Spekulantposisjon VIX-futures (CFTC) peker mot grådighet, SKEW mot frykt."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), SKEW (persentil 97), WTI råolje (persentil 96)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), SKEW (persentil 99), WTI råolje (persentil 96)."
   },
   {
    "kind": "equities",
@@ -33,11 +33,11 @@
   {
    "id": "skew",
    "name": "SKEW",
-   "percentile": 96.9,
-   "value": 160.45,
+   "percentile": 99.0,
+   "value": 168.59,
    "decimals": 1,
    "unit": "indekspunkter",
-   "last_date": "2026-10-15",
+   "last_date": "2026-10-16",
    "direction": "high",
    "window_years": 10.0
   },
@@ -55,13 +55,13 @@
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 61.0,
+  "mean_stress": 70.0,
   "status": "ok"
  },
  "mood": {
-  "score": 35.7,
+  "score": 27.9,
   "label": "fear",
-  "change_1w": -10.4,
+  "change_1w": -18.2,
   "status": "ok"
  },
  "health": {
