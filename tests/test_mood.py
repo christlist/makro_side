@@ -97,7 +97,28 @@ def test_full_pipeline_with_ramp_stubs(monkeypatch, tmp_path):
     assert all(math.isfinite(p[1]) for p in m["series"]) and len(m["series"]) > 10
     assert len(payload["rows"]) == 11 and all(r["status"] == "ok" for r in payload["rows"].values())
     assert all(len(r["components"]) == 5 for r in payload["rows"].values())
+    assert all(r["history"]["weeks"] > 10 and len(r["history"]["price"]) == len(r["history"]["mood"]) for r in payload["rows"].values())
     assert (tmp_path / "mood.json").exists()
+
+
+def test_sector_history_aligned_and_correlation_structure():
+    """Rampeserier: kurs og stemningsscore må ha samme datoer, kurs indeksert til 100, og korrelasjon er enten None eller i [-1, 1]."""
+    close = ramp(800, start="2022-01-03", step=0.1)
+    ref = close.index[-1]
+    comps = fm.sector_components(close, ramp(800, start="2022-01-03", step=0.05))
+    h = fm.sector_history(close, comps, ref, 60, 10, 250, 4)
+    assert h["weeks"] == len(h["mood"]) == len(h["price"]) > 20
+    assert [p[0] for p in h["mood"]] == [p[0] for p in h["price"]]
+    assert h["price"][0][1] == pytest.approx(100.0)
+    assert all(0 <= p[1] <= 100 for p in h["mood"])
+    assert h["corr"] is None or -1 <= h["corr"] <= 1
+
+
+def test_sector_history_too_short_gives_no_correlation():
+    close = ramp(800, start="2022-01-03", step=0.1)
+    comps = fm.sector_components(close, None)
+    h = fm.sector_history(close, comps, close.index[-1], 10, 10, 250, 4)
+    assert h["corr"] is None
 
 
 def test_all_sources_down(monkeypatch, tmp_path):

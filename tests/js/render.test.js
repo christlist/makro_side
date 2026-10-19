@@ -123,3 +123,18 @@ test('måler og persentilbar klemmer verdier til 0 til 100', () => {
   assert.match(R.gauge(-5, [{ to: 100, cls: 'z' }], ['a', 'b']), /left:0%/);
   assert.match(R.pbar(null), /pbar-empty/);
 });
+
+test('kurs mot stemning per sektor: bare sektorer med historikk vises, mangler gir Data mangler', () => {
+  assert.match(R.renderSectorLinks(null), /Data mangler/);
+  assert.match(R.renderSectorLinks({ rows: { a: { id: 'a', name: 'A', symbol: 'AAA', status: 'missing', error: 'x' } } }), /Data mangler/);
+  const ok = { id: 'a', name: 'Sektor A', symbol: 'AAA', status: 'ok', score: 50, history: { mood: [['2026-10-01', 50]], price: [['2026-10-01', 100]], corr: null } };
+  const html = R.renderSectorLinks({ rows: { a: ok, b: { id: 'b', name: 'Sektor B', symbol: 'BBB', status: 'ok', score: 40 } } });
+  assert.match(html, /id="c-sec-a"/);
+  assert.doesNotMatch(html, /Sektor B/);
+  assert.match(html, /for kort historikk/);
+});
+
+test('kurs mot stemning per sektor: korrelasjon vises med to desimaler', () => {
+  const html = R.renderSectorLinks({ rows: { a: { id: 'a', name: 'S', symbol: 'A', status: 'ok', score: 50, history: { mood: [['2026-10-01', 50]], price: [['2026-10-01', 100]], corr: 0.5 } } } });
+  assert.match(html, /Samvariasjon 0[,.]50/);
+});

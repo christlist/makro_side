@@ -59,6 +59,21 @@
         { xref: 'paper', yref: 'y', x: 0.995, y: 92, text: 'Grådighet', showarrow: false, xanchor: 'right', font: { size: 10, color: css('--greed') } }] }));
   }
 
+  function drawSectorLinks(mood) {
+    if (!mood || !mood.rows) return;
+    Object.keys(mood.rows).forEach(function (k) {
+      var r = mood.rows[k], el = $('c-sec-' + k);
+      if (!el || !r.history || !r.history.mood || !r.history.price || r.history.price.length !== r.history.mood.length) return;
+      var h = r.history, x = h.mood.map(function (p) { return p[0]; });
+      plot(el, [
+        { x: x, y: h.mood.map(function (p) { return p[1]; }), type: 'scatter', mode: 'lines', name: 'Stemning', line: { color: css('--accent'), width: 1.8 }, hovertemplate: '%{x|%d.%m.%Y}<br>Stemning <b>%{y}</b><extra></extra>' },
+        { x: x, y: h.price.map(function (p) { return p[1]; }), type: 'scatter', mode: 'lines', name: 'Kurs', yaxis: 'y2', line: { color: css('--series2'), width: 1.4 }, hovertemplate: '%{x|%d.%m.%Y}<br>Kurs (100 = start) <b>%{y}</b><extra></extra>' }],
+        layout({ showlegend: true, legend: { orientation: 'h', x: 0, y: 1.25, font: { size: 11 } }, margin: { l: 34, r: 40, t: 20, b: 24 },
+          yaxis: { gridcolor: css('--rule'), range: [0, 100], zeroline: false, fixedrange: true, tickvals: [0, 50, 100] },
+          yaxis2: { overlaying: 'y', side: 'right', showgrid: false, zeroline: false, fixedrange: true } }));
+    });
+  }
+
   function cards(file, ids, prefix, label) {
     if (!file) return R.missingBox(label, 'Filen kunne ikke leses.');
     return ids.map(function (id) { return R.renderIndicatorCard((file.indicators || {})[id], prefix + id, { name: id }); }).join('');
@@ -84,6 +99,7 @@
     });
     if (d.macro) MACRO_IDS.forEach(function (id) { drawIndicator('c-mac-' + id, (d.macro.indicators || {})[id]); });
     drawMood(d.mood);
+    drawSectorLinks(d.mood);
   }
 
   function initNav() {

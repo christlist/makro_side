@@ -241,7 +241,27 @@
         '<div class="tablewrap"><table><thead><tr><th>Sektor</th><th class="num">Score</th><th>Stemning</th><th class="num">Endring uke</th><th class="num">1 mnd</th><th class="num">Rel. styrke 3 mnd</th><th class="num">Mot 200d snitt</th></tr></thead><tbody>' + sec + '</tbody></table></div>' +
         '<details class="more"><summary>Vis de fem delmålene per sektor</summary><p class="small muted">Hvert delmål er persentilrang mot sektorens egen historikk. Rolige kurs (lav volatilitet) og nærhet til 52 ukers høy teller som grådighet.</p><div class="tablewrap"><table><thead><tr><th>Sektor</th><th class="num">200d snitt</th><th class="num">1 mnd</th><th class="num">Rel. styrke</th><th class="num">Ro (lav vol)</th><th class="num">Nær høy</th></tr></thead><tbody>' + detail + '</tbody></table></div></details>'
       : missingBox('stemning per sektor', 'Ingen sektordata.');
-    return chart + '<h3 class="sub">Hva markedsindeksen består av</h3>' + compTable + secTable;
+    return chart + '<h3 class="sub">Hva markedsindeksen består av</h3>' + compTable + secTable + renderSectorLinks(m);
+  }
+
+  /* Kurs mot stemning per sektor: ett lite diagram per sektor (kurs indeksert til 100 og stemningsscore, siste tre år). */
+  function renderSectorLinks(m) {
+    var rowsObj = (m && m.rows) || {};
+    var rows = Object.keys(rowsObj).map(function (k) { return rowsObj[k]; }).filter(function (r) {
+      return r.status === 'ok' && r.history && r.history.mood && r.history.mood.length && r.history.price && r.history.price.length === r.history.mood.length;
+    });
+    if (!rows.length) return '<h3 class="sub">Kurs mot stemning per sektor</h3>' + missingBox('kurs mot stemning per sektor', 'Ingen historikk per sektor tilgjengelig.');
+    rows.sort(function (a, b) { return (isNum(b.score) ? b.score : -1) - (isNum(a.score) ? a.score : -1); });
+    var cards = rows.map(function (r) {
+      var h = r.history;
+      var corr = isNum(h.corr) ? 'Samvariasjon ' + fmt(h.corr, 2) : 'Samvariasjon: for kort historikk';
+      return '<div class="card"><h4 class="card-t">' + esc(r.name) + ' <span class="muted">' + esc(r.symbol) + '</span></h4>' +
+        '<div class="small muted">Stemning nå ' + fmt(r.score, 0) + ' · ' + esc(corr) + '</div>' +
+        '<div class="chart" id="c-sec-' + esc(r.id) + '" role="img" aria-label="Kurs og stemning ' + esc(r.name) + '"></div></div>';
+    }).join('');
+    return '<h3 class="sub">Kurs mot stemning per sektor</h3>' +
+      '<p class="lede-s">Linje 1 (venstre akse) er stemningsscore 0 til 100, linje 2 (høyre akse) er kursen indeksert til 100 for tre år siden. Samvariasjon er korrelasjonen mellom ukentlig kursendring og ukentlig endring i score, fra -1 til 1. Stemningen er bygget av kursdata, så sammenhengen er delvis innebygd og er ikke et uavhengig signal.</p>' +
+      '<div class="grid g2">' + cards + '</div>';
   }
 
   /* -------------------------------------------------------------------- metodikk */
@@ -266,5 +286,5 @@
 
   return { MISSING: MISSING, esc: esc, fmt: fmt, fmtSigned: fmtSigned, fmtDate: fmtDate, fmtDateTime: fmtDateTime, levelOf: levelOf,
     missingBox: missingBox, pbar: pbar, gauge: gauge, renderStatus: renderStatus, renderOverview: renderOverview, renderIndicatorCard: renderIndicatorCard,
-    renderEquityTable: renderEquityTable, renderBreadth: renderBreadth, renderMood: renderMood, renderMethodology: renderMethodology };
+    renderEquityTable: renderEquityTable, renderBreadth: renderBreadth, renderMood: renderMood, renderSectorLinks: renderSectorLinks, renderMethodology: renderMethodology };
 });
