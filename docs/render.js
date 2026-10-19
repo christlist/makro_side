@@ -264,6 +264,47 @@
       '<div class="grid g2">' + cards + '</div>';
   }
 
+  /* ------------------------------------------------------------------ tilbaketest */
+  function sectorList(arr) {
+    return arr && arr.length ? arr.map(function (x) { return esc(x.name) + ' <span class="muted">' + esc(x.symbol) + ' ' + fmt(x.score, 1) + '</span>'; }).join(', ') : '<span class="muted">Ingen</span>';
+  }
+
+  function renderBacktest(bt) {
+    var head = '<h3 class="sub">Har sektorstemning vært et signal?</h3>';
+    if (!bt) return head + missingBox('tilbaketest', 'Filen backtest.json kunne ikke leses.');
+    if (bt.status !== 'ok') return head + missingBox('tilbaketest', bt.error);
+    var p = bt.params || {}, s = bt.sample || {};
+    var rows = (bt.rules || []).map(function (r) {
+      var name = '<td><strong>' + esc(r.id) + '</strong> ' + esc(r.label) + '</td><td class="num">' + esc(r.n_weeks) + '</td>';
+      if (r.status !== 'ok') return '<tr>' + name + '<td colspan="4" class="miss-cell">For få uker til å regne ut</td></tr>';
+      return '<tr>' + name + '<td class="num strong">' + fmtSigned(r.mean_rel, 1, ' pp') + '</td>' +
+        '<td class="num">' + fmtSigned(r.phase_min, 1) + ' til ' + fmtSigned(r.phase_max, 1) + ' pp <span class="muted">(ca. ' + esc(r.phase_n) + ' uavhengige)</span></td>' +
+        '<td class="num">' + fmtSigned(r.boot_lo, 1) + ' til ' + fmtSigned(r.boot_hi, 1) + ' pp</td>' +
+        '<td class="num">' + fmt(r.hit_rate, 0) + ' %</td></tr>';
+    }).join('');
+    var table = '<div class="tablewrap"><table><thead><tr><th>Regel</th><th class="num">Uker med signal</th><th class="num">Snitt relativ avkastning</th><th class="num">Ikke overlappende vinduer (min til maks)</th><th class="num">Bootstrap, 90 % intervall</th><th class="num">Treff</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+    var regimeLine = (bt.by_regime || []).map(function (r) {
+      return esc(STATE_TEXT[r.regime] || r.regime).toLowerCase() + ' ' + (isNum(r.mean_rel) ? fmtSigned(r.mean_rel, 1, ' pp') : 'for få uker') + ' (' + esc(r.n_weeks) + ' uker)';
+    }).join(', ');
+    var cur = bt.current || {}, cr = cur.rules || {};
+    var now = '<div class="card"><h4 class="card-t">Hvilke sektorer oppfyller reglene nå</h4>' +
+      '<div class="small muted">Per ' + fmtDate(cur.ref_date) + ' · rekonstruert regime ' + esc(STATE_TEXT[cur.regime] || MISSING).toLowerCase() + (isNum(cur.regime_mean) ? ' (snitt stress-persentil ' + fmt(cur.regime_mean, 0) + ')' : '') + '</div>' +
+      '<ul class="plist">' + ['A', 'C', 'D', 'F'].map(function (id) {
+        var r = (bt.rules || []).filter(function (x) { return x.id === id; })[0];
+        return '<li><strong>' + esc(id) + '</strong> ' + esc(r ? r.label : '') + ': ' + sectorList(cr[id]) + '</li>';
+      }).join('') + '</ul><p class="small muted">Dette beskriver hva reglene sier i dag, ikke en anbefaling.</p></div>';
+    var caveat = '<div class="card caveat"><h4 class="card-t">Forbehold</h4><ul class="plist">' +
+      '<li>Utvalget er tre år og én markedssyklus, og de elleve sektorene beveger seg delvis sammen. Ikke overlappende vinduer gir bare noen få uavhengige observasjoner per regel.</li>' +
+      '<li>Terskelene (' + esc(p.fear_below) + ' og ' + esc(p.greed_above) + ') er valgt etter at dataene var sett. Testen er in sample og viser ikke at mønsteret holder fremover.</li>' +
+      '<li>Bootstrap tar hensyn til at nabouker henger sammen, men ikke til at reglene er valgt etter å ha sett resultatet. Handelskostnader er ikke med.</li>' +
+      '<li>Stemningen er bygget av kursdata, så sammenhengen med fremtidig avkastning er ikke et uavhengig signal. Kontekst, ikke handelssignal og ikke finansiell rådgivning.</li></ul></div>';
+    return head + '<p class="lede-s">Har sektorer med frykt gjort det bedre enn de andre sektorene de neste ' + esc(p.horizon_weeks) + ' ukene? Testen bruker sidens egne data: ' +
+      esc(s.n_weeks) + ' uker fra ' + fmtDate(s.start) + ' til ' + fmtDate(s.end) + ' for ' + esc(s.n_sectors) + ' sektorer. Utfallet er avkastning de neste ' + esc(p.horizon_weeks) +
+      ' ukene minus likevektet snitt av sektorene, i prosentpoeng (pp). Per uke tas snittet av sektorene som oppfyller regelen. Treff er andelen uker der de slo snittet. ' +
+      'Regimehistorikk lagres ikke og er rekonstruert fra seriene på siden (persentil mot det som var kjent på tidspunktet).</p>' + table +
+      '<p class="small muted">Regel A per regime: ' + regimeLine + '.</p><div class="grid g2">' + now + caveat + '</div>';
+  }
+
   /* -------------------------------------------------------------------- metodikk */
   function renderMethodology(files, meta, summary) {
     var rows = [];
@@ -286,5 +327,5 @@
 
   return { MISSING: MISSING, esc: esc, fmt: fmt, fmtSigned: fmtSigned, fmtDate: fmtDate, fmtDateTime: fmtDateTime, levelOf: levelOf,
     missingBox: missingBox, pbar: pbar, gauge: gauge, renderStatus: renderStatus, renderOverview: renderOverview, renderIndicatorCard: renderIndicatorCard,
-    renderEquityTable: renderEquityTable, renderBreadth: renderBreadth, renderMood: renderMood, renderSectorLinks: renderSectorLinks, renderMethodology: renderMethodology };
+    renderEquityTable: renderEquityTable, renderBreadth: renderBreadth, renderMood: renderMood, renderSectorLinks: renderSectorLinks, renderBacktest: renderBacktest, renderMethodology: renderMethodology };
 });

@@ -14,7 +14,7 @@ Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett m
 | Mappe/fil | Innhold |
 |---|---|
 | `config.yaml` | Kilder (kandidatlister med fallback), terskler, sektorsøkeord |
-| `scripts/` | Python. `common.py` (statistikk, JSON, feilhåndtering), `sources.py` (CBOE, FRED, yfinance), ett skript per datagruppe, `build_summary.py` (regelbasert oppsummering), `run_all.py` |
+| `scripts/` | Python. `common.py` (statistikk, JSON, feilhåndtering), `sources.py` (CBOE, FRED, yfinance), ett skript per datagruppe, `backtest_mood.py` (tilbaketest av sektorstemning, skriver `data/backtest.json`), `build_summary.py` (regelbasert oppsummering), `run_all.py` |
 | `data/` | JSON generert av skriptene |
 | `docs/` | Statisk side (HTML, CSS, vanilla JS). Plotly og skrifter (IBM Plex Sans, Newsreader) ligger lokalt i `docs/vendor` og `docs/fonts`, uten eksterne avhengigheter |
 | `tests/` | `pytest` (persentil, z-score, regel, manglende data) og `node --test` (siden ved manglende data) |
@@ -30,7 +30,7 @@ python -m scripts.build_site && python -m http.server -d site 8000
 python -m pytest -q && node --test tests/js/render.test.js
 ```
 
-`run_all` kjører: volatilitet, kreditt og renter, aksjer og sektorer, regime, stemning, oppsummering og kjøringsinfo. Hvert steg kan også kjøres for seg, for eksempel `python -m scripts.fetch_mood`.
+`run_all` kjører: volatilitet, kreditt og renter, aksjer og sektorer, regime, stemning, tilbaketest, oppsummering og kjøringsinfo. Hvert steg kan også kjøres for seg, for eksempel `python -m scripts.fetch_mood`.
 
 ## Oppsett på GitHub
 
@@ -51,6 +51,7 @@ Regime-indikatorer: VIX, VIX/VIX3M, HY-spread, IG-spread, bred dollarindeks, S&P
 Se tabellen under «Metodikk og kilder» på siden (genereres fra siste kjøring). Proxyer er merket «Proxy» der de brukes: VSTOXX erstattes av realisert 21d volatilitet i Euro STOXX 50 hvis V2TX ikke finnes (bakoverskuende, ikke implisitt vol), MSCI World og EM via ETF (URTH, EEM), sektorer via SPDR-ETFer (USA), Euro STOXX 50/ETF hvis STOXX 600 mangler, NORW hvis Oslo Børs-indeks mangler.
 Stemning (frykt og grådighet): prisbasert, ingen nyheter eller undersøkelser. Markedsindeksen er snittet av persentilrang (0 frykt, 100 grådighet, mot siste 10 år) for VIX, VIX/VIX3M, SKEW, høyavkastningsspread, S&P 500 mot 200d snitt, andel sektorer over 200d snitt, aksjer mot statsobligasjoner (SPY mot TLT, 20 dager) og syklisk mot defensivt (XLY mot XLP, 63 dager). Minst fem komponenter må ha data. Sektorstemning er snittet av fem mål per sektor-ETF mot sektorens egen historikk (avstand til 200d snitt, 1 måneds avkastning, relativ styrke mot SPY over 3 måneder, lav realisert volatilitet, nærhet til 52 ukers høy). Bånd i `config.yaml`. Indeksen overlapper delvis med regimepanelet.
 Posisjonering: CFTC Commitments of Traders via åpent API (publicreporting.cftc.gov, legacy-rapporten, ikke-kommersielle spekulanters netto posisjon i prosent av åpne kontrakter, ukentlig, publisert fredag for tirsdag) for E-mini S&P 500-futures (kode 13874A, netto lange = grådighet) og VIX-futures (kode 1170E1, netto lange = sikring = frykt, invertert). Reserve er TFF-rapporten (leveraged funds). Begge teller med i indeksen. NAAIM Exposure Index ble fjernet: dataene krever nå abonnement og det finnes ingen åpen fil. CBOE put/call-filene er utdaterte (slutter i 2019) og brukes ikke.
+Tilbaketest av sektorstemning (`python -m scripts.backtest_mood`, vises under Stemning): sektorer med stemning under 35 (frykt) eller over 65 (grådighet) mot relativ 13 ukers avkastning (mot likevektet sektorsnitt), på sidens egne data (tre år). Regimehistorikk lagres ikke og rekonstrueres fra seriene (persentil mot det som var kjent på tidspunktet). Resultatene vises med ikke overlappende vinduer (13 faser) og blokkbootstrap (13 ukers blokker, 90 % intervall). In sample og terskler valgt etter å ha sett dataene, så dette er kontekst og ikke et handelssignal.
 Nyhetssentiment (GDELT, yfinance-nyheter, FinBERT) ble fjernet: GDELT ga HTTP 429 fra GitHub-runnere og Yahoo ga ingen nyheter.
 
 ## Siden

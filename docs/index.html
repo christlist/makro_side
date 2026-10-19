@@ -71,6 +71,7 @@
     <h2>Frykt og grådighet</h2>
     <p class="lede">Prisbasert stemning, ikke en spørreundersøkelse. Hver komponent er persentilrang mot siste ti år: 0 betyr frykt, 100 betyr grådighet. Indeksen overlapper delvis med regimet, men ser også på momentum, bredde og risikoappetitt. Kontekst, ikke et handelssignal.</p>
     <div id="mood-body" class="body">Laster …</div>
+    <div id="backtest-body" class="body">Laster …</div>
   </section>
 
   <section id="metodikk">
@@ -85,6 +86,7 @@
           <li><strong>Avstand til 200d snitt:</strong> kurs delt på 200 handelsdagers glidende snitt, minus 1.</li>
           <li><strong>Bredde:</strong> andel av elleve SPDR-sektor-ETFer (USA) over 200d snitt. Proxy, ikke full markedsbredde.</li>
           <li><strong>Stemning:</strong> snitt av persentilrang (0 frykt, 100 grådighet) for ti komponenter: VIX, VIX/VIX3M, SKEW, høyavkastningsspread, S&amp;P 500 mot 200d snitt, andel sektorer over 200d snitt, aksjer mot statsobligasjoner (20 dager), syklisk mot defensivt (63 dager) og spekulantenes posisjonering i S&amp;P 500-futures og VIX-futures (CFTC, ukentlig, publisert fredag for tirsdag). Minst fem må ha data. Sektorstemning er snittet av fem prisbaserte mål per sektor-ETF mot egen historikk. Prisbasert og posisjonsbasert, ikke spørreundersøkelse.</li>
+          <li><strong>Tilbaketest av sektorstemning:</strong> sammenligner sektorer med frykt eller grådighet med likevektet sektorsnitt over de neste 13 ukene, på sidens egne data (tre år). Regimet er rekonstruert, og resultatene er vist med ikke overlappende vinduer og blokkbootstrap. In sample, så kontekst og ikke et handelssignal.</li>
           <li><strong>Utdatert:</strong> data eldre enn 10 dager merkes. Data eldre enn 21 dager utelates fra regime og stemning.</li>
         </ul>
       </details>

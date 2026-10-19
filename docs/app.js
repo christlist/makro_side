@@ -87,6 +87,7 @@
     $('eq-body').innerHTML = R.renderEquityTable(d.equities);
     $('breadth-body').innerHTML = R.renderBreadth(d.equities);
     $('mood-body').innerHTML = R.renderMood(d.mood, d.equities);
+    $('backtest-body').innerHTML = R.renderBacktest(d.backtest);
     $('method-body').innerHTML = R.renderMethodology({ volatility: d.volatility, macro: d.macro, equities: d.equities }, d.meta, d.summary);
     $('foot-run').textContent = d.meta ? 'Siste kjøring ' + R.fmtDateTime(d.meta.run_at).replace(/&[a-z]+;/g, '') + '. Kilder: CBOE, FRED, Yahoo Finance.' : '';
 
@@ -126,7 +127,7 @@
     });
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) { /* ignorer */ }
     initNav();
-    var names = ['meta', 'summary', 'regime', 'volatility', 'macro', 'equities', 'mood'];
+    var names = ['meta', 'summary', 'regime', 'volatility', 'macro', 'equities', 'mood', 'backtest'];
     Promise.all(names.map(loadJSON)).then(function (res) {
       var d = {}; names.forEach(function (n, i) { d[n] = res[i]; });
       window.__data = d;
