@@ -209,6 +209,29 @@ def index_history(components: dict, ref: pd.Timestamp, weeks: int, years: int, m
     return pts
 
 
+def sector_history(close: pd.Series, comps: dict, ref: pd.Timestamp, weeks: int, years: int, min_obs: int,
+                   min_components: int) -> dict:
+    """Ukentlig stemningsscore og kurs (indeksert til 100 ved første punkt) for én sektor på samme datoer,
+    pluss samvariasjon: Pearson-korrelasjon mellom ukentlig kursendring (prosent) og ukentlig endring i stemningsscore.
+    Korrelasjon beregnes bare med minst 26 uker og variasjon i begge serier, ellers None."""
+    mood = index_history(comps, ref, weeks, years, min_obs, min_components)
+    price = []
+    for d, _ in mood:
+        px = close.loc[:pd.Timestamp(d)].dropna()
+        if len(px):
+            price.append([d, float(px.iloc[-1])])
+    if price:
+        base = price[0][1]
+        price = [[d, _num(v / base * 100.0, 2)] for d, v in price]
+    corr = None
+    if len(mood) == len(price) and len(mood) >= 27:
+        j = pd.DataFrame({"p": [v for _, v in price], "m": [v for _, v in mood]})
+        j = pd.DataFrame({"p": j["p"].pct_change(), "m": j["m"].diff()}).dropna()
+        if len(j) >= 26 and j["p"].std() > 0 and j["m"].std() > 0:
+            corr = _num(float(j["p"].corr(j["m"])), 2)
+    return {"mood": mood, "price": price if len(price) == len(mood) else [], "corr": corr, "weeks": len(mood)}
+
+
 def summarize(rows: list[dict], bands: dict, min_components: int) -> dict:
     """Bare komponenter med in_index (standard True) teller med i indeksen og i n_used/n_total."""
     rows = [r for r in rows if r.get("in_index", True)]
@@ -302,6 +325,9 @@ def build(fetcher: Callable = fetch_series) -> dict:
                         "error": summ["error"], "source": sources.get(f"sector_{sid}")}
         if summ["status"] != "ok":
             sectors[sid]["status"] = "missing"
+        else:
+            sectors[sid]["history"] = sector_history(close, comps, s_ref, mcfg["index_weeks"], years, min_obs,
+                                                     mcfg["min_components_sector"])
 
     indicators = {r["id"]: {"status": r["status"], "error": r["error"]} for r in rows}
     return {"indicators": indicators, "market": market, "rows": sectors,
