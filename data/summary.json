@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T00:10:38+00:00",
+ "generated_at": "2026-10-19T10:36:42+00:00",
  "points": [
   {
    "kind": "regime",
@@ -73,7 +73,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-10-16",
+  "latest_data_date": "2026-10-19",
   "oldest_data_date": "2026-10-09"
  }
 }
