@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-19T11:26:52+00:00",
+ "generated_at": "2026-10-20T01:04:19+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 70 av 100, og 2 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 71 av 100, og 2 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (28 av 100, −18 poeng siste uke). Komponentene spriker: Spekulantposisjon VIX-futures (CFTC) peker mot grådighet, SKEW mot frykt."
+   "text": "Stemningen er frykt (28 av 100, −16 poeng siste uke). Komponentene spriker: Spekulantposisjon VIX-futures (CFTC) peker mot grådighet, SKEW mot frykt."
   },
   {
    "kind": "unusual",
@@ -15,18 +15,18 @@
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt +1,4 % siste måned og ligger 5,3 % over 200 dagers snitt. 6 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt +0,5 % siste måned og ligger 5,7 % over 200 dagers snitt. 6 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 99.4,
-   "value": 5.1,
+   "percentile": 99.3,
+   "value": 5.09,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-10-15",
+   "last_date": "2026-10-16",
    "direction": "high",
    "window_years": 10.0
   },
@@ -55,13 +55,13 @@
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 70.0,
+  "mean_stress": 70.8,
   "status": "ok"
  },
  "mood": {
-  "score": 27.9,
+  "score": 27.6,
   "label": "fear",
-  "change_1w": -18.2,
+  "change_1w": -16.3,
   "status": "ok"
  },
  "health": {
@@ -73,7 +73,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-10-19",
-  "oldest_data_date": "2026-10-09"
+  "latest_data_date": "2026-10-20",
+  "oldest_data_date": "2026-10-13"
  }
 }

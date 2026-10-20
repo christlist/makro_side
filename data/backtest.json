@@ -29,14 +29,14 @@
    "description": "Sektoren har lav stemning.",
    "n_weeks": 111,
    "status": "ok",
-   "mean_rel": 3.18,
-   "phase_mean": 3.18,
+   "mean_rel": 3.15,
+   "phase_mean": 3.15,
    "phase_min": 0.65,
    "phase_max": 4.73,
    "phase_n": 9,
-   "boot_lo": 2.24,
-   "boot_hi": 4.73,
-   "hit_rate": 75.7
+   "boot_lo": 2.18,
+   "boot_hi": 4.72,
+   "hit_rate": 74.8
   },
   {
    "id": "B",
@@ -44,14 +44,14 @@
    "description": "Frykt i sektoren når samlet regime ikke er stress.",
    "n_weeks": 99,
    "status": "ok",
-   "mean_rel": 3.14,
-   "phase_mean": 3.06,
+   "mean_rel": 3.11,
+   "phase_mean": 3.02,
    "phase_min": 0.5,
    "phase_max": 4.73,
    "phase_n": 8,
-   "boot_lo": 2.16,
-   "boot_hi": 4.76,
-   "hit_rate": 72.7
+   "boot_lo": 2.09,
+   "boot_hi": 4.74,
+   "hit_rate": 71.7
   },
   {
    "id": "C",
@@ -123,7 +123,7 @@
   {
    "regime": "elevated",
    "n_weeks": 22,
-   "mean_rel": 2.5
+   "mean_rel": 2.35
   },
   {
    "regime": "stress",
@@ -134,7 +134,7 @@
  "current": {
   "ref_date": "2026-10-16",
   "regime": "elevated",
-  "regime_mean": 70.3,
+  "regime_mean": 71.4,
   "rules": {
    "A": [
     {
@@ -252,5 +252,5 @@
   }
  },
  "group": "backtest",
- "generated_at": "2026-10-19T11:26:52+00:00"
+ "generated_at": "2026-10-20T01:04:19+00:00"
 }
