@@ -1,79 +1,65 @@
 {
- "generated_at": "2026-10-21T00:34:12+00:00",
+ "generated_at": "2026-10-22T00:38:23+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 68 av 100, og 2 av 6 indikatorer er grønne."
+   "text": "Regimet kan ikke beregnes: Data mangler for for mange indikatorer."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (30 av 100, −13 poeng siste uke). Komponentene spriker: Spekulantposisjon VIX-futures (CFTC) peker mot grådighet, SKEW mot frykt."
+   "text": "Stemningen er frykt (35 av 100, −2 poeng siste uke). Komponentene spriker: Spekulantposisjon VIX-futures (CFTC) peker mot grådighet, SKEW mot frykt."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), SKEW (persentil 98), WTI råolje (persentil 96)."
+   "text": "Utenfor normalområdet: uvanlig høyt: SKEW (persentil 97)."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt +0,8 % siste måned og ligger 5,9 % over 200 dagers snitt. 6 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −0,1 % siste måned og ligger 6,5 % over 200 dagers snitt. 7 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
-   "id": "dgs10",
-   "name": "10 års statsrente (USA)",
-   "percentile": 99.4,
-   "value": 5.15,
-   "decimals": 2,
-   "unit": "prosent",
-   "last_date": "2026-10-19",
-   "direction": "high",
-   "window_years": 10.0
-  },
-  {
    "id": "skew",
    "name": "SKEW",
-   "percentile": 97.5,
-   "value": 161.86,
+   "percentile": 96.7,
+   "value": 160.4,
    "decimals": 1,
    "unit": "indekspunkter",
-   "last_date": "2026-10-19",
-   "direction": "high",
-   "window_years": 10.0
-  },
-  {
-   "id": "wti",
-   "name": "WTI råolje",
-   "percentile": 95.9,
-   "value": 101.91,
-   "decimals": 2,
-   "unit": "USD per fat",
-   "last_date": "2026-10-14",
+   "last_date": "2026-10-20",
    "direction": "high",
    "window_years": 10.0
   }
  ],
  "regime": {
-  "state": "elevated",
-  "mean_stress": 67.6,
-  "status": "ok"
+  "state": null,
+  "mean_stress": null,
+  "status": "missing"
  },
  "mood": {
-  "score": 30.5,
+  "score": 35.3,
   "label": "fear",
-  "change_1w": -12.8,
+  "change_1w": -1.9,
   "status": "ok"
  },
  "health": {
   "n_total": 28,
-  "n_ok": 28,
-  "missing": [],
+  "n_ok": 21,
+  "missing": [
+   "Høyavkastningsspread (HY OAS)",
+   "Investment grade spread (IG OAS)",
+   "Rentekurve 10 år minus 2 år",
+   "10 års statsrente (USA)",
+   "Bred dollarindeks",
+   "WTI råolje",
+   "Høyavkastningsspread"
+  ],
   "proxies": [
    "Europeisk volatilitet (proxy: realisert vol Euro STOXX 50, 21d)",
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-10-21",
+  "latest_data_date": "2026-10-22",
   "oldest_data_date": "2026-10-13"
  }
 }
