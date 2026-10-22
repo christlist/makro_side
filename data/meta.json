@@ -1,71 +1,30 @@
 {
- "run_at": "2026-10-22T00:38:23+00:00",
+ "run_at": "2026-10-22T08:38:51+00:00",
  "groups": {
   "volatility": {
-   "generated_at": "2026-10-22T00:38:05+00:00",
+   "generated_at": "2026-10-22T08:38:36+00:00",
    "ok": true
   },
   "macro": {
-   "generated_at": "2026-10-22T00:38:06+00:00",
+   "generated_at": "2026-10-22T08:38:36+00:00",
    "ok": true
   },
   "equities": {
-   "generated_at": "2026-10-22T00:38:13+00:00",
+   "generated_at": "2026-10-22T08:38:43+00:00",
    "ok": true
   },
   "mood": {
-   "generated_at": "2026-10-22T00:38:23+00:00",
+   "generated_at": "2026-10-22T08:38:50+00:00",
    "ok": true
   },
   "regime": {
-   "generated_at": "2026-10-22T00:38:13+00:00",
+   "generated_at": "2026-10-22T08:38:43+00:00",
    "ok": true
   },
   "backtest": {
-   "generated_at": "2026-10-22T00:38:23+00:00",
-   "ok": false
+   "generated_at": "2026-10-22T08:38:51+00:00",
+   "ok": true
   }
  },
- "missing": [
-  {
-   "group": "macro",
-   "id": "hy_oas",
-   "error": "FRED BAMLH0A0HYM2: SourceError: Fant ikke CSV-header med 'date' (første linje: <!doctype html>)"
-  },
-  {
-   "group": "macro",
-   "id": "ig_oas",
-   "error": "FRED BAMLC0A0CM: SourceError: Fant ikke CSV-header med 'date' (første linje: <!doctype html>)"
-  },
-  {
-   "group": "macro",
-   "id": "t10y2y",
-   "error": "FRED T10Y2Y: SourceError: Fant ikke CSV-header med 'date' (første linje: <!doctype html>)"
-  },
-  {
-   "group": "macro",
-   "id": "dgs10",
-   "error": "FRED DGS10: SourceError: Fant ikke CSV-header med 'date' (første linje: <!doctype html>)"
-  },
-  {
-   "group": "macro",
-   "id": "usd",
-   "error": "FRED DTWEXBGS: SourceError: Fant ikke CSV-header med 'date' (første linje: <!doctype html>)"
-  },
-  {
-   "group": "macro",
-   "id": "wti",
-   "error": "FRED DCOILWTICO: SourceError: Fant ikke CSV-header med 'date' (første linje: <!doctype html>)"
-  },
-  {
-   "group": "mood",
-   "id": "hy_oas",
-   "error": "Mangler grunnserie: hy_oas (FRED BAMLH0A0HYM2: SourceError: Fant ikke CSV-header med 'date' (første linje: <!doctype html>))"
-  },
-  {
-   "group": "backtest",
-   "id": "*",
-   "error": "SourceError: Regimet kan ikke rekonstrueres: bare 3 av 6 serier finnes"
-  }
- ]
+ "missing": []
 }

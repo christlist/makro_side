@@ -1,17 +1,17 @@
 {
- "generated_at": "2026-10-22T00:38:23+00:00",
+ "generated_at": "2026-10-22T08:38:51+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet kan ikke beregnes: Data mangler for for mange indikatorer."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 61 av 100, og 4 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (35 av 100, −2 poeng siste uke). Komponentene spriker: Spekulantposisjon VIX-futures (CFTC) peker mot grådighet, SKEW mot frykt."
+   "text": "Stemningen er frykt (38 av 100, +2 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: SKEW (persentil 97)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), WTI råolje (persentil 98)."
   },
   {
    "kind": "equities",
@@ -20,40 +20,43 @@
  ],
  "unusual": [
   {
-   "id": "skew",
-   "name": "SKEW",
-   "percentile": 96.7,
-   "value": 160.4,
-   "decimals": 1,
-   "unit": "indekspunkter",
+   "id": "dgs10",
+   "name": "10 års statsrente (USA)",
+   "percentile": 99.4,
+   "value": 5.12,
+   "decimals": 2,
+   "unit": "prosent",
+   "last_date": "2026-10-20",
+   "direction": "high",
+   "window_years": 10.0
+  },
+  {
+   "id": "wti",
+   "name": "WTI råolje",
+   "percentile": 97.7,
+   "value": 107.89,
+   "decimals": 2,
+   "unit": "USD per fat",
    "last_date": "2026-10-20",
    "direction": "high",
    "window_years": 10.0
   }
  ],
  "regime": {
-  "state": null,
-  "mean_stress": null,
-  "status": "missing"
+  "state": "elevated",
+  "mean_stress": 61.3,
+  "status": "ok"
  },
  "mood": {
-  "score": 35.3,
+  "score": 37.7,
   "label": "fear",
-  "change_1w": -1.9,
+  "change_1w": 2.0,
   "status": "ok"
  },
  "health": {
   "n_total": 28,
-  "n_ok": 21,
-  "missing": [
-   "Høyavkastningsspread (HY OAS)",
-   "Investment grade spread (IG OAS)",
-   "Rentekurve 10 år minus 2 år",
-   "10 års statsrente (USA)",
-   "Bred dollarindeks",
-   "WTI råolje",
-   "Høyavkastningsspread"
-  ],
+  "n_ok": 28,
+  "missing": [],
   "proxies": [
    "Europeisk volatilitet (proxy: realisert vol Euro STOXX 50, 21d)",
    "MSCI World (ETF-proxy)",
