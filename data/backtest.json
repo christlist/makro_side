@@ -134,7 +134,7 @@
  "current": {
   "ref_date": "2026-10-21",
   "regime": "elevated",
-  "regime_mean": 62.5,
+  "regime_mean": 64.2,
   "rules": {
    "A": [
     {
@@ -234,5 +234,5 @@
   }
  },
  "group": "backtest",
- "generated_at": "2026-10-22T08:38:51+00:00"
+ "generated_at": "2026-10-23T00:35:53+00:00"
 }
