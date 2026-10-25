@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T00:33:17+00:00",
+ "generated_at": "2026-10-25T00:15:56+00:00",
  "items": [
   {
    "id": "vix",
@@ -7,14 +7,14 @@
    "label": "VIX",
    "direction": "higher_is_stress",
    "status": "ok",
-   "value": 19.03,
+   "value": 19.45,
    "decimals": 2,
    "unit": "indekspunkter",
-   "last_date": "2026-10-22",
+   "last_date": "2026-10-23",
    "stale": false,
-   "percentile_10y": 63.8,
-   "stress_percentile": 63.8,
-   "change_1w": 2.57,
+   "percentile_10y": 66.2,
+   "stress_percentile": 66.2,
+   "change_1w": -0.54,
    "change_kind": "abs",
    "window_years": 10.0,
    "light": "yellow"
@@ -25,14 +25,14 @@
    "label": "VIX/VIX3M (termstruktur)",
    "direction": "higher_is_stress",
    "status": "ok",
-   "value": 0.9458,
+   "value": 0.9497,
    "decimals": 3,
    "unit": "forhold",
-   "last_date": "2026-10-22",
+   "last_date": "2026-10-23",
    "stale": false,
-   "percentile_10y": 78.5,
-   "stress_percentile": 78.5,
-   "change_1w": 0.0556,
+   "percentile_10y": 79.7,
+   "stress_percentile": 79.7,
+   "change_1w": -0.0254,
    "change_kind": "abs",
    "window_years": 10.0,
    "light": "yellow"
@@ -126,6 +126,6 @@
  },
  "status": "ok",
  "state": "elevated",
- "mean_stress": 72.0,
+ "mean_stress": 72.6,
  "error": null
 }

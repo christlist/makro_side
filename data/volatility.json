@@ -15,23 +15,23 @@
    "error": null,
    "source": "CBOE VIX_History.csv",
    "proxy": false,
-   "last_date": "2026-10-22",
-   "last_value": 19.03,
+   "last_date": "2026-10-23",
+   "last_value": 19.45,
    "stale": false,
    "age_days": 2,
-   "percentile_10y": 63.8,
+   "percentile_10y": 66.2,
    "level": "normal",
    "window_start": "2016-10-24",
    "window_years": 10.0,
-   "n_obs": 2546,
+   "n_obs": 2547,
    "bands": {
-    "p10": 12.035,
-    "p25": 13.8525,
+    "p10": 12.036,
+    "p25": 13.855,
     "p50": 16.95,
     "p75": 21.46,
-    "p90": 27.355
+    "p90": 27.354
    },
-   "change_1w": 2.57,
+   "change_1w": -0.54,
    "change_kind": "abs",
    "series": [
     [
@@ -2111,8 +2111,8 @@
      19.99
     ],
     [
-     "2026-10-22",
-     19.03
+     "2026-10-23",
+     19.45
     ]
    ]
   },
@@ -2134,7 +2134,7 @@
    "last_date": "2026-10-23",
    "last_value": 20.48,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 58.9,
    "level": "normal",
    "window_start": "2016-10-24",
@@ -4250,7 +4250,7 @@
    "last_date": "2026-10-23",
    "last_value": 109.7,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 75.7,
    "level": "high",
    "window_start": "2016-10-24",
@@ -6363,23 +6363,23 @@
    "error": null,
    "source": "CBOE SKEW_History.csv",
    "proxy": false,
-   "last_date": "2026-10-22",
-   "last_value": 152.39,
+   "last_date": "2026-10-23",
+   "last_value": 151.8,
    "stale": false,
    "age_days": 2,
-   "percentile_10y": 90.3,
-   "level": "very_high",
+   "percentile_10y": 89.5,
+   "level": "high",
    "window_start": "2016-10-24",
    "window_years": 10.0,
-   "n_obs": 2509,
+   "n_obs": 2510,
    "bands": {
     "p10": 119.95,
-    "p25": 126.96,
-    "p50": 136.7,
+    "p25": 126.9625,
+    "p50": 136.705,
     "p75": 144.7,
-    "p90": 152.154
+    "p90": 152.152
    },
-   "change_1w": -8.06,
+   "change_1w": -16.79,
    "change_kind": "abs",
    "series": [
     [
@@ -8459,8 +8459,8 @@
      168.59
     ],
     [
-     "2026-10-22",
-     152.39
+     "2026-10-23",
+     151.8
     ]
    ]
   },
@@ -8479,23 +8479,23 @@
    "error": null,
    "source": "Proxy: realisert vol 21d, yfinance ^STOXX50E",
    "proxy": true,
-   "last_date": "2026-10-22",
-   "last_value": 13.9899,
+   "last_date": "2026-10-23",
+   "last_value": 13.9657,
    "stale": false,
    "age_days": 2,
-   "percentile_10y": 52.4,
+   "percentile_10y": 52.1,
    "level": "normal",
    "window_start": "2016-10-24",
    "window_years": 10.0,
-   "n_obs": 2512,
+   "n_obs": 2513,
    "bands": {
-    "p10": 9.0031,
-    "p25": 11.0916,
-    "p50": 13.6813,
-    "p75": 17.9707,
-    "p90": 24.1517
+    "p10": 9.0047,
+    "p25": 11.0926,
+    "p50": 13.6862,
+    "p75": 17.9637,
+    "p90": 24.1513
    },
-   "change_1w": 0.9912,
+   "change_1w": 1.2218,
    "change_kind": "abs",
    "series": [
     [
@@ -10575,8 +10575,8 @@
      12.744
     ],
     [
-     "2026-10-22",
-     13.9899
+     "2026-10-23",
+     13.9657
     ]
    ],
    "proxy_reason": "VSTOXX (V2TX) utilgjengelig: yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX"
@@ -10596,15 +10596,15 @@
    "error": null,
    "source": "Beregnet: CBOE VIX_History.csv / CBOE VIX3M_History.csv",
    "proxy": false,
-   "last_date": "2026-10-22",
-   "last_value": 0.9458,
+   "last_date": "2026-10-23",
+   "last_value": 0.9497,
    "stale": false,
    "age_days": 2,
-   "percentile_10y": 78.5,
+   "percentile_10y": 79.7,
    "level": "high",
    "window_start": "2016-10-24",
    "window_years": 10.0,
-   "n_obs": 2513,
+   "n_obs": 2514,
    "bands": {
     "p10": 0.8063,
     "p25": 0.8368,
@@ -10612,7 +10612,7 @@
     "p75": 0.9374,
     "p90": 0.9864
    },
-   "change_1w": 0.0556,
+   "change_1w": -0.0254,
    "change_kind": "abs",
    "series": [
     [
@@ -12692,8 +12692,8 @@
      0.9751
     ],
     [
-     "2026-10-22",
-     0.9458
+     "2026-10-23",
+     0.9497
     ]
    ],
    "inversion_threshold": 1.0,
@@ -12701,6 +12701,6 @@
   }
  },
  "group": "volatility",
- "generated_at": "2026-10-24T00:33:07+00:00",
+ "generated_at": "2026-10-25T00:15:49+00:00",
  "missing": []
 }

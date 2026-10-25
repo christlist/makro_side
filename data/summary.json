@@ -1,17 +1,17 @@
 {
- "generated_at": "2026-10-24T00:33:25+00:00",
+ "generated_at": "2026-10-25T00:16:05+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 72 av 100, og 0 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 73 av 100, og 0 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (27 av 100, −1 poeng siste uke)."
+   "text": "Stemningen er frykt (26 av 100, −1 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), WTI råolje (persentil 98), SKEW (persentil 90)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), WTI råolje (persentil 98)."
   },
   {
    "kind": "equities",
@@ -40,28 +40,17 @@
    "last_date": "2026-10-20",
    "direction": "high",
    "window_years": 10.0
-  },
-  {
-   "id": "skew",
-   "name": "SKEW",
-   "percentile": 90.3,
-   "value": 152.39,
-   "decimals": 1,
-   "unit": "indekspunkter",
-   "last_date": "2026-10-22",
-   "direction": "high",
-   "window_years": 10.0
   }
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 72.0,
+  "mean_stress": 72.6,
   "status": "ok"
  },
  "mood": {
-  "score": 26.6,
+  "score": 26.3,
   "label": "fear",
-  "change_1w": -0.8,
+  "change_1w": -1.0,
   "status": "ok"
  },
  "health": {
