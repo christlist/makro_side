@@ -1,56 +1,56 @@
 {
- "generated_at": "2026-10-28T01:13:35+00:00",
+ "generated_at": "2026-10-29T01:45:40+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 68 av 100, og 2 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 60 av 100, og 4 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (31 av 100, −2 poeng siste uke)."
+   "text": "Stemningen er frykt (37 av 100, −2 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), WTI råolje (persentil 98)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), WTI råolje (persentil 96)."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −0,3 % siste måned og ligger 5,8 % over 200 dagers snitt. 7 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt +0,8 % siste måned og ligger 6,0 % over 200 dagers snitt. 7 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 99.1,
-   "value": 5.0,
+   "percentile": 99.0,
+   "value": 4.99,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-10-26",
+   "last_date": "2026-10-27",
    "direction": "high",
    "window_years": 10.0
   },
   {
    "id": "wti",
    "name": "WTI råolje",
-   "percentile": 97.7,
-   "value": 107.89,
+   "percentile": 96.1,
+   "value": 103.37,
    "decimals": 2,
    "unit": "USD per fat",
-   "last_date": "2026-10-20",
+   "last_date": "2026-10-27",
    "direction": "high",
    "window_years": 10.0
   }
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 67.9,
+  "mean_stress": 59.5,
   "status": "ok"
  },
  "mood": {
-  "score": 31.2,
+  "score": 36.7,
   "label": "fear",
-  "change_1w": -1.9,
+  "change_1w": -1.5,
   "status": "ok"
  },
  "health": {
@@ -62,7 +62,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-10-28",
+  "latest_data_date": "2026-10-29",
   "oldest_data_date": "2026-10-20"
  }
 }
