@@ -18,7 +18,7 @@
    "last_date": "2026-11-02",
    "last_value": 21.15,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 73.4,
    "level": "normal",
    "window_start": "2016-11-03",
@@ -2131,13 +2131,13 @@
    "error": null,
    "source": "CBOE VIX3M_History.csv",
    "proxy": false,
-   "last_date": "2026-11-02",
-   "last_value": 21.6,
+   "last_date": "2026-11-03",
+   "last_value": 21.27,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 67.6,
+   "percentile_10y": 64.9,
    "level": "normal",
-   "window_start": "2016-11-03",
+   "window_start": "2016-11-04",
    "window_years": 10.0,
    "n_obs": 2512,
    "bands": {
@@ -2147,7 +2147,7 @@
     "p75": 23.4925,
     "p90": 29.099
    },
-   "change_1w": 1.66,
+   "change_1w": 1.7,
    "change_kind": "abs",
    "series": [
     [
@@ -4227,8 +4227,8 @@
      20.78
     ],
     [
-     "2026-11-02",
-     21.6
+     "2026-11-03",
+     21.27
     ]
    ]
   },
@@ -4247,23 +4247,23 @@
    "error": null,
    "source": "CBOE VVIX_History.csv",
    "proxy": false,
-   "last_date": "2026-11-02",
-   "last_value": 110.47,
+   "last_date": "2026-11-03",
+   "last_value": 107.4,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 76.7,
-   "level": "high",
-   "window_start": "2016-11-03",
+   "percentile_10y": 71.7,
+   "level": "normal",
+   "window_start": "2016-11-04",
    "window_years": 10.0,
    "n_obs": 2512,
    "bands": {
     "p10": 82.772,
     "p25": 88.2075,
     "p50": 96.935,
-    "p75": 109.28,
-    "p90": 120.357
+    "p75": 109.2575,
+    "p90": 120.356
    },
-   "change_1w": 9.04,
+   "change_1w": 7.95,
    "change_kind": "abs",
    "series": [
     [
@@ -6343,8 +6343,8 @@
      106.43
     ],
     [
-     "2026-11-02",
-     110.47
+     "2026-11-03",
+     107.4
     ]
    ]
   },
@@ -6366,7 +6366,7 @@
    "last_date": "2026-11-02",
    "last_value": 152.78,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 90.7,
    "level": "very_high",
    "window_start": "2016-11-03",
@@ -8482,7 +8482,7 @@
    "last_date": "2026-11-02",
    "last_value": 13.9149,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 51.6,
    "level": "normal",
    "window_start": "2016-11-03",
@@ -10599,7 +10599,7 @@
    "last_date": "2026-11-02",
    "last_value": 0.9792,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 88.6,
    "level": "high",
    "window_start": "2016-11-03",
@@ -12701,6 +12701,6 @@
   }
  },
  "group": "volatility",
- "generated_at": "2026-11-03T03:27:41+00:00",
+ "generated_at": "2026-11-04T02:11:46+00:00",
  "missing": []
 }

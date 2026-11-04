@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T03:28:03+00:00",
+ "generated_at": "2026-11-04T02:12:05+00:00",
  "points": [
   {
    "kind": "regime",
@@ -7,7 +7,7 @@
   },
   {
    "kind": "mood",
-   "text": "Stemningen er ekstrem frykt (23 av 100, −8 poeng siste uke)."
+   "text": "Stemningen er ekstrem frykt (23 av 100, −13 poeng siste uke)."
   },
   {
    "kind": "unusual",
@@ -15,18 +15,18 @@
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −2,4 % siste måned og ligger 3,1 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −2,0 % siste måned og ligger 3,5 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 98.5,
-   "value": 4.94,
+   "percentile": 98.4,
+   "value": 4.91,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-10-30",
+   "last_date": "2026-11-02",
    "direction": "high",
    "window_years": 10.0
   },
@@ -55,13 +55,13 @@
  ],
  "regime": {
   "state": "stress",
-  "mean_stress": 79.9,
+  "mean_stress": 79.7,
   "status": "ok"
  },
  "mood": {
-  "score": 22.7,
+  "score": 22.9,
   "label": "extreme_fear",
-  "change_1w": -7.9,
+  "change_1w": -13.3,
   "status": "ok"
  },
  "health": {
@@ -73,7 +73,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-11-02",
+  "latest_data_date": "2026-11-04",
   "oldest_data_date": "2026-10-27"
  }
 }

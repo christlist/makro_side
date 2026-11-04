@@ -17,8 +17,8 @@
   "start": "2023-11-13",
   "end": "2026-11-02",
   "regime_weeks": {
-   "calm": 120,
-   "elevated": 22,
+   "calm": 119,
+   "elevated": 23,
    "stress": 14
   }
  },
@@ -117,13 +117,13 @@
  "by_regime": [
   {
    "regime": "calm",
-   "n_weeks": 79,
-   "mean_rel": 2.95
+   "n_weeks": 78,
+   "mean_rel": 2.94
   },
   {
    "regime": "elevated",
-   "n_weeks": 20,
-   "mean_rel": 2.66
+   "n_weeks": 21,
+   "mean_rel": 2.73
   },
   {
    "regime": "stress",
@@ -134,7 +134,7 @@
  "current": {
   "ref_date": "2026-11-02",
   "regime": "stress",
-  "regime_mean": 80.6,
+  "regime_mean": 80.2,
   "rules": {
    "A": [
     {
@@ -221,5 +221,5 @@
   }
  },
  "group": "backtest",
- "generated_at": "2026-11-03T03:28:03+00:00"
+ "generated_at": "2026-11-04T02:12:04+00:00"
 }
