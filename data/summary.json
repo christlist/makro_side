@@ -1,67 +1,56 @@
 {
- "generated_at": "2026-11-04T02:12:05+00:00",
+ "generated_at": "2026-11-05T02:18:34+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er stress. Snittet av stress-persentilene er 80 av 100, og 0 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 67 av 100, og 2 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er ekstrem frykt (23 av 100, −13 poeng siste uke)."
+   "text": "Stemningen er frykt (31 av 100, −6 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), WTI råolje (persentil 96), SKEW (persentil 91)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), WTI råolje (persentil 94)."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −2,0 % siste måned og ligger 3,5 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −0,4 % siste måned og ligger 5,0 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 98.4,
-   "value": 4.91,
+   "percentile": 98.6,
+   "value": 4.95,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-02",
+   "last_date": "2026-11-03",
    "direction": "high",
    "window_years": 10.0
   },
   {
    "id": "wti",
    "name": "WTI råolje",
-   "percentile": 96.1,
-   "value": 103.37,
+   "percentile": 94.5,
+   "value": 99.64,
    "decimals": 2,
    "unit": "USD per fat",
-   "last_date": "2026-10-27",
-   "direction": "high",
-   "window_years": 10.0
-  },
-  {
-   "id": "skew",
-   "name": "SKEW",
-   "percentile": 90.7,
-   "value": 152.78,
-   "decimals": 1,
-   "unit": "indekspunkter",
-   "last_date": "2026-11-02",
+   "last_date": "2026-11-03",
    "direction": "high",
    "window_years": 10.0
   }
  ],
  "regime": {
-  "state": "stress",
-  "mean_stress": 79.7,
+  "state": "elevated",
+  "mean_stress": 67.1,
   "status": "ok"
  },
  "mood": {
-  "score": 22.9,
-  "label": "extreme_fear",
-  "change_1w": -13.3,
+  "score": 30.7,
+  "label": "fear",
+  "change_1w": -6.4,
   "status": "ok"
  },
  "health": {
@@ -73,7 +62,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-11-04",
+  "latest_data_date": "2026-11-05",
   "oldest_data_date": "2026-10-27"
  }
 }
