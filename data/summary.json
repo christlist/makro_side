@@ -1,32 +1,43 @@
 {
- "generated_at": "2026-11-05T02:18:34+00:00",
+ "generated_at": "2026-11-06T02:17:57+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 67 av 100, og 2 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 68 av 100, og 2 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (31 av 100, −6 poeng siste uke)."
+   "text": "Stemningen er frykt (29 av 100, −3 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), WTI råolje (persentil 94)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), VVIX (persentil 97), WTI råolje (persentil 94)."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −0,4 % siste måned og ligger 5,0 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −5,4 % siste måned og ligger 0,4 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 98.6,
-   "value": 4.95,
+   "percentile": 98.3,
+   "value": 4.9,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-03",
+   "last_date": "2026-11-04",
+   "direction": "high",
+   "window_years": 10.0
+  },
+  {
+   "id": "vvix",
+   "name": "VVIX",
+   "percentile": 96.6,
+   "value": 134.99,
+   "decimals": 1,
+   "unit": "indekspunkter",
+   "last_date": "2026-11-05",
    "direction": "high",
    "window_years": 10.0
   },
@@ -44,13 +55,13 @@
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 67.1,
+  "mean_stress": 68.5,
   "status": "ok"
  },
  "mood": {
-  "score": 30.7,
+  "score": 29.4,
   "label": "fear",
-  "change_1w": -6.4,
+  "change_1w": -2.9,
   "status": "ok"
  },
  "health": {
@@ -62,7 +73,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-11-05",
+  "latest_data_date": "2026-11-06",
   "oldest_data_date": "2026-10-27"
  }
 }
