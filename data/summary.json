@@ -1,42 +1,46 @@
 {
- "generated_at": "2026-11-06T02:17:57+00:00",
+ "generated_at": "2026-11-07T01:49:53+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 68 av 100, og 2 av 6 indikatorer er grønne."
+   "text": "Regimet er stress. Snittet av stress-persentilene er 86 av 100, og 0 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (29 av 100, −3 poeng siste uke)."
+   "text": "Stemningen er ekstrem frykt (19 av 100, −7 poeng siste uke). Komponentene spriker: Spekulantposisjon VIX-futures (CFTC) peker mot grådighet, VIX/VIX3M mot frykt."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), VVIX (persentil 97), WTI råolje (persentil 94)."
+   "text": "Utenfor normalområdet: uvanlig høyt: VIX / VIX3M (persentil 98), 10 års statsrente (USA) (persentil 98), WTI råolje (persentil 94), VIX (persentil 92), VVIX (persentil 91)."
+  },
+  {
+   "kind": "term",
+   "text": "VIX-termstrukturen er invertert: markedet priser inn mer uro på kort sikt enn lenger frem."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −5,4 % siste måned og ligger 0,4 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −5,7 % siste måned og ligger 0,7 % over 200 dagers snitt. 7 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
-   "id": "dgs10",
-   "name": "10 års statsrente (USA)",
-   "percentile": 98.3,
-   "value": 4.9,
-   "decimals": 2,
-   "unit": "prosent",
-   "last_date": "2026-11-04",
+   "id": "vix_vix3m",
+   "name": "VIX / VIX3M",
+   "percentile": 98.1,
+   "value": 1.1029,
+   "decimals": 3,
+   "unit": "forhold",
+   "last_date": "2026-11-05",
    "direction": "high",
    "window_years": 10.0
   },
   {
-   "id": "vvix",
-   "name": "VVIX",
-   "percentile": 96.6,
-   "value": 134.99,
-   "decimals": 1,
-   "unit": "indekspunkter",
+   "id": "dgs10",
+   "name": "10 års statsrente (USA)",
+   "percentile": 98.1,
+   "value": 4.84,
+   "decimals": 2,
+   "unit": "prosent",
    "last_date": "2026-11-05",
    "direction": "high",
    "window_years": 10.0
@@ -51,17 +55,39 @@
    "last_date": "2026-11-03",
    "direction": "high",
    "window_years": 10.0
+  },
+  {
+   "id": "vix",
+   "name": "VIX",
+   "percentile": 91.8,
+   "value": 28.18,
+   "decimals": 2,
+   "unit": "indekspunkter",
+   "last_date": "2026-11-05",
+   "direction": "high",
+   "window_years": 10.0
+  },
+  {
+   "id": "vvix",
+   "name": "VVIX",
+   "percentile": 91.4,
+   "value": 121.94,
+   "decimals": 1,
+   "unit": "indekspunkter",
+   "last_date": "2026-11-06",
+   "direction": "high",
+   "window_years": 10.0
   }
  ],
  "regime": {
-  "state": "elevated",
-  "mean_stress": 68.5,
+  "state": "stress",
+  "mean_stress": 85.9,
   "status": "ok"
  },
  "mood": {
-  "score": 29.4,
-  "label": "fear",
-  "change_1w": -2.9,
+  "score": 18.7,
+  "label": "extreme_fear",
+  "change_1w": -6.9,
   "status": "ok"
  },
  "health": {
@@ -74,6 +100,6 @@
    "MSCI Emerging Markets (ETF-proxy)"
   ],
   "latest_data_date": "2026-11-06",
-  "oldest_data_date": "2026-10-27"
+  "oldest_data_date": "2026-10-30"
  }
 }
