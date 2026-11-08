@@ -1,17 +1,17 @@
 {
- "generated_at": "2026-11-07T01:49:53+00:00",
+ "generated_at": "2026-11-08T01:19:30+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er stress. Snittet av stress-persentilene er 86 av 100, og 0 av 6 indikatorer er grønne."
+   "text": "Regimet er stress. Snittet av stress-persentilene er 85 av 100, og 0 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er ekstrem frykt (19 av 100, −7 poeng siste uke). Komponentene spriker: Spekulantposisjon VIX-futures (CFTC) peker mot grådighet, VIX/VIX3M mot frykt."
+   "text": "Stemningen er ekstrem frykt (18 av 100, −7 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: VIX / VIX3M (persentil 98), 10 års statsrente (USA) (persentil 98), WTI råolje (persentil 94), VIX (persentil 92), VVIX (persentil 91)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), VIX / VIX3M (persentil 96), WTI råolje (persentil 94), SKEW (persentil 92), VVIX (persentil 91)."
   },
   {
    "kind": "term",
@@ -24,17 +24,6 @@
  ],
  "unusual": [
   {
-   "id": "vix_vix3m",
-   "name": "VIX / VIX3M",
-   "percentile": 98.1,
-   "value": 1.1029,
-   "decimals": 3,
-   "unit": "forhold",
-   "last_date": "2026-11-05",
-   "direction": "high",
-   "window_years": 10.0
-  },
-  {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
    "percentile": 98.1,
@@ -42,6 +31,17 @@
    "decimals": 2,
    "unit": "prosent",
    "last_date": "2026-11-05",
+   "direction": "high",
+   "window_years": 10.0
+  },
+  {
+   "id": "vix_vix3m",
+   "name": "VIX / VIX3M",
+   "percentile": 96.4,
+   "value": 1.0423,
+   "decimals": 3,
+   "unit": "forhold",
+   "last_date": "2026-11-06",
    "direction": "high",
    "window_years": 10.0
   },
@@ -57,13 +57,13 @@
    "window_years": 10.0
   },
   {
-   "id": "vix",
-   "name": "VIX",
-   "percentile": 91.8,
-   "value": 28.18,
-   "decimals": 2,
+   "id": "skew",
+   "name": "SKEW",
+   "percentile": 91.9,
+   "value": 153.55,
+   "decimals": 1,
    "unit": "indekspunkter",
-   "last_date": "2026-11-05",
+   "last_date": "2026-11-06",
    "direction": "high",
    "window_years": 10.0
   },
@@ -81,13 +81,13 @@
  ],
  "regime": {
   "state": "stress",
-  "mean_stress": 85.9,
+  "mean_stress": 84.7,
   "status": "ok"
  },
  "mood": {
-  "score": 18.7,
+  "score": 18.4,
   "label": "extreme_fear",
-  "change_1w": -6.9,
+  "change_1w": -7.1,
   "status": "ok"
  },
  "health": {
