@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-10T04:05:02+00:00",
+ "generated_at": "2026-11-11T01:52:29+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er stress. Snittet av stress-persentilene er 78 av 100, og 0 av 6 indikatorer er grønne."
+   "text": "Regimet er stress. Snittet av stress-persentilene er 76 av 100, og 0 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er ekstrem frykt (25 av 100, +2 poeng siste uke)."
+   "text": "Stemningen er ekstrem frykt (25 av 100, +1 poeng siste uke)."
   },
   {
    "kind": "unusual",
@@ -15,18 +15,18 @@
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −3,4 % siste måned og ligger 3,0 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −3,7 % siste måned og ligger 2,6 % over 200 dagers snitt. 7 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 98.1,
-   "value": 4.86,
+   "percentile": 98.2,
+   "value": 4.88,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-06",
+   "last_date": "2026-11-09",
    "direction": "high",
    "window_years": 10.0
   },
@@ -44,13 +44,13 @@
  ],
  "regime": {
   "state": "stress",
-  "mean_stress": 77.8,
+  "mean_stress": 76.1,
   "status": "ok"
  },
  "mood": {
-  "score": 24.7,
+  "score": 24.8,
   "label": "extreme_fear",
-  "change_1w": 2.0,
+  "change_1w": 0.8,
   "status": "ok"
  },
  "health": {
@@ -62,7 +62,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-11-10",
+  "latest_data_date": "2026-11-11",
   "oldest_data_date": "2026-11-03"
  }
 }
