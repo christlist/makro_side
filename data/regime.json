@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T01:52:22+00:00",
+ "generated_at": "2026-11-12T02:52:41+00:00",
  "items": [
   {
    "id": "vix",
@@ -7,17 +7,17 @@
    "label": "VIX",
    "direction": "higher_is_stress",
    "status": "ok",
-   "value": 19.92,
+   "value": 17.49,
    "decimals": 2,
    "unit": "indekspunkter",
-   "last_date": "2026-11-09",
+   "last_date": "2026-11-11",
    "stale": false,
-   "percentile_10y": 68.5,
-   "stress_percentile": 68.5,
-   "change_1w": -1.23,
+   "percentile_10y": 54.0,
+   "stress_percentile": 54.0,
+   "change_1w": 0.88,
    "change_kind": "abs",
    "window_years": 10.0,
-   "light": "yellow"
+   "light": "green"
   },
   {
    "id": "vix_vix3m",
@@ -25,17 +25,17 @@
    "label": "VIX/VIX3M (termstruktur)",
    "direction": "higher_is_stress",
    "status": "ok",
-   "value": 0.9554,
+   "value": 0.909,
    "decimals": 3,
    "unit": "forhold",
-   "last_date": "2026-11-09",
+   "last_date": "2026-11-11",
    "stale": false,
-   "percentile_10y": 81.6,
-   "stress_percentile": 81.6,
-   "change_1w": -0.0238,
+   "percentile_10y": 64.3,
+   "stress_percentile": 64.3,
+   "change_1w": 0.0255,
    "change_kind": "abs",
    "window_years": 10.0,
-   "light": "red"
+   "light": "yellow"
   },
   {
    "id": "hy_oas",
@@ -97,14 +97,14 @@
    "label": "S&P 500 avstand til 200d snitt",
    "direction": "lower_is_stress",
    "status": "ok",
-   "value": 2.5897,
+   "value": 3.8872,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-10",
+   "last_date": "2026-11-11",
    "stale": false,
-   "percentile_10y": 25.4,
-   "stress_percentile": 74.6,
-   "change_1w": -0.869,
+   "percentile_10y": 30.8,
+   "stress_percentile": 69.2,
+   "change_1w": -1.1437,
    "change_kind": "abs",
    "window_years": 10.0,
    "light": "yellow"
@@ -125,7 +125,7 @@
   "max_age_days": 21
  },
  "status": "ok",
- "state": "stress",
- "mean_stress": 76.1,
+ "state": "elevated",
+ "mean_stress": 69.9,
  "error": null
 }

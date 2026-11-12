@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-11T01:52:29+00:00",
+ "generated_at": "2026-11-12T02:52:51+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er stress. Snittet av stress-persentilene er 76 av 100, og 0 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 70 av 100, og 1 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er ekstrem frykt (25 av 100, +1 poeng siste uke)."
+   "text": "Stemningen er frykt (30 av 100, −2 poeng siste uke)."
   },
   {
    "kind": "unusual",
@@ -15,7 +15,7 @@
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −3,7 % siste måned og ligger 2,6 % over 200 dagers snitt. 7 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −2,5 % siste måned og ligger 3,9 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
@@ -43,14 +43,14 @@
   }
  ],
  "regime": {
-  "state": "stress",
-  "mean_stress": 76.1,
+  "state": "elevated",
+  "mean_stress": 69.9,
   "status": "ok"
  },
  "mood": {
-  "score": 24.8,
-  "label": "extreme_fear",
-  "change_1w": 0.8,
+  "score": 30.0,
+  "label": "fear",
+  "change_1w": -1.6,
   "status": "ok"
  },
  "health": {
@@ -62,7 +62,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-11-11",
+  "latest_data_date": "2026-11-12",
   "oldest_data_date": "2026-11-03"
  }
 }

@@ -13,13 +13,13 @@
  },
  "sample": {
   "n_sectors": 11,
-  "n_weeks": 312,
-  "start": "2023-11-20",
-  "end": "2026-11-10",
+  "n_weeks": 156,
+  "start": "2023-11-22",
+  "end": "2026-11-11",
   "regime_weeks": {
-   "calm": 238,
-   "elevated": 42,
-   "stress": 32
+   "calm": 119,
+   "elevated": 22,
+   "stress": 15
   }
  },
  "rules": [
@@ -27,67 +27,67 @@
    "id": "A",
    "label": "Stemning under 35 (frykt)",
    "description": "Sektoren har lav stemning.",
-   "n_weeks": 0,
-   "status": "too_few",
-   "mean_rel": null,
-   "phase_mean": null,
-   "phase_min": null,
-   "phase_max": null,
-   "phase_n": null,
-   "boot_lo": null,
-   "boot_hi": null,
-   "hit_rate": null
+   "n_weeks": 113,
+   "status": "ok",
+   "mean_rel": 3.04,
+   "phase_mean": 3.0,
+   "phase_min": 0.78,
+   "phase_max": 5.11,
+   "phase_n": 9,
+   "boot_lo": 2.38,
+   "boot_hi": 4.33,
+   "hit_rate": 76.1
   },
   {
    "id": "B",
    "label": "A og regimet ikke i stress",
    "description": "Frykt i sektoren når samlet regime ikke er stress.",
-   "n_weeks": 0,
-   "status": "too_few",
-   "mean_rel": null,
-   "phase_mean": null,
-   "phase_min": null,
-   "phase_max": null,
-   "phase_n": null,
-   "boot_lo": null,
-   "boot_hi": null,
-   "hit_rate": null
+   "n_weeks": 99,
+   "status": "ok",
+   "mean_rel": 2.97,
+   "phase_mean": 2.9,
+   "phase_min": 0.67,
+   "phase_max": 5.4,
+   "phase_n": 8,
+   "boot_lo": 2.34,
+   "boot_hi": 4.37,
+   "hit_rate": 73.7
   },
   {
    "id": "C",
    "label": "A og stigende stemning (4 uker)",
    "description": "Frykt i sektoren, men stemningen har steget siste uker.",
-   "n_weeks": 0,
-   "status": "too_few",
-   "mean_rel": null,
-   "phase_mean": null,
-   "phase_min": null,
-   "phase_max": null,
-   "phase_n": null,
-   "boot_lo": null,
-   "boot_hi": null,
-   "hit_rate": null
+   "n_weeks": 47,
+   "status": "ok",
+   "mean_rel": 6.29,
+   "phase_mean": 6.76,
+   "phase_min": 0.05,
+   "phase_max": 17.46,
+   "phase_n": 4,
+   "boot_lo": 4.36,
+   "boot_hi": 11.25,
+   "hit_rate": 78.7
   },
   {
    "id": "D",
    "label": "A, B og C",
    "description": "Alle tre vilkårene samtidig.",
-   "n_weeks": 0,
-   "status": "too_few",
-   "mean_rel": null,
-   "phase_mean": null,
-   "phase_min": null,
-   "phase_max": null,
-   "phase_n": null,
-   "boot_lo": null,
-   "boot_hi": null,
-   "hit_rate": null
+   "n_weeks": 42,
+   "status": "ok",
+   "mean_rel": 5.68,
+   "phase_mean": 6.27,
+   "phase_min": 0.05,
+   "phase_max": 17.46,
+   "phase_n": 4,
+   "boot_lo": 3.82,
+   "boot_hi": 10.2,
+   "hit_rate": 76.2
   },
   {
    "id": "E",
    "label": "A i stressregime",
    "description": "Frykt i sektoren når samlet regime er stress.",
-   "n_weeks": 0,
+   "n_weeks": 14,
    "status": "too_few",
    "mean_rel": null,
    "phase_mean": null,
@@ -102,87 +102,105 @@
    "id": "F",
    "label": "Stemning over 65 (grådighet)",
    "description": "Sektoren har høy stemning.",
-   "n_weeks": 0,
-   "status": "too_few",
-   "mean_rel": null,
-   "phase_mean": null,
-   "phase_min": null,
-   "phase_max": null,
-   "phase_n": null,
-   "boot_lo": null,
-   "boot_hi": null,
-   "hit_rate": null
+   "n_weeks": 126,
+   "status": "ok",
+   "mean_rel": -1.44,
+   "phase_mean": -1.59,
+   "phase_min": -6.88,
+   "phase_max": 1.5,
+   "phase_n": 10,
+   "boot_lo": -2.59,
+   "boot_hi": -0.61,
+   "hit_rate": 39.7
   }
  ],
  "by_regime": [
   {
    "regime": "calm",
-   "n_weeks": 0,
-   "mean_rel": null
+   "n_weeks": 80,
+   "mean_rel": 2.87
   },
   {
    "regime": "elevated",
-   "n_weeks": 0,
-   "mean_rel": null
+   "n_weeks": 19,
+   "mean_rel": 3.39
   },
   {
    "regime": "stress",
-   "n_weeks": 0,
-   "mean_rel": null
+   "n_weeks": 14,
+   "mean_rel": 3.57
   }
  ],
  "current": {
-  "ref_date": "2026-11-10",
-  "regime": "stress",
-  "regime_mean": 76.2,
+  "ref_date": "2026-11-11",
+  "regime": "elevated",
+  "regime_mean": 70.5,
   "rules": {
    "A": [
     {
      "id": "xlk",
      "name": "Teknologi",
      "symbol": "XLK",
-     "score": 6.0
+     "score": 8.0
     },
     {
      "id": "xli",
      "name": "Industri",
      "symbol": "XLI",
-     "score": 16.8
+     "score": 21.4
+    },
+    {
+     "id": "xlc",
+     "name": "Kommunikasjon",
+     "symbol": "XLC",
+     "score": 25.5
     }
    ],
-   "B": [],
-   "C": [],
-   "D": [],
-   "E": [
+   "B": [
     {
      "id": "xlk",
      "name": "Teknologi",
      "symbol": "XLK",
-     "score": 6.0
+     "score": 8.0
     },
     {
      "id": "xli",
      "name": "Industri",
      "symbol": "XLI",
-     "score": 16.8
+     "score": 21.4
+    },
+    {
+     "id": "xlc",
+     "name": "Kommunikasjon",
+     "symbol": "XLC",
+     "score": 25.5
     }
    ],
+   "C": [],
+   "D": [],
+   "E": [],
    "F": [
+    {
+     "id": "xlf",
+     "name": "Finans",
+     "symbol": "XLF",
+     "score": 66.8
+    },
     {
      "id": "xlv",
      "name": "Helse",
      "symbol": "XLV",
-     "score": 78.6
+     "score": 79.1
     },
     {
      "id": "xlp",
      "name": "Dagligvarer",
      "symbol": "XLP",
-     "score": 73.2
+     "score": 74.8
     }
    ]
   }
  },
  "group": "backtest",
- "generated_at": "2026-11-11T01:52:29+00:00"
+ "generated_at": "2026-11-12T02:52:51+00:00"
 }

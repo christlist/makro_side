@@ -15,23 +15,23 @@
    "error": null,
    "source": "CBOE VIX_History.csv",
    "proxy": false,
-   "last_date": "2026-11-09",
-   "last_value": 19.92,
+   "last_date": "2026-11-11",
+   "last_value": 17.49,
    "stale": false,
-   "age_days": 2,
-   "percentile_10y": 68.5,
+   "age_days": 1,
+   "percentile_10y": 54.0,
    "level": "normal",
-   "window_start": "2016-11-10",
+   "window_start": "2016-11-14",
    "window_years": 10.0,
    "n_obs": 2545,
    "bands": {
     "p10": 12.034,
     "p25": 13.88,
-    "p50": 16.96,
+    "p50": 16.97,
     "p75": 21.46,
     "p90": 27.378
    },
-   "change_1w": -1.23,
+   "change_1w": 0.88,
    "change_kind": "abs",
    "series": [
     [
@@ -2111,8 +2111,8 @@
      25.64
     ],
     [
-     "2026-11-09",
-     19.92
+     "2026-11-11",
+     17.49
     ]
    ]
   },
@@ -2131,13 +2131,13 @@
    "error": null,
    "source": "CBOE VIX3M_History.csv",
    "proxy": false,
-   "last_date": "2026-11-10",
-   "last_value": 20.64,
+   "last_date": "2026-11-11",
+   "last_value": 19.24,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 60.0,
+   "percentile_10y": 48.0,
    "level": "normal",
-   "window_start": "2016-11-11",
+   "window_start": "2016-11-14",
    "window_years": 10.0,
    "n_obs": 2512,
    "bands": {
@@ -2147,7 +2147,7 @@
     "p75": 23.5325,
     "p90": 29.099
    },
-   "change_1w": -0.63,
+   "change_1w": 0.44,
    "change_kind": "abs",
    "series": [
     [
@@ -4227,8 +4227,8 @@
      24.6
     ],
     [
-     "2026-11-10",
-     20.64
+     "2026-11-11",
+     19.24
     ]
    ]
   },
@@ -4247,23 +4247,23 @@
    "error": null,
    "source": "CBOE VVIX_History.csv",
    "proxy": false,
-   "last_date": "2026-11-10",
-   "last_value": 96.63,
+   "last_date": "2026-11-11",
+   "last_value": 90.47,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 49.2,
+   "percentile_10y": 31.2,
    "level": "normal",
-   "window_start": "2016-11-11",
+   "window_start": "2016-11-14",
    "window_years": 10.0,
    "n_obs": 2512,
    "bands": {
     "p10": 82.772,
     "p25": 88.2075,
-    "p50": 96.925,
+    "p50": 96.91,
     "p75": 109.28,
     "p90": 120.505
    },
-   "change_1w": -10.77,
+   "change_1w": 0.06,
    "change_kind": "abs",
    "series": [
     [
@@ -6343,8 +6343,8 @@
      121.94
     ],
     [
-     "2026-11-10",
-     96.63
+     "2026-11-11",
+     90.47
     ]
    ]
   },
@@ -6363,23 +6363,23 @@
    "error": null,
    "source": "CBOE SKEW_History.csv",
    "proxy": false,
-   "last_date": "2026-11-09",
-   "last_value": 150.34,
+   "last_date": "2026-11-11",
+   "last_value": 149.09,
    "stale": false,
-   "age_days": 2,
-   "percentile_10y": 86.7,
+   "age_days": 1,
+   "percentile_10y": 84.4,
    "level": "high",
-   "window_start": "2016-11-10",
+   "window_start": "2016-11-14",
    "window_years": 10.0,
    "n_obs": 2508,
    "bands": {
     "p10": 119.95,
-    "p25": 127.0725,
-    "p50": 136.87,
-    "p75": 144.88,
+    "p25": 127.0975,
+    "p50": 136.9,
+    "p75": 144.8925,
     "p90": 152.23
    },
-   "change_1w": -2.44,
+   "change_1w": -1.81,
    "change_kind": "abs",
    "series": [
     [
@@ -8459,8 +8459,8 @@
      153.55
     ],
     [
-     "2026-11-09",
-     150.34
+     "2026-11-11",
+     149.09
     ]
    ]
   },
@@ -8479,13 +8479,13 @@
    "error": null,
    "source": "Proxy: realisert vol 21d, yfinance ^STOXX50E",
    "proxy": true,
-   "last_date": "2026-11-10",
-   "last_value": 16.1937,
+   "last_date": "2026-11-11",
+   "last_value": 16.3203,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 67.4,
+   "percentile_10y": 67.6,
    "level": "normal",
-   "window_start": "2016-11-11",
+   "window_start": "2016-11-14",
    "window_years": 10.0,
    "n_obs": 2511,
    "bands": {
@@ -8495,7 +8495,7 @@
     "p75": 17.9777,
     "p90": 24.152
    },
-   "change_1w": 2.1926,
+   "change_1w": 0.718,
    "change_kind": "abs",
    "series": [
     [
@@ -10575,8 +10575,8 @@
      14.9114
     ],
     [
-     "2026-11-10",
-     16.1937
+     "2026-11-11",
+     16.3203
     ]
    ],
    "proxy_reason": "VSTOXX (V2TX) utilgjengelig: yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX"
@@ -10596,23 +10596,23 @@
    "error": null,
    "source": "Beregnet: CBOE VIX_History.csv / CBOE VIX3M_History.csv",
    "proxy": false,
-   "last_date": "2026-11-09",
-   "last_value": 0.9554,
+   "last_date": "2026-11-11",
+   "last_value": 0.909,
    "stale": false,
-   "age_days": 2,
-   "percentile_10y": 81.6,
-   "level": "high",
-   "window_start": "2016-11-10",
+   "age_days": 1,
+   "percentile_10y": 64.3,
+   "level": "normal",
+   "window_start": "2016-11-14",
    "window_years": 10.0,
    "n_obs": 2512,
    "bands": {
     "p10": 0.8063,
     "p25": 0.8368,
-    "p50": 0.8792,
+    "p50": 0.8794,
     "p75": 0.9374,
     "p90": 0.9857
    },
-   "change_1w": -0.0238,
+   "change_1w": 0.0255,
    "change_kind": "abs",
    "series": [
     [
@@ -12692,8 +12692,8 @@
      1.0423
     ],
     [
-     "2026-11-09",
-     0.9554
+     "2026-11-11",
+     0.909
     ]
    ],
    "inversion_threshold": 1.0,
@@ -12701,6 +12701,6 @@
   }
  },
  "group": "volatility",
- "generated_at": "2026-11-11T01:52:14+00:00",
+ "generated_at": "2026-11-12T02:52:34+00:00",
  "missing": []
 }
