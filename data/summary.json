@@ -1,56 +1,45 @@
 {
- "generated_at": "2026-11-12T02:52:51+00:00",
+ "generated_at": "2026-11-13T02:34:19+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 70 av 100, og 1 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 69 av 100, og 1 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (30 av 100, −2 poeng siste uke)."
+   "text": "Stemningen er frykt (31 av 100, +13 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), WTI råolje (persentil 94)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99)."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −2,5 % siste måned og ligger 3,9 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −2,8 % siste måned og ligger 3,5 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 98.2,
-   "value": 4.88,
+   "percentile": 98.9,
+   "value": 4.98,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-09",
-   "direction": "high",
-   "window_years": 10.0
-  },
-  {
-   "id": "wti",
-   "name": "WTI råolje",
-   "percentile": 94.5,
-   "value": 99.64,
-   "decimals": 2,
-   "unit": "USD per fat",
-   "last_date": "2026-11-03",
+   "last_date": "2026-11-10",
    "direction": "high",
    "window_years": 10.0
   }
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 69.9,
+  "mean_stress": 69.4,
   "status": "ok"
  },
  "mood": {
-  "score": 30.0,
+  "score": 30.8,
   "label": "fear",
-  "change_1w": -1.6,
+  "change_1w": 12.7,
   "status": "ok"
  },
  "health": {
@@ -62,7 +51,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-11-12",
+  "latest_data_date": "2026-11-13",
   "oldest_data_date": "2026-11-03"
  }
 }

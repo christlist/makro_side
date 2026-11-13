@@ -18,7 +18,7 @@
    "last_date": "2026-11-11",
    "last_value": 17.49,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 54.0,
    "level": "normal",
    "window_start": "2016-11-14",
@@ -2131,23 +2131,23 @@
    "error": null,
    "source": "CBOE VIX3M_History.csv",
    "proxy": false,
-   "last_date": "2026-11-11",
-   "last_value": 19.24,
+   "last_date": "2026-11-12",
+   "last_value": 20.06,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 48.0,
+   "percentile_10y": 54.8,
    "level": "normal",
    "window_start": "2016-11-14",
    "window_years": 10.0,
-   "n_obs": 2512,
+   "n_obs": 2513,
    "bands": {
-    "p10": 14.432,
+    "p10": 14.434,
     "p25": 15.99,
     "p50": 19.48,
-    "p75": 23.5325,
-    "p90": 29.099
+    "p75": 23.53,
+    "p90": 29.098
    },
-   "change_1w": 0.44,
+   "change_1w": -5.49,
    "change_kind": "abs",
    "series": [
     [
@@ -4227,8 +4227,8 @@
      24.6
     ],
     [
-     "2026-11-11",
-     19.24
+     "2026-11-12",
+     20.06
     ]
    ]
   },
@@ -4247,23 +4247,23 @@
    "error": null,
    "source": "CBOE VVIX_History.csv",
    "proxy": false,
-   "last_date": "2026-11-11",
-   "last_value": 90.47,
+   "last_date": "2026-11-12",
+   "last_value": 96.71,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 31.2,
+   "percentile_10y": 49.4,
    "level": "normal",
    "window_start": "2016-11-14",
    "window_years": 10.0,
-   "n_obs": 2512,
+   "n_obs": 2513,
    "bands": {
-    "p10": 82.772,
-    "p25": 88.2075,
-    "p50": 96.91,
+    "p10": 82.774,
+    "p25": 88.21,
+    "p50": 96.9,
     "p75": 109.28,
-    "p90": 120.505
+    "p90": 120.5
    },
-   "change_1w": 0.06,
+   "change_1w": -38.28,
    "change_kind": "abs",
    "series": [
     [
@@ -6343,8 +6343,8 @@
      121.94
     ],
     [
-     "2026-11-11",
-     90.47
+     "2026-11-12",
+     96.71
     ]
    ]
   },
@@ -6363,23 +6363,23 @@
    "error": null,
    "source": "CBOE SKEW_History.csv",
    "proxy": false,
-   "last_date": "2026-11-11",
-   "last_value": 149.09,
+   "last_date": "2026-11-12",
+   "last_value": 150.16,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 84.4,
+   "percentile_10y": 86.3,
    "level": "high",
    "window_start": "2016-11-14",
    "window_years": 10.0,
-   "n_obs": 2508,
+   "n_obs": 2509,
    "bands": {
     "p10": 119.95,
-    "p25": 127.0975,
+    "p25": 127.1,
     "p50": 136.9,
-    "p75": 144.8925,
+    "p75": 144.9,
     "p90": 152.23
    },
-   "change_1w": -1.81,
+   "change_1w": 0.79,
    "change_kind": "abs",
    "series": [
     [
@@ -8459,8 +8459,8 @@
      153.55
     ],
     [
-     "2026-11-11",
-     149.09
+     "2026-11-12",
+     150.16
     ]
    ]
   },
@@ -8479,23 +8479,23 @@
    "error": null,
    "source": "Proxy: realisert vol 21d, yfinance ^STOXX50E",
    "proxy": true,
-   "last_date": "2026-11-11",
-   "last_value": 16.3203,
+   "last_date": "2026-11-12",
+   "last_value": 16.306,
    "stale": false,
    "age_days": 1,
    "percentile_10y": 67.6,
    "level": "normal",
    "window_start": "2016-11-14",
    "window_years": 10.0,
-   "n_obs": 2511,
+   "n_obs": 2512,
    "bands": {
-    "p10": 9.0014,
-    "p25": 11.0905,
-    "p50": 13.7314,
-    "p75": 17.9777,
-    "p90": 24.152
+    "p10": 9.0031,
+    "p25": 11.0916,
+    "p50": 13.7327,
+    "p75": 17.9707,
+    "p90": 24.1517
    },
-   "change_1w": 0.718,
+   "change_1w": 1.487,
    "change_kind": "abs",
    "series": [
     [
@@ -10575,8 +10575,8 @@
      14.9114
     ],
     [
-     "2026-11-11",
-     16.3203
+     "2026-11-12",
+     16.306
     ]
    ],
    "proxy_reason": "VSTOXX (V2TX) utilgjengelig: yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX"
@@ -10599,7 +10599,7 @@
    "last_date": "2026-11-11",
    "last_value": 0.909,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 64.3,
    "level": "normal",
    "window_start": "2016-11-14",
@@ -12701,6 +12701,6 @@
   }
  },
  "group": "volatility",
- "generated_at": "2026-11-12T02:52:34+00:00",
+ "generated_at": "2026-11-13T02:34:05+00:00",
  "missing": []
 }

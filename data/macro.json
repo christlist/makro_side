@@ -15,15 +15,15 @@
    "error": null,
    "source": "FRED BAMLH0A0HYM2",
    "proxy": false,
-   "last_date": "2026-11-09",
-   "last_value": 3.34,
+   "last_date": "2026-11-11",
+   "last_value": 3.3,
    "stale": false,
-   "age_days": 3,
-   "percentile_10y": 83.3,
+   "age_days": 2,
+   "percentile_10y": 81.0,
    "level": "high",
    "window_start": "2023-11-13",
    "window_years": 3.0,
-   "n_obs": 784,
+   "n_obs": 785,
    "bands": {
     "p10": 2.69,
     "p25": 2.8,
@@ -31,7 +31,7 @@
     "p75": 3.23,
     "p90": 3.49
    },
-   "change_1w": -0.09,
+   "change_1w": -0.02,
    "change_kind": "abs",
    "series": [
     [
@@ -659,8 +659,8 @@
      3.42
     ],
     [
-     "2026-11-09",
-     3.34
+     "2026-11-11",
+     3.3
     ]
    ]
   },
@@ -679,15 +679,15 @@
    "error": null,
    "source": "FRED BAMLC0A0CM",
    "proxy": false,
-   "last_date": "2026-11-09",
-   "last_value": 0.91,
+   "last_date": "2026-11-11",
+   "last_value": 0.9,
    "stale": false,
-   "age_days": 3,
-   "percentile_10y": 66.5,
+   "age_days": 2,
+   "percentile_10y": 63.8,
    "level": "normal",
    "window_start": "2023-11-13",
    "window_years": 3.0,
-   "n_obs": 783,
+   "n_obs": 784,
    "bands": {
     "p10": 0.76,
     "p25": 0.8,
@@ -695,7 +695,7 @@
     "p75": 0.93,
     "p90": 1.02
    },
-   "change_1w": -0.03,
+   "change_1w": -0.01,
    "change_kind": "abs",
    "series": [
     [
@@ -1323,8 +1323,8 @@
      0.93
     ],
     [
-     "2026-11-09",
-     0.91
+     "2026-11-11",
+     0.9
     ]
    ]
   },
@@ -1343,23 +1343,23 @@
    "error": null,
    "source": "FRED T10Y2Y",
    "proxy": false,
-   "last_date": "2026-11-10",
-   "last_value": 0.25,
+   "last_date": "2026-11-12",
+   "last_value": 0.24,
    "stale": false,
-   "age_days": 2,
-   "percentile_10y": 39.6,
+   "age_days": 1,
+   "percentile_10y": 38.4,
    "level": "normal",
    "window_start": "2016-11-14",
    "window_years": 10.0,
-   "n_obs": 2498,
+   "n_obs": 2499,
    "bands": {
     "p10": -0.45,
     "p25": 0.09,
-    "p50": 0.375,
+    "p50": 0.37,
     "p75": 0.65,
     "p90": 1.09
    },
-   "change_1w": -0.09,
+   "change_1w": -0.14,
    "change_kind": "abs",
    "series": [
     [
@@ -3439,8 +3439,8 @@
      0.35
     ],
     [
-     "2026-11-10",
-     0.25
+     "2026-11-12",
+     0.24
     ]
    ]
   },
@@ -3459,23 +3459,23 @@
    "error": null,
    "source": "FRED DGS10",
    "proxy": false,
-   "last_date": "2026-11-09",
-   "last_value": 4.88,
+   "last_date": "2026-11-10",
+   "last_value": 4.98,
    "stale": false,
    "age_days": 3,
-   "percentile_10y": 98.2,
+   "percentile_10y": 98.9,
    "level": "very_high",
-   "window_start": "2016-11-10",
+   "window_start": "2016-11-14",
    "window_years": 10.0,
    "n_obs": 2498,
    "bands": {
     "p10": 1.25,
     "p25": 1.9,
     "p50": 2.88,
-    "p75": 4.15,
+    "p75": 4.1575,
     "p90": 4.45
    },
-   "change_1w": -0.03,
+   "change_1w": 0.03,
    "change_kind": "abs",
    "series": [
     [
@@ -5555,8 +5555,8 @@
      4.86
     ],
     [
-     "2026-11-09",
-     4.88
+     "2026-11-10",
+     4.98
     ]
    ]
   },
@@ -5578,7 +5578,7 @@
    "last_date": "2026-11-06",
    "last_value": 121.8803,
    "stale": false,
-   "age_days": 6,
+   "age_days": 7,
    "percentile_10y": 82.1,
    "level": "high",
    "window_start": "2016-11-07",
@@ -7691,29 +7691,25 @@
    "error": null,
    "source": "FRED DCOILWTICO",
    "proxy": false,
-   "last_date": "2026-11-03",
-   "last_value": 99.64,
+   "last_date": "2026-11-11",
+   "last_value": 89.62,
    "stale": false,
-   "age_days": 9,
-   "percentile_10y": 94.5,
-   "level": "very_high",
-   "window_start": "2016-11-04",
+   "age_days": 2,
+   "percentile_10y": 89.0,
+   "level": "high",
+   "window_start": "2016-11-14",
    "window_years": 10.0,
    "n_obs": 2499,
    "bands": {
-    "p10": 46.46,
-    "p25": 55.545,
-    "p50": 67.25,
-    "p75": 78.52,
-    "p90": 91.318
+    "p10": 46.754,
+    "p25": 55.665,
+    "p50": 67.33,
+    "p75": 78.735,
+    "p90": 91.486
    },
-   "change_1w": -3.6084,
+   "change_1w": -2.3002,
    "change_kind": "pct",
    "series": [
-    [
-     "2016-11-25",
-     46.72
-    ],
     [
      "2016-12-02",
      51.7
@@ -9787,13 +9783,17 @@
      107.56
     ],
     [
-     "2026-11-03",
-     99.64
+     "2026-11-06",
+     94.37
+    ],
+    [
+     "2026-11-11",
+     89.62
     ]
    ]
   }
  },
  "group": "macro",
- "generated_at": "2026-11-12T02:52:35+00:00",
+ "generated_at": "2026-11-13T02:34:06+00:00",
  "missing": []
 }
