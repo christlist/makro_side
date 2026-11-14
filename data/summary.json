@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-13T02:34:19+00:00",
+ "generated_at": "2026-11-14T02:18:18+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 69 av 100, og 1 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 70 av 100, og 0 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (31 av 100, +13 poeng siste uke)."
+   "text": "Stemningen er frykt (31 av 100, +12 poeng siste uke)."
   },
   {
    "kind": "unusual",
@@ -15,31 +15,31 @@
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −2,8 % siste måned og ligger 3,5 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −3,1 % siste måned og ligger 3,0 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 98.9,
-   "value": 4.98,
+   "percentile": 99.2,
+   "value": 5.1,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-10",
+   "last_date": "2026-11-12",
    "direction": "high",
    "window_years": 10.0
   }
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 69.4,
+  "mean_stress": 70.5,
   "status": "ok"
  },
  "mood": {
   "score": 30.8,
   "label": "fear",
-  "change_1w": 12.7,
+  "change_1w": 12.2,
   "status": "ok"
  },
  "health": {
