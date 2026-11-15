@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-14T02:18:18+00:00",
+ "generated_at": "2026-11-15T01:48:50+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 70 av 100, og 0 av 6 indikatorer er grønne."
+   "text": "Regimet er forhøyet. Snittet av stress-persentilene er 71 av 100, og 0 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er frykt (31 av 100, +12 poeng siste uke)."
+   "text": "Stemningen er frykt (30 av 100, +12 poeng siste uke)."
   },
   {
    "kind": "unusual",
@@ -33,13 +33,13 @@
  ],
  "regime": {
   "state": "elevated",
-  "mean_stress": 70.5,
+  "mean_stress": 71.3,
   "status": "ok"
  },
  "mood": {
-  "score": 30.8,
+  "score": 30.4,
   "label": "fear",
-  "change_1w": 12.2,
+  "change_1w": 11.9,
   "status": "ok"
  },
  "health": {
