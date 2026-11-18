@@ -1,56 +1,71 @@
 {
- "generated_at": "2026-11-17T04:27:22+00:00",
+ "generated_at": "2026-11-18T03:39:55+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er stress. Snittet av stress-persentilene er 79 av 100, og 0 av 6 indikatorer er grønne."
+   "text": "Regimet er stress. Snittet av stress-persentilene er 83 av 100, og 0 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er ekstrem frykt (21 av 100, −4 poeng siste uke)."
+   "text": "Stemningen er ekstrem frykt (17 av 100, −4 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), VIX / VIX3M (persentil 92)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), VIX / VIX3M (persentil 95), VVIX (persentil 91)."
+  },
+  {
+   "kind": "term",
+   "text": "VIX-termstrukturen er invertert: markedet priser inn mer uro på kort sikt enn lenger frem."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −3,2 % siste måned og ligger 1,0 % over 200 dagers snitt. 8 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −4,2 % siste måned og ligger 0,1 % under 200 dagers snitt. 6 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 99.4,
-   "value": 5.15,
+   "percentile": 99.3,
+   "value": 5.12,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-13",
+   "last_date": "2026-11-16",
    "direction": "high",
    "window_years": 10.0
   },
   {
    "id": "vix_vix3m",
    "name": "VIX / VIX3M",
-   "percentile": 91.8,
-   "value": 0.9952,
+   "percentile": 94.8,
+   "value": 1.0192,
    "decimals": 3,
    "unit": "forhold",
-   "last_date": "2026-11-16",
+   "last_date": "2026-11-17",
+   "direction": "high",
+   "window_years": 10.0
+  },
+  {
+   "id": "vvix",
+   "name": "VVIX",
+   "percentile": 90.9,
+   "value": 121.28,
+   "decimals": 1,
+   "unit": "indekspunkter",
+   "last_date": "2026-11-17",
    "direction": "high",
    "window_years": 10.0
   }
  ],
  "regime": {
   "state": "stress",
-  "mean_stress": 79.2,
+  "mean_stress": 83.0,
   "status": "ok"
  },
  "mood": {
-  "score": 21.0,
+  "score": 17.4,
   "label": "extreme_fear",
-  "change_1w": -4.0,
+  "change_1w": -4.3,
   "status": "ok"
  },
  "health": {
@@ -62,7 +77,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-11-17",
+  "latest_data_date": "2026-11-18",
   "oldest_data_date": "2026-11-10"
  }
 }
