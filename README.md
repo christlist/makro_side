@@ -16,7 +16,7 @@ Statisk makroside for det globale aksjemarkedet. Gir en oversikt på under ett m
 | `config.yaml` | Kilder (kandidatlister med fallback), terskler, sektorsøkeord |
 | `scripts/` | Python. `common.py` (statistikk, JSON, feilhåndtering), `sources.py` (CBOE, FRED, yfinance), ett skript per datagruppe, `build_summary.py` (regelbasert oppsummering), `run_all.py` |
 | `data/` | JSON generert av skriptene |
-| `docs/` | Statisk side (HTML, CSS, vanilla JS). Plotly og skrifter (IBM Plex Sans, Newsreader) ligger lokalt i `docs/vendor` og `docs/fonts`, uten eksterne avhengigheter |
+| `docs/` | Statisk side (HTML, CSS, vanilla JS). Plotly og skrifter (Inter, Cormorant Garamond) ligger lokalt i `docs/vendor` og `docs/fonts`, uten eksterne avhengigheter |
 | `tests/` | `pytest` (persentil, z-score, regel, manglende data) og `node --test` (siden ved manglende data) |
 | `.github/workflows/weekly.yml` | Daglig kjøring fra midnatt norsk tid og manuell kjøring. GitHub forsinker planlagte kjøringer (opptil timer), så seks cron-tidspunkt er planlagt og `scripts/should_run.py` slipper gjennom bare den første som starter etter 00:00 i Oslo og som ikke allerede er oppdatert i dag |
 
