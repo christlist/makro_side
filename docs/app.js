@@ -16,10 +16,10 @@
   function layout(extra) {
     var base = {
       margin: { l: 40, r: 8, t: 6, b: 24 }, showlegend: false, paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
-      font: { family: 'IBM Plex Sans, system-ui, sans-serif', color: css('--ink-2'), size: 11 },
+      font: { family: 'Inter, system-ui, sans-serif', color: css('--ink-2'), size: 11 },
       xaxis: { gridcolor: css('--rule'), linecolor: css('--rule'), type: 'date', tickformat: '%Y', nticks: 6, fixedrange: true },
       yaxis: { gridcolor: css('--rule'), zeroline: false, fixedrange: true, separatethousands: false },
-      hoverlabel: { font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12 } }
+      hoverlabel: { font: { family: 'Inter, system-ui, sans-serif', size: 12 } }
     };
     for (var k in extra) base[k] = extra[k];
     return base;
