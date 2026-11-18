@@ -138,3 +138,34 @@ test('kurs mot stemning per sektor: korrelasjon vises med to desimaler', () => {
   const html = R.renderSectorLinks({ rows: { a: { id: 'a', name: 'S', symbol: 'A', status: 'ok', score: 50, history: { mood: [['2026-10-01', 50]], price: [['2026-10-01', 100]], corr: 0.5 } } } });
   assert.match(html, /Samvariasjon 0[,.]50/);
 });
+
+test('tilbaketest uten fil eller med feil viser Data mangler og ingen tabell', () => {
+  assert.match(R.renderBacktest(null), /Data mangler/);
+  const html = R.renderBacktest({ status: 'missing', error: 'Filen mood.json mangler eller er ugyldig' });
+  assert.match(html, /Data mangler/);
+  assert.match(html, /mood\.json mangler/);
+  assert.doesNotMatch(html, /<table/);
+});
+
+test('tilbaketest viser regler, forbehold og at for få uker ikke gir tall (strukturtest, verdiene tester bare formatering)', () => {
+  const bt = {
+    status: 'ok', params: { horizon_weeks: 13, fear_below: 35, greed_above: 65 },
+    sample: { n_sectors: 11, n_weeks: 156, start: '2023-10-27', end: '2026-10-16' },
+    rules: [
+      { id: 'A', label: 'Regel A', status: 'ok', n_weeks: 10, mean_rel: 1.5, phase_min: -0.5, phase_max: 2.5, phase_n: 4, boot_lo: 0.5, boot_hi: 2.5, hit_rate: 60 },
+      { id: 'E', label: 'Regel E', status: 'too_few', n_weeks: 2, mean_rel: null }],
+    by_regime: [{ regime: 'calm', n_weeks: 8, mean_rel: 1.2 }, { regime: 'stress', n_weeks: 2, mean_rel: null }],
+    current: { ref_date: '2026-10-16', regime: 'elevated', regime_mean: 70.3, rules: { A: [{ id: 'xlk', name: 'Teknologi', symbol: 'XLK', score: 34.7 }], C: [], D: [], F: [] } }
+  };
+  const html = R.renderBacktest(bt);
+  assert.match(html, /\+1,5 pp/);
+  assert.match(html, /−0,5 til \+2,5 pp/);
+  assert.match(html, /For få uker til å regne ut/);
+  assert.match(html, /Forbehold/);
+  assert.match(html, /ikke en anbefaling/);
+  assert.match(html, /Teknologi/);
+  assert.match(html, /XLK 34,7/);
+  assert.match(html, /forhøyet/);
+  assert.match(html, /for få uker/);
+  assert.doesNotMatch(html, /Data mangler/);
+});
