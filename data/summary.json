@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T02:35:42+00:00",
+ "generated_at": "2026-11-24T05:57:24+00:00",
  "points": [
   {
    "kind": "regime",
@@ -7,11 +7,11 @@
   },
   {
    "kind": "mood",
-   "text": "Stemningen er ekstrem frykt (14 av 100, −12 poeng siste uke)."
+   "text": "Stemningen er ekstrem frykt (16 av 100, −4 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 99), VIX / VIX3M (persentil 99), VIX (persentil 98), VVIX (persentil 97), VIX3M (persentil 94), Høyavkastningsspread (HY OAS) (persentil 92)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), VIX / VIX3M (persentil 96), Høyavkastningsspread (HY OAS) (persentil 96), Bred dollarindeks (persentil 91)."
   },
   {
    "kind": "term",
@@ -19,86 +19,64 @@
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −10,4 % siste måned og ligger 6,0 % under 200 dagers snitt. 4 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −5,1 % siste måned og ligger 1,5 % under 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 98.9,
-   "value": 5.04,
+   "percentile": 98.1,
+   "value": 4.92,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-19",
+   "last_date": "2026-11-20",
    "direction": "high",
    "window_years": 10.0
   },
   {
    "id": "vix_vix3m",
    "name": "VIX / VIX3M",
-   "percentile": 98.8,
-   "value": 1.16,
+   "percentile": 96.5,
+   "value": 1.0439,
    "decimals": 3,
    "unit": "forhold",
-   "last_date": "2026-11-20",
-   "direction": "high",
-   "window_years": 10.0
-  },
-  {
-   "id": "vix",
-   "name": "VIX",
-   "percentile": 97.7,
-   "value": 35.89,
-   "decimals": 2,
-   "unit": "indekspunkter",
-   "last_date": "2026-11-20",
-   "direction": "high",
-   "window_years": 10.0
-  },
-  {
-   "id": "vvix",
-   "name": "VVIX",
-   "percentile": 97.3,
-   "value": 138.03,
-   "decimals": 1,
-   "unit": "indekspunkter",
-   "last_date": "2026-11-20",
-   "direction": "high",
-   "window_years": 10.0
-  },
-  {
-   "id": "vix3m",
-   "name": "VIX3M",
-   "percentile": 93.5,
-   "value": 30.94,
-   "decimals": 2,
-   "unit": "indekspunkter",
-   "last_date": "2026-11-20",
+   "last_date": "2026-11-23",
    "direction": "high",
    "window_years": 10.0
   },
   {
    "id": "hy_oas",
    "name": "Høyavkastningsspread (HY OAS)",
-   "percentile": 91.8,
-   "value": 3.52,
+   "percentile": 96.3,
+   "value": 3.76,
    "decimals": 2,
    "unit": "prosentpoeng",
-   "last_date": "2026-11-19",
+   "last_date": "2026-11-20",
    "direction": "high",
    "window_years": 3.0
+  },
+  {
+   "id": "usd",
+   "name": "Bred dollarindeks",
+   "percentile": 90.6,
+   "value": 123.5978,
+   "decimals": 2,
+   "unit": "indeks",
+   "last_date": "2026-11-20",
+   "direction": "high",
+   "window_years": 10.0
   }
  ],
  "regime": {
   "state": "stress",
-  "mean_stress": 90.9,
+  "mean_stress": 90.7,
   "status": "ok"
  },
  "mood": {
-  "score": 14.2,
+  "score": 16.4,
   "label": "extreme_fear",
-  "change_1w": -12.3,
+  "change_1w": -3.7,
   "status": "ok"
  },
  "health": {
@@ -110,7 +88,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-11-20",
-  "oldest_data_date": "2026-11-13"
+  "latest_data_date": "2026-11-24",
+  "oldest_data_date": "2026-11-17"
  }
 }
