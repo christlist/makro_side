@@ -1,17 +1,17 @@
 {
- "generated_at": "2026-11-24T05:57:24+00:00",
+ "generated_at": "2026-11-25T04:52:36+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er stress. Snittet av stress-persentilene er 91 av 100, og 0 av 6 indikatorer er grønne."
+   "text": "Regimet er stress. Snittet av stress-persentilene er 90 av 100, og 0 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er ekstrem frykt (16 av 100, −4 poeng siste uke)."
+   "text": "Stemningen er ekstrem frykt (17 av 100, +0 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), VIX / VIX3M (persentil 96), Høyavkastningsspread (HY OAS) (persentil 96), Bred dollarindeks (persentil 91)."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), VIX / VIX3M (persentil 96), Høyavkastningsspread (HY OAS) (persentil 94), Bred dollarindeks (persentil 91)."
   },
   {
    "kind": "term",
@@ -19,7 +19,7 @@
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −5,1 % siste måned og ligger 1,5 % under 200 dagers snitt. 5 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −5,5 % siste måned og ligger 2,0 % under 200 dagers snitt. 6 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
@@ -30,29 +30,29 @@
    "value": 4.92,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-20",
+   "last_date": "2026-11-23",
    "direction": "high",
    "window_years": 10.0
   },
   {
    "id": "vix_vix3m",
    "name": "VIX / VIX3M",
-   "percentile": 96.5,
-   "value": 1.0439,
+   "percentile": 95.8,
+   "value": 1.0349,
    "decimals": 3,
    "unit": "forhold",
-   "last_date": "2026-11-23",
+   "last_date": "2026-11-24",
    "direction": "high",
    "window_years": 10.0
   },
   {
    "id": "hy_oas",
    "name": "Høyavkastningsspread (HY OAS)",
-   "percentile": 96.3,
-   "value": 3.76,
+   "percentile": 94.5,
+   "value": 3.63,
    "decimals": 2,
    "unit": "prosentpoeng",
-   "last_date": "2026-11-20",
+   "last_date": "2026-11-23",
    "direction": "high",
    "window_years": 3.0
   },
@@ -70,13 +70,13 @@
  ],
  "regime": {
   "state": "stress",
-  "mean_stress": 90.7,
+  "mean_stress": 90.1,
   "status": "ok"
  },
  "mood": {
-  "score": 16.4,
+  "score": 17.3,
   "label": "extreme_fear",
-  "change_1w": -3.7,
+  "change_1w": 0.3,
   "status": "ok"
  },
  "health": {
@@ -88,7 +88,7 @@
    "MSCI World (ETF-proxy)",
    "MSCI Emerging Markets (ETF-proxy)"
   ],
-  "latest_data_date": "2026-11-24",
+  "latest_data_date": "2026-11-25",
   "oldest_data_date": "2026-11-17"
  }
 }
