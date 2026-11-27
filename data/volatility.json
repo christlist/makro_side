@@ -18,7 +18,7 @@
    "last_date": "2026-11-25",
    "last_value": 28.29,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 91.8,
    "level": "very_high",
    "window_start": "2016-11-28",
@@ -2134,7 +2134,7 @@
    "last_date": "2026-11-25",
    "last_value": 26.29,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 83.5,
    "level": "high",
    "window_start": "2016-11-28",
@@ -4250,7 +4250,7 @@
    "last_date": "2026-11-25",
    "last_value": 115.38,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 83.7,
    "level": "high",
    "window_start": "2016-11-28",
@@ -6366,7 +6366,7 @@
    "last_date": "2026-11-25",
    "last_value": 142.06,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 66.2,
    "level": "normal",
    "window_start": "2016-11-28",
@@ -8479,23 +8479,23 @@
    "error": null,
    "source": "Proxy: realisert vol 21d, yfinance ^STOXX50E",
    "proxy": true,
-   "last_date": "2026-11-25",
-   "last_value": 21.3039,
+   "last_date": "2026-11-26",
+   "last_value": 22.6754,
    "stale": false,
    "age_days": 1,
-   "percentile_10y": 84.5,
+   "percentile_10y": 87.4,
    "level": "high",
    "window_start": "2016-11-28",
    "window_years": 10.0,
-   "n_obs": 2511,
+   "n_obs": 2512,
    "bands": {
-    "p10": 9.0014,
-    "p25": 11.0905,
-    "p50": 13.7729,
-    "p75": 18.0594,
-    "p90": 24.152
+    "p10": 9.0031,
+    "p25": 11.0916,
+    "p50": 13.7752,
+    "p75": 18.0697,
+    "p90": 24.1517
    },
-   "change_1w": 3.2109,
+   "change_1w": 5.1504,
    "change_kind": "abs",
    "series": [
     [
@@ -10575,8 +10575,8 @@
      18.9034
     ],
     [
-     "2026-11-25",
-     21.3039
+     "2026-11-26",
+     22.6754
     ]
    ],
    "proxy_reason": "VSTOXX (V2TX) utilgjengelig: yfinance ^V2TX: SourceError: yfinance ga ingen data for ^V2TX"
@@ -10599,7 +10599,7 @@
    "last_date": "2026-11-25",
    "last_value": 1.0761,
    "stale": false,
-   "age_days": 1,
+   "age_days": 2,
    "percentile_10y": 97.7,
    "level": "very_high",
    "window_start": "2016-11-28",
@@ -12701,6 +12701,6 @@
   }
  },
  "group": "volatility",
- "generated_at": "2026-11-26T04:07:01+00:00",
+ "generated_at": "2026-11-27T04:08:50+00:00",
  "missing": []
 }
