@@ -1,46 +1,31 @@
 {
- "generated_at": "2026-11-27T04:09:11+00:00",
+ "generated_at": "2026-11-28T03:51:06+00:00",
  "points": [
   {
    "kind": "regime",
-   "text": "Regimet er stress. Snittet av stress-persentilene er 92 av 100, og 0 av 6 indikatorer er grønne."
+   "text": "Regimet er stress. Snittet av stress-persentilene er 89 av 100, og 0 av 6 indikatorer er grønne."
   },
   {
    "kind": "mood",
-   "text": "Stemningen er ekstrem frykt (16 av 100, −2 poeng siste uke)."
+   "text": "Stemningen er ekstrem frykt (17 av 100, +3 poeng siste uke)."
   },
   {
    "kind": "unusual",
-   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), VIX / VIX3M (persentil 98), Høyavkastningsspread (HY OAS) (persentil 96), VIX (persentil 92), Bred dollarindeks (persentil 91)."
-  },
-  {
-   "kind": "term",
-   "text": "VIX-termstrukturen er invertert: markedet priser inn mer uro på kort sikt enn lenger frem."
+   "text": "Utenfor normalområdet: uvanlig høyt: 10 års statsrente (USA) (persentil 98), Høyavkastningsspread (HY OAS) (persentil 97), VIX / VIX3M (persentil 92), Bred dollarindeks (persentil 91)."
   },
   {
    "kind": "equities",
-   "text": "S&P 500 har gitt −5,8 % siste måned og ligger 2,3 % under 200 dagers snitt. 7 av 11 sektorer ligger over 200 dagers snitt."
+   "text": "S&P 500 har gitt −5,5 % siste måned og ligger 0,8 % under 200 dagers snitt. 7 av 11 sektorer ligger over 200 dagers snitt."
   }
  ],
  "unusual": [
   {
    "id": "dgs10",
    "name": "10 års statsrente (USA)",
-   "percentile": 98.0,
-   "value": 4.91,
+   "percentile": 97.6,
+   "value": 4.85,
    "decimals": 2,
    "unit": "prosent",
-   "last_date": "2026-11-24",
-   "direction": "high",
-   "window_years": 10.0
-  },
-  {
-   "id": "vix_vix3m",
-   "name": "VIX / VIX3M",
-   "percentile": 97.7,
-   "value": 1.0761,
-   "decimals": 3,
-   "unit": "forhold",
    "last_date": "2026-11-25",
    "direction": "high",
    "window_years": 10.0
@@ -48,22 +33,22 @@
   {
    "id": "hy_oas",
    "name": "Høyavkastningsspread (HY OAS)",
-   "percentile": 95.5,
-   "value": 3.72,
+   "percentile": 96.6,
+   "value": 3.77,
    "decimals": 2,
    "unit": "prosentpoeng",
-   "last_date": "2026-11-24",
+   "last_date": "2026-11-26",
    "direction": "high",
    "window_years": 3.0
   },
   {
-   "id": "vix",
-   "name": "VIX",
-   "percentile": 91.8,
-   "value": 28.29,
-   "decimals": 2,
-   "unit": "indekspunkter",
-   "last_date": "2026-11-25",
+   "id": "vix_vix3m",
+   "name": "VIX / VIX3M",
+   "percentile": 92.2,
+   "value": 0.9996,
+   "decimals": 3,
+   "unit": "forhold",
+   "last_date": "2026-11-27",
    "direction": "high",
    "window_years": 10.0
   },
@@ -81,13 +66,13 @@
  ],
  "regime": {
   "state": "stress",
-  "mean_stress": 91.5,
+  "mean_stress": 88.9,
   "status": "ok"
  },
  "mood": {
-  "score": 15.9,
+  "score": 17.2,
   "label": "extreme_fear",
-  "change_1w": -1.9,
+  "change_1w": 3.4,
   "status": "ok"
  },
  "health": {

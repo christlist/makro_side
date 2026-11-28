@@ -14,12 +14,12 @@
  "sample": {
   "n_sectors": 11,
   "n_weeks": 156,
-  "start": "2023-12-06",
-  "end": "2026-11-25",
+  "start": "2023-12-08",
+  "end": "2026-11-27",
   "regime_weeks": {
-   "calm": 117,
+   "calm": 116,
    "elevated": 22,
-   "stress": 17
+   "stress": 18
   }
  },
  "rules": [
@@ -27,61 +27,61 @@
    "id": "A",
    "label": "Stemning under 35 (frykt)",
    "description": "Sektoren har lav stemning.",
-   "n_weeks": 114,
+   "n_weeks": 113,
    "status": "ok",
-   "mean_rel": 3.0,
-   "phase_mean": 2.96,
-   "phase_min": 0.78,
-   "phase_max": 5.11,
+   "mean_rel": 3.09,
+   "phase_mean": 3.08,
+   "phase_min": 0.65,
+   "phase_max": 4.6,
    "phase_n": 9,
-   "boot_lo": 2.25,
-   "boot_hi": 4.28,
-   "hit_rate": 75.4
+   "boot_lo": 1.97,
+   "boot_hi": 4.64,
+   "hit_rate": 73.5
   },
   {
    "id": "B",
    "label": "A og regimet ikke i stress",
    "description": "Frykt i sektoren når samlet regime ikke er stress.",
-   "n_weeks": 100,
+   "n_weeks": 99,
    "status": "ok",
-   "mean_rel": 2.92,
-   "phase_mean": 2.86,
-   "phase_min": 0.67,
-   "phase_max": 5.4,
+   "mean_rel": 2.91,
+   "phase_mean": 2.8,
+   "phase_min": 0.49,
+   "phase_max": 4.6,
    "phase_n": 8,
-   "boot_lo": 2.22,
-   "boot_hi": 4.26,
-   "hit_rate": 73.0
+   "boot_lo": 1.76,
+   "boot_hi": 4.47,
+   "hit_rate": 69.7
   },
   {
    "id": "C",
    "label": "A og stigende stemning (4 uker)",
    "description": "Frykt i sektoren, men stemningen har steget siste uker.",
-   "n_weeks": 48,
+   "n_weeks": 44,
    "status": "ok",
-   "mean_rel": 6.08,
-   "phase_mean": 6.59,
-   "phase_min": 0.06,
-   "phase_max": 17.46,
+   "mean_rel": 5.64,
+   "phase_mean": 5.96,
+   "phase_min": -0.43,
+   "phase_max": 11.57,
    "phase_n": 4,
-   "boot_lo": 4.06,
-   "boot_hi": 10.84,
-   "hit_rate": 77.1
+   "boot_lo": 2.53,
+   "boot_hi": 10.29,
+   "hit_rate": 65.9
   },
   {
    "id": "D",
    "label": "A, B og C",
    "description": "Alle tre vilkårene samtidig.",
-   "n_weeks": 43,
+   "n_weeks": 36,
    "status": "ok",
-   "mean_rel": 5.46,
-   "phase_mean": 6.05,
-   "phase_min": 0.06,
-   "phase_max": 17.46,
+   "mean_rel": 4.33,
+   "phase_mean": 4.82,
+   "phase_min": 0.88,
+   "phase_max": 8.92,
    "phase_n": 4,
-   "boot_lo": 3.58,
-   "boot_hi": 9.98,
-   "hit_rate": 74.4
+   "boot_lo": 1.68,
+   "boot_hi": 8.1,
+   "hit_rate": 61.1
   },
   {
    "id": "E",
@@ -102,52 +102,52 @@
    "id": "F",
    "label": "Stemning over 65 (grådighet)",
    "description": "Sektoren har høy stemning.",
-   "n_weeks": 126,
+   "n_weeks": 128,
    "status": "ok",
-   "mean_rel": -1.5,
-   "phase_mean": -1.64,
-   "phase_min": -7.26,
-   "phase_max": 1.5,
+   "mean_rel": -1.56,
+   "phase_mean": -1.6,
+   "phase_min": -6.21,
+   "phase_max": 1.12,
    "phase_n": 10,
-   "boot_lo": -2.62,
-   "boot_hi": -0.65,
-   "hit_rate": 39.7
+   "boot_lo": -2.86,
+   "boot_hi": -0.8,
+   "hit_rate": 36.7
   }
  ],
  "by_regime": [
   {
    "regime": "calm",
-   "n_weeks": 81,
-   "mean_rel": 2.81
+   "n_weeks": 80,
+   "mean_rel": 3.16
   },
   {
    "regime": "elevated",
    "n_weeks": 19,
-   "mean_rel": 3.39
+   "mean_rel": 1.9
   },
   {
    "regime": "stress",
    "n_weeks": 14,
-   "mean_rel": 3.57
+   "mean_rel": 4.36
   }
  ],
  "current": {
-  "ref_date": "2026-11-25",
+  "ref_date": "2026-11-27",
   "regime": "stress",
-  "regime_mean": 91.7,
+  "regime_mean": 89.4,
   "rules": {
    "A": [
     {
      "id": "xlk",
      "name": "Teknologi",
      "symbol": "XLK",
-     "score": 2.7
+     "score": 3.5
     },
     {
      "id": "xli",
      "name": "Industri",
      "symbol": "XLI",
-     "score": 15.5
+     "score": 18.7
     }
    ],
    "B": [],
@@ -158,13 +158,13 @@
      "id": "xlk",
      "name": "Teknologi",
      "symbol": "XLK",
-     "score": 2.7
+     "score": 3.5
     },
     {
      "id": "xli",
      "name": "Industri",
      "symbol": "XLI",
-     "score": 15.5
+     "score": 18.7
     }
    ],
    "F": [
@@ -172,11 +172,11 @@
      "id": "xlp",
      "name": "Dagligvarer",
      "symbol": "XLP",
-     "score": 76.5
+     "score": 78.9
     }
    ]
   }
  },
  "group": "backtest",
- "generated_at": "2026-11-27T04:09:11+00:00"
+ "generated_at": "2026-11-28T03:51:06+00:00"
 }
